@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ispm</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+           
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .background {
+            background-image: url('./images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .signup {
+            font-size: 20px;
+            margin-top: 50px;
+        }
+
+        
+
+        input {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 80%;
+            box-sizing: border-box;
+            border-radius: 10px;
+           
+           
+        }
+
+        input[type="submit"] {
+            background-color: #047BD2;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 10px;
+            border: none;
+        }
+
+        img {
+            height: 50px;
+            width: auto;
+            margin-bottom: 10px;
+        }
+
+     
+
+       
+      
+       
+        .image{
+            position: absolute;left: 49%; margin-top:80px;height: 30px;width: 30px;
+        }
+        .square{
+            width: 40px;height: 40px;border-radius: 4px;align-items: center ;text-align: center;border: none;
+        }
+        .container{
+            display: flex;align-items: center; justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="box">
+            <img src="./images/logo.png" alt="Logo">
+            <img class="image" src="./images/inbox.png" alt="">
+            <p class="signup">Check your inbox!</p>
+            <p class="text" style="font-size: 12px;margin: 10px 30px; color: #272626;">We sent a verification codes to youremail@laverdad.edu.ph.com</p>
+                <div id="verification-input">
+                    <input type="text" maxlength="1" oninput="handleInput(this, document.getElementById('input2'))"  class="square">
+                    <input type="text" maxlength="1" id="input2" oninput="handleInput(this, document.getElementById('input3'))"  class="square">
+                    <input type="text" maxlength="1" id="input3" oninput="handleInput(this, document.getElementById('input4'))" class="square">
+                    <input type="text" maxlength="1" id="input4" oninput="handleInput(this, document.getElementById('input5'))" class="square">
+                    <input type="text" maxlength="1" id="input5" oninput="handleInput(this, document.getElementById('input6'))" class="square">
+                    <input type="text" maxlength="1" id="input6" class="square">
+                </div>
+                <input type="submit" value="Verify Email">
+                
+            <div class="google-signup">
+               
+                <div class="container">
+                     <p style="margin-top: 10px;">Didn't receive an email?</p>
+                      <a href="#" style="color: blue;margin-top: 10px;margin-left: 3px;">Resend</a>
+                
+                </div>
+               
+               
+             
+            </div>
+        </div>
+    </div>
+
+  
+</body>
+
+<script>
+    function handleInput(currentInput, nextInput) {
+        var maxLength = currentInput.getAttribute('maxlength');
+        var currentLength = currentInput.value.length;
+
+        if (currentLength >= maxLength) {
+            nextInput.focus();
+        }
+    }
+</script>
+</html>

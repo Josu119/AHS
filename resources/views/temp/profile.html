@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="./styles/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <main class="content"  style="margin-left: 180px;margin-top: 80px;position: absolute;">
+      
+        <div class="profile">
+
+            <div class="pfp">
+                <img src="./images/cat.png" alt=" ">
+            </div>
+            
+
+            <div class="user">
+                <p style="font-size: 30px;">John Doe Meng</p>
+                <p style="font-size: 20px; color: rgb(29, 58, 91);">Administrator</p>
+            </div>
+        </div>
+    
+        <div style="border: 1px solid #3a425f;  margin-top: 20px;"> </div> 
+
+        <div class="info" style="font-size: 20px; margin-top: 20px;">
+            <div style="margin-bottom: 15px;">
+                <label for="Name" style="padding-right: 5px;">Name:</label> <input type="text" id="email" placeholder="John Doe Meng" size="40">
+                <i id="clickableicon" class="fa-solid fa-pencil"></i>
+            </div>
+            
+            <div>
+                <label for="Email" style="padding-right: 9px;">Email:</label> <input type="text" id="email" placeholder="johndmeng@gmail.com" size="40">
+                <i id="clickableicon" class="fa-solid fa-pencil"></i>
+            </div>
+            
+        </div>
+
+    
+
+    </main>
+
+    
+
+    
+    <div class="admin">
+        <img id="logo" src="./images/cat.png" alt=" ">
+        <div>
+            <p class="name">John Doe Meng</p>
+            <p class="administrator">Administrator</p>
+        </div>
+        
+    </div>  
+
+ 
+
+    <input type="checkbox" id="check" class="hide">
+    <div class="container">
+        <label for="check">
+            <i class="fas fa-angle-left" id="arrow" onclick="toggleLogo()"></i>
+
+            <img id="main-logo" src="./images/logo.png" alt=" " style="width: 100px; position: absolute; left:60px; margin-top: 20px;">
+
+           
+
+        </label>
+
+        <ol class="navbar" style="margin-top: 130px;">
+
+            
+           
+       <li><a href="home.html"><i class="fas fa-home"></i><p>home</p></a><span>home</span></li>
+       <li><a href="booking.html"   ><i class="fa fa-book"></i><p>booking</p></a><span>booking</span></li>
+       <li><a href="officemap.html"><i class="fa fa-map"></i><p>map</p></a><span>office map</span></li>
+
+       <div style="border: 1px solid rgb(150, 144, 144);margin-top: 10px;"></div>
+
+       <li><a href="manageuser.html" style="margin-top: 20px;"><i class="fa fa-users"></i><p>user</p></a><span style="margin-top: 20px;">manage user</span></li>
+       <li><a href="managedesk.html"><i class="fa fa-desktop"></i><p>desk</p></a><span>manage desk</span></li>
+
+       <div style="border: 1px solid rgb(150, 144, 144);margin-top: 10px;"></div>
+
+       <li><a href="role.html" style="margin-top: 20px;"><i class="fa fa-tasks"></i><p>role</p></a><span style="margin-top: 20px;">manage role</span></li>
+
+       <div style="border: 1px solid rgb(150, 144, 144);margin-top: 10px;"></div>
+
+       <li><a href="#" style="margin-top: 20px;"><i class="fa fa-cogs"></i><p>guide</p></a><span style="margin-top: 20px;">user guide</span></li>
+       <li><a href="faqs.html"><i class="fa fa-question-circle"></i><p>FAQs</p></a><span>FAQs</span></li>
+       
+       
+        </ol>
+    </div>
+    
+</body>
+
+<script>
+    function toggleLogo() {
+    var logo = document.getElementById("main-logo");
+    logo.classList.toggle("flipped");
+    
+    var currentImage = logo.src;
+
+    if (currentImage.endsWith("/images/logo.png")) {
+        logo.src = "./images/logoname.png";
+        logo.style.width='210px';
+        logo.style.marginLeft='10px';
+        
+    } else {
+        logo.src = "./images/logo.png";
+        logo.style.width='100px';
+        logo.style.marginLeft='0px';
+        
+    }
+}
+</script>
+</html>
