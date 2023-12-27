@@ -1,384 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SideBar</title>
-    <link rel="stylesheet" href="./styles/manageuser.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="./css/manageuser.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <title>Homepage</title>
 </head>
+
 <body>
-  
-   <main class="table" id="customers_table" style="margin-left: 180px;margin-top: 60px;position: absolute;z-index: 1;">
-    <section class="table__header">
-        <h1>MANAGE USER</h1>
-        <div class="input-group">
-            <input type="search" placeholder="Search Data...">
-            <img src="images/search.png" alt="">
-        </div>
-       
+
+
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <img src="./img/logo.png" alt="" style="width:60px">
+    
+        </a>
+        <ul class="side-menu top">
+            <li >
+                <a href="homepage.html">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="booking.html">
+                    <i class='bx bxs-book-alt'></i>
+                    <span class="text">Booking</span>
+                </a>
+            </li>
+            <li>
+                <a href="officemap.html">
+                    <i class='bx bxs-map'></i>
+                    <span class="text">Office Map</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="manageuser.html">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Manage Users</span>
+                </a>
+            </li>
+    
+            <li>
+                <a href="managedesk.html">
+                    <i class='bx bx-desktop'></i>
+                    <span class="text">Manage Desk</span>
+                </a>
+            </li>
+            <li>
+                <a href="managerole.html">
+                    <i class='bx bx-user-pin'></i>
+                    <span class="text">Manage Role</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="faqs.html">
+                    <i class='bx bxs-cog'></i>
+                    <span class="text">FAQs</span>
+                </a>
+            </li>
+            <li>
+                <a href="userguide.html">
+                    <i class='bx bxs-component'></i>
+                    <span class="text">User Guide</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
     </section>
-    <section class="table__body">
-        <table>
-            <thead>
-                <tr>
-                    <th> Id <span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Name <span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Email <span class="icon-arrow">&UpArrow;</span></th>
-                   
-                    <th> Action <span class="icon-arrow">&UpArrow;</span></th>
-                </tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                    <td> 1 </td>
-                    <td><img src="images/Alson GC.jpg" alt=""> Aurora Zafra </td>
-                    <td> aurorazafra@laverdad.edu.ph </td>
-                 
-                    <td>  <text style="background-color: rgb(219, 46, 46);padding: 5px;border-radius: 5px;">Delete</text></td>
-
-                </tr>
-                <tr>
-                    <td> 2</td>
-                    <td><img src="images/Alex Gonley.jpg" alt="">Harry reyes</td>
-                    <td>harrya@laverdad.edu.ph </td>
-                    
-                 
-                    <td>  <text style="background-color: rgb(219, 46, 46);padding: 5px;border-radius: 5px;">Delete</text></td>
-
-                </tr>
-                <tr>
-                    <td> 3 </td>
-                    <td><img src="images/Jeet Saru.jpg" alt=""> Paul Jabinal </td>
-                    <td> paulaj@laverdad.edu.ph </td>
-                   
-                    <td>  <text style="background-color: rgb(219, 46, 46);padding: 5px;border-radius: 5px;">Delete</text></td>
-
-                </tr>
-                <tr>
-                    <td> 4</td>
-                    <td><img src="images/Sarita Limbu.jpg" alt=""> Armie Miranda</td>
-                    <td> armjj@laverdad.edu.ph </td>
-                   
-                    <td>  <text style="background-color: rgb(219, 46, 46);padding: 5px;border-radius: 5px;">Delete</text></td>
+    <!-- SIDEBAR -->
 
 
-                </tr>
-             
-                <tr>
-                    <td> 5</td>
-                    <td><img src="images/Zinzu Chan Lee.jpg" alt=""> Joshua Allasoe </td>
-                    <td> josua@laverdad.edu.ph </td>
-                   
-                    <td>  <text style="background-color: rgb(219, 46, 46);padding: 5px;border-radius: 5px;">Delete</text></td>
 
-                </tr>
-             
-                <tr>
-                    <td> 6</td>
-                    <td><img src="images/Sonal Gharti.jpg" alt=""> Jossa Advdins </td>
-                    <td> jodd@laverdad.edu.ph </td>
-                   
-                 
-                    <td>  <text style="background-color: rgb(219, 46, 46);padding: 5px;border-radius: 5px;">Delete</text></td>
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <p>ApexHubSpot</p>
 
+            <form action="#">
+                <div class="form-input">
 
-                </tr>
-                <tr>
-                    <td> 7</td>
-                    <td><img src="images/cat.png" alt=""> Aurora afra </td>
-                    <td> auroraz@laverdad.edu.ph </td>
-                    <td>  <text style="background-color: rgb(219, 46, 46);padding: 5px;border-radius: 5px;">Delete</text></td>
+                </div>
+            </form>
 
+            <a href="#" class="notification">
+                <i class='bx bxs-bell'></i>
+                <span class="num">8</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="./img/monk.jpg">
+            </a>
+        </nav>
+        <!-- NAVBAR -->
 
-                </tr>
-               
-              
-           
-            </tbody>
-        </table>
-    </section>
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Manage User</h1>
 
+                </div>
+
+            </div>
 
 </main>
 
-<div class="adddesk">
-
-    <h4 class="text">Add User</h4>
-    
-
-    <input type="text" placeholder="Enter name" class="deskinput" style="margin-top: 10%;">
-
-    <input type="text" placeholder="Enter email" class="deskinput">
-    <div style="margin-top: 10%;margin-left: 28%;">
-    <text style="background-color: rgb(107, 206, 231);padding: 5px 20px;border-radius: 5px;">Add</text> 
-    <text style="background-color: rgb(248, 90, 90);padding: 5px;border-radius: 5px;">Cancel</text>
-</div>
- </div>
-    
+</section>
 
 
-    <a href="profile.html">
-        <div class="admin" href="profile.html">
-        <img id="logo" src="./images/cat.png" alt=" ">
-            <div>
-                <p class="name">John Doe Meng</p>
-                <p class="administrator">Administrator</p>
-            </div>
-        </div>
-    </a>   
-
- 
-
-    <input type="checkbox" id="check" class="hide">
-    <div class="container">
-        <label for="check">
-            <i class="fas fa-angle-left" id="arrow" onclick="toggleLogo()"></i>
-
-            <img id="main-logo" src="./images/logo.png" alt=" " style="width:100px;position: absolute; left:60px; margin-top: 20px;">
-
-           
-
-        </label>
-
-        <ol class="navbar" style="margin-top: 130px;">
-
-            
-           
-       <li><a href="home.html"><i class="fas fa-home"></i><p>home</p></a><span>home</span></li>
-       <li><a href="booking.html" ><i class="fa fa-book"></i><p>booking</p></a><span>booking</span></li>
-       <li><a href="officemap.html"><i class="fa fa-map"></i><p>map</p></a><span>office map</span></li>
-
-       <div style="border: 1px solid rgb(150, 144, 144);margin-top: 10px;"></div>
-
-       <li><a href="#" style="margin-top: 20px;background-color: #83bfe0;"><i class="fa fa-users"></i><p>user</p></a><span style="margin-top: 20px;">manage user</span></li>
-       <li><a href="managedesk.html"><i class="fa fa-desktop"></i><p>desk</p></a><span>manage desk</span></li>
-
-       <div style="border: 1px solid rgb(150, 144, 144);margin-top: 10px;"></div>
-
-       <li><a href="role.html" style="margin-top: 20px;"><i class="fa fa-tasks"></i><p>role</p></a><span style="margin-top: 20px;">manage role</span></li>
-
-       <div style="border: 1px solid rgb(150, 144, 144);margin-top: 10px;"></div>
-
-       <li><a href="#" style="margin-top: 20px;"><i class="fa fa-cogs"></i><p>guide</p></a><span style="margin-top: 20px;">user guide</span></li>
-       <li><a href="faqs.html"><i class="fa fa-question-circle"></i><p>FAQs</p></a><span>FAQs</span></li>
-       
-       
-        </ol>
-    </div>
-    <section></section>
-
-    
-
-
-    
+            <script src="./js/manageuser.js"></script>
 </body>
-<script >
-    function toggleLogo() {
-    var logo = document.getElementById("main-logo");
-    logo.classList.toggle("flipped");
-    
-    var currentImage = logo.src;
 
-    if (currentImage.endsWith("/images/logo.png")) {
-        logo.src = "./images/logoname.png";
-        logo.style.width='210px';
-        logo.style.marginLeft='10px';
-        
-    } else {
-        logo.src = "./images/logo.png";
-        logo.style.width='100px';
-        logo.style.marginLeft='0px';
-    }
-}
-
-
-
-
-const search = document.querySelector('.input-group input'),
-table_rows = document.querySelectorAll('tbody tr'),
-table_headings = document.querySelectorAll('thead th');
-
-// 1. Searching for specific data of HTML table
-search.addEventListener('input', searchTable);
-
-function searchTable() {
-table_rows.forEach((row, i) => {
-    let table_data = row.textContent.toLowerCase(),
-        search_data = search.value.toLowerCase();
-
-    row.classList.toggle('hide', table_data.indexOf(search_data) < 0);
-    row.style.setProperty('--delay', i / 25 + 's');
-})
-
-document.querySelectorAll('tbody tr:not(.hide)').forEach((visible_row, i) => {
-    visible_row.style.backgroundColor = (i % 2 == 0) ? 'transparent' : '#0000000b';
-});
-}
-
-// 2. Sorting | Ordering data of HTML table
-
-table_headings.forEach((head, i) => {
-let sort_asc = true;
-head.onclick = () => {
-    table_headings.forEach(head => head.classList.remove('active'));
-    head.classList.add('active');
-
-    document.querySelectorAll('td').forEach(td => td.classList.remove('active'));
-    table_rows.forEach(row => {
-        row.querySelectorAll('td')[i].classList.add('active');
-    })
-
-    head.classList.toggle('asc', sort_asc);
-    sort_asc = head.classList.contains('asc') ? false : true;
-
-    sortTable(i, sort_asc);
-}
-})
-
-
-function sortTable(column, sort_asc) {
-[...table_rows].sort((a, b) => {
-    let first_row = a.querySelectorAll('td')[column].textContent.toLowerCase(),
-        second_row = b.querySelectorAll('td')[column].textContent.toLowerCase();
-
-    return sort_asc ? (first_row < second_row ? 1 : -1) : (first_row < second_row ? -1 : 1);
-})
-    .map(sorted_row => document.querySelector('tbody').appendChild(sorted_row));
-}
-
-// 3. Converting HTML table to PDF
-
-const pdf_btn = document.querySelector('#toPDF');
-const customers_table = document.querySelector('#customers_table');
-
-
-const toPDF = function (customers_table) {
-const html_code = `
-<!DOCTYPE html>
-<link rel="stylesheet" type="text/css" href="style.css">
-<main class="table" id="customers_table">${customers_table.innerHTML}</main>`;
-
-const new_window = window.open();
- new_window.document.write(html_code);
-
-setTimeout(() => {
-    new_window.print();
-    new_window.close();
-}, 400);
-}
-
-pdf_btn.onclick = () => {
-toPDF(customers_table);
-}
-
-// 4. Converting HTML table to JSON
-
-const json_btn = document.querySelector('#toJSON');
-
-const toJSON = function (table) {
-let table_data = [],
-    t_head = [],
-
-    t_headings = table.querySelectorAll('th'),
-    t_rows = table.querySelectorAll('tbody tr');
-
-for (let t_heading of t_headings) {
-    let actual_head = t_heading.textContent.trim().split(' ');
-
-    t_head.push(actual_head.splice(0, actual_head.length - 1).join(' ').toLowerCase());
-}
-
-t_rows.forEach(row => {
-    const row_object = {},
-        t_cells = row.querySelectorAll('td');
-
-    t_cells.forEach((t_cell, cell_index) => {
-        const img = t_cell.querySelector('img');
-        if (img) {
-            row_object['customer image'] = decodeURIComponent(img.src);
-        }
-        row_object[t_head[cell_index]] = t_cell.textContent.trim();
-    })
-    table_data.push(row_object);
-})
-
-return JSON.stringify(table_data, null, 4);
-}
-
-json_btn.onclick = () => {
-const json = toJSON(customers_table);
-downloadFile(json, 'json')
-}
-
-// 5. Converting HTML table to CSV File
-
-const csv_btn = document.querySelector('#toCSV');
-
-const toCSV = function (table) {
-// Code For SIMPLE TABLE
-// const t_rows = table.querySelectorAll('tr');
-// return [...t_rows].map(row => {
-//     const cells = row.querySelectorAll('th, td');
-//     return [...cells].map(cell => cell.textContent.trim()).join(',');
-// }).join('\n');
-
-const t_heads = table.querySelectorAll('th'),
-    tbody_rows = table.querySelectorAll('tbody tr');
-
-const headings = [...t_heads].map(head => {
-    let actual_head = head.textContent.trim().split(' ');
-    return actual_head.splice(0, actual_head.length - 1).join(' ').toLowerCase();
-}).join(',') + ',' + 'image name';
-
-const table_data = [...tbody_rows].map(row => {
-    const cells = row.querySelectorAll('td'),
-        img = decodeURIComponent(row.querySelector('img').src),
-        data_without_img = [...cells].map(cell => cell.textContent.replace(/,/g, ".").trim()).join(',');
-
-    return data_without_img + ',' + img;
-}).join('\n');
-
-return headings + '\n' + table_data;
-}
-
-csv_btn.onclick = () => {
-const csv = toCSV(customers_table);
-downloadFile(csv, 'csv', 'customer orders');
-}
-
-// 6. Converting HTML table to EXCEL File
-
-const excel_btn = document.querySelector('#toEXCEL');
-
-const toExcel = function (table) {
-// Code For SIMPLE TABLE
-// const t_rows = table.querySelectorAll('tr');
-// return [...t_rows].map(row => {
-//     const cells = row.querySelectorAll('th, td');
-//     return [...cells].map(cell => cell.textContent.trim()).join('\t');
-// }).join('\n');
-
-const t_heads = table.querySelectorAll('th'),
-    tbody_rows = table.querySelectorAll('tbody tr');
-
-const headings = [...t_heads].map(head => {
-    let actual_head = head.textContent.trim().split(' ');
-    return actual_head.splice(0, actual_head.length - 1).join(' ').toLowerCase();
-}).join('\t') + '\t' + 'image name';
-
-const table_data = [...tbody_rows].map(row => {
-    const cells = row.querySelectorAll('td'),
-        img = decodeURIComponent(row.querySelector('img').src),
-        data_without_img = [...cells].map(cell => cell.textContent.trim()).join('\t');
-
-    return data_without_img + '\t' + img;
-}).join('\n');
-
-return headings + '\n' + table_data;
-}
-
-
-</script>
 </html>

@@ -4,163 +4,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISPM</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-        }
-
-        nav {
-            background-color: #faf9f9;
-            color: white;
-            padding: 10px;
-            position: relative;
-            display: flex;
-        }
-
-        nav img {
-            height: 40px;
-            margin-left: 30px;
-        }
-
-        .signin-btn {
-            background-color: #f6faf6;
-            color: rgb(0, 0, 0);
-            border: 1px solid black;
-            position: absolute;
-            padding: 10px 15px;
-            text-decoration: none;
-            margin-left: 83%;
-            border-radius: 5px;
-        }
-
-        .signup-btn {
-            background-color: #0F45CF;
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            position: absolute;
-            margin-left: 90%;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .content-section {
-            background-image: url('./images/background.png');
-            background-size: cover;
-            height: 75.5vh;
-            width: 92.5vw;
-            background-position: center;
-            text-align: center;
-            position: absolute;
-            padding: 50px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .content-text {
-            font-weight: bold;
-            margin-top: 130px;
-            color: white;
-            font-size: 50px;
-        }
-
-        .content-p {
-            color: white;
-            font-size: medium;
-            margin-top: 15px;
-        }
-
-        .get-started {
-            position: absolute;
-            background-color: #0F45CF;
-            color: white;
-            padding: 10px 25px;
-            margin-top: 30px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .button {
-            margin-right: 200px;
-        }
-
-        #main-logo {
-            transition: transform 0.6s;
-        }
-
-        @keyframes flip {
-            from {
-                transform: rotateY(0deg);
-            }
-
-            to {
-                transform: rotateY(180deg);
-            }
-        }
-
-        .flipped {
-            animation: flip 0.6s ease;
-            transform: rotateY(180deg);
-        }
-
-        #logoname {
-            width: 100px;
-            height: auto;
-        }
-    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 
 <body>
-    <nav>
-        <img id="main-logo" src="./images/logo.png" alt="AHS" onclick="toggleLogo()">
-        <a href="./signin.html" class="signin-btn">Sign In</a>
-        <a href="./signup.html" class="signup-btn">Sign Up</a>
-    </nav>
+    <header>
+        <a href="#" class="logo">
+            <img src="./img/logo.png" alt="">
+        </a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <ul class="navbar">
+            <li> <a href="#home">Home</a></li>
+            <li> <a href="#about">What's up?</a></li>
+            <li> <a href="#products">Offices</a></li>
+            <li> <a href="#customers">Our Team</a></li>
+        </ul>
+        <div class="header-icon">
+            <i class='bx '><a href="./signin.html">Get Started</a></i>
 
-    <div class="content-section">
-        <h1 class="content-text">
-            Where Flexibility Meets Productivity
-            <br>in Every Seat
-        </h1>
-        <p class="content-p"> Step into the future of work with Hotdesk, where the landscape of productivity transforms.
-            <br>Unleash Your Productivity, Any Seat, Anytime.
-        </p>
 
-        <div class="button">
-            <a href="signup.html" class="get-started">Get Started</a>
+
         </div>
+
+
+
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1>Where Flexibility Meets Productivity<br>
+                in Every Seat</h1>
+            <p>Step into the future of work with Hotdesk, where the landscape of productivity transforms.<br>
+                Unleash Your Productivity, Any Seat, Anytime.</p>
+
+        </div>
+
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="./img/hotdesk.jpg" alt="">
+        </div>
+        <div class="about-text">
+            <h2>What is Hotdesking?</h2>
+            <p>Hotdesking is a flexible office arrangement where employees do not have assigned desks, but instead can
+                choose from a
+                pool of available workstations each day. In our system, employees can book a desk through our online
+                platform or mobile
+                app</p>
+            <p>To reserve a hotdesk, employees can log into our system using their credentials and access the hotdesking
+                feature. They
+                can view the availability of desks for a specific date and time, and select a desk that suits their
+                requirements. Once
+                they have made a reservation, the desk will be reserved under their name for the designated time slot.
+            </p>
+            <p>In our hotdesking system, employees can use a desk for the designated time slot they have reserved. The
+                time could be a
+                few hours, half a day, or a full day, depending on their preference and availability. </p>
+
+        </div>
+
+    </section>
+
+    <section class="products" id="products">
+        <div class="heading">
+            <h2>Offices & Desk</h2>
+        </div>
+        <div class="products-container">
+
+            <div class="box">
+                <img src="./img/2.png" alt="">
+                <h3>FLOOR 1</h3>
+                <div class="content">
+                    <span>OFFICE 1</span>
+                    <a>4 Desk</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="./img/1.png" alt="">
+                <h3>FLOOR 1</h3>
+                <div class="content">
+                    <span>OFFICE 2</span>
+                    <a>4 Desk</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="./img/6.png" alt="">
+                <h3>FLOOR 1</h3>
+                <div class="content">
+                    <span>OFFICE 3</span>
+                    <a>4 Desk</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="./img/5.png" alt="">
+                <h3>FLOOR 1</h3>
+                <div class="content">
+                    <span>OFFICE 4</span>
+                    <a>6 Desk</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="./img/4.png" alt="">
+                <h3>FLOOR 1</h3>
+                <div class="content">
+                    <span>OFFICE 5</span>
+                    <a>6 Desk</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="./img/3.png" alt="">
+                <h3>FLOOR 1</h3>
+                <div class="content">
+                    <span>OFFICE 6</span>
+                    <a>4 Desk</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="customers" id="customers">
+        <div class="heading">
+            <h2>Our tEAM</h2>
+        </div>
+        <div class="customers-container">
+            <div class="box">
+                <div class="stars">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+
+                    <a href="#"><i class='bx bxl-github'></i></a>
+                </div>
+                <p>Project Manager</p>
+                <h2>Aurora Zafra Bactol</h2>
+                <img src="./img/monk.jpg" alt="">
+            </div>
+            <div class="box">
+                <div class="stars">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+
+                    <a href="#"><i class='bx bxl-github'></i></a>
+                </div>
+                <p>Dev Master</p>
+                <h2>Harry Reyes</h2>
+                <img src="./img/monk.jpg" alt="">
+            </div>
+            <div class="box">
+                <div class="stars">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+
+                    <a href="#"><i class='bx bxl-github'></i></a>
+                </div>
+                <p>Co-Dev</p>
+                <h2>Joshua Allador</h2>
+                <img src="./img/monk.jpg" alt="">
+            </div>
+            <div class="box">
+                <div class="stars">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+
+                    <a href="#"><i class='bx bxl-github'></i></a>
+                </div>
+                <p>Co-Dev</p>
+                <h2>Armie Miranda</h2>
+                <img src="./img/monk.jpg" alt="">
+            </div>
+            <div class="box">
+                <div class="stars">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+
+                    <a href="#"><i class='bx bxl-github'></i></a>
+                </div>
+                <p>Co-Dev</p>
+                <h2>Paula Jabinal</h2>
+                <img src="./img/monk.jpg" alt="">
+            </div>
+            <div class="box">
+                <div class="stars">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+
+                    <a href="#"><i class='bx bxl-github'></i></a>
+
+                </div>
+                <p>Scrum Monster</p>
+                <h2>Jossa Advincula</h2>
+                <img src="./img/monk.jpg" alt="">
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="footer-box">
+            <h3>ApexHubSpot</h3>
+            <p>If you have any concern, idc</p>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-github'></i></a>
+            </div>
+        </div>
+
+
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <div class="contact">
+                <span><i class='bx bxs-map'></i>La Verdad Christian College, inc.</span>
+                <span><i class='bx bxs-phone'></i>+639091234567</span>
+                <span><i class='bx bxs-envelope'></i>example@student.laverdad.edu.ph</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="copyright">
+        <p>&#169; AHS </p>
     </div>
+
+
+
+
+    <script src="./js/index.js"></script>
 </body>
-
-<script>
-    function toggleLogo() {
-        var logo = document.getElementById("main-logo");
-        logo.classList.toggle("flipped");
-
-        var currentImage = logo.src;
-
-        if (currentImage.endsWith("/images/logo.png")) {
-            logo.src = "./images/logoname.png";
-            logo.style.width = '200px';
-            logo.style.top = '10px';
-        } else {
-            logo.src = "./images/logo.png";
-            logo.style.width = '100px';
-        }
-    }
-</script>
 
 </html>
