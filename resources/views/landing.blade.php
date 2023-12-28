@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Apex Hub Society</title>
+    <title>ApexHubSpot</title>
     @vite('resources/css/app.css')
 </head>
 <body class="font-semibold">
@@ -15,7 +15,7 @@
             {{-- Logo --}}
             <div class="pt-2">
                 <h1 class="font-bold text-2xl text-congressBlue lg:text-3xl">
-                    <img class="display: inline-block h-8 pb-2 lg:h-10 lg:pb-3" src="{{asset('images/ahs-ape.svg')}}" alt="A">pex Hub Society
+                    <img class="display: inline-block h-8 pb-2 lg:h-10 lg:pb-3" src="{{asset('images/ahs-ape.svg')}}" alt="A">pexHubSpot
                 </h1>
             </div>
 
@@ -35,9 +35,9 @@
     {{-- Hero Section --}}
     <section id="hero">
         {{-- Flex Container --}}
-        <div class="container flex flex-col-reverse item-center px-6 mx-auto mt-10 space-y-0 md:flex-row">
+        <div class="container flex flex-col-reverse item-center px-6 mx-auto mt-0 md:mt-10 space-y-0 md:flex-row">
             {{-- Left Item --}}
-            <div class="flex flex-col mb-32 space-y-12 md:w-1/2">
+            <div class="flex flex-col mb-32 space-y-6 md:space-y-12 md:w-1/2">
                 <h1 class="max-w-md text-4xl text-center md:text-5xl md:text-left">
                     Where <span class="text-darkOlive">Flexibility</span> Meets <span class="text-mulberryWood">Productivity</span> in Every Seat
                 </h1>
@@ -53,13 +53,13 @@
 
             {{-- Image --}}
             <div class="md:1/2">
-                <img src="{{asset('images/hero.png')}}" alt=" " class="h-72 md:w-96 md:h-auto mx-auto">
+                <img src="{{asset('images/hero.png')}}" alt=" " class="h-72 mx-auto md:w-96 md:h-auto">
             </div>
         </div>
     </section>
 
     {{-- Features Section --}}
-    <section id="features">
+    <section id="features" class="pt-7">
         {{-- Flex Container --}}
         <div class="container flex flex-col item-center px-4 mx-auto mt-7 space-y-0 md:flex-row">
             {{-- Definition --}}
