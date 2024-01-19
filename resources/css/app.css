@@ -29,8 +29,11 @@ body::before {
     }
 }
 @media (max-width: 768px) {
-    body::before {
-        background-size: 600px;
+    body::before{
+        background-size: 500px;
+    }
+
+    body.landing::before {
         background-position: 30% 250%;
     }
 }
