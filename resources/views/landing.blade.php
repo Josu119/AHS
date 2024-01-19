@@ -22,7 +22,7 @@
             {{-- Menu --}}
             <div class="hidden space-x-6 text-xl md:flex lg:text-2xl">
                 <a href="#features" class="hover:text-cornflowerBlue">About Hotdesking</a>
-                <a href="#team" class="hover:text-cornflowerBlue">Our Team</a>
+                <a href="#team" class="opacity-25" style="pointer-events: none">Our Team</a>
             </div>
 
             {{-- Button --}}
