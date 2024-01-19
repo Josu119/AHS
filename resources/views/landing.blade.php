@@ -7,17 +7,17 @@
     <title>ApexHubSpot</title>
     @vite('resources/css/app.css')
 </head>
-<body class="font-semibold">
+<body class="font-semibold landing">
     {{-- NavBar --}}
     <nav class="relative container mx-auto p-4 text-center md:p-6">
         {{-- Flex Container --}}
         <div class="flex items-center justify-between">
             {{-- Logo --}}
-            <div class="pt-2">
+            <a href="/" class="pt-2">
                 <h1 class="font-bold text-2xl text-congressBlue lg:text-3xl">
                     <img class="display: inline-block h-8 pb-2 lg:h-10 lg:pb-3" src="{{asset('images/ahs-ape.svg')}}" alt="A">pexHubSpot
                 </h1>
-            </div>
+            </a>
 
             {{-- Menu --}}
             <div class="hidden space-x-6 text-xl md:flex lg:text-2xl">
@@ -26,7 +26,7 @@
             </div>
 
             {{-- Button --}}
-            <a href="#" class="hidden p-3 px-6 pt-2 text-white bg-congressBlue hover:bg-cornflowerBlue rounded-full baseline text-lg md:block lg:text-xl">
+            <a href="/register" class="hidden p-3 px-6 pt-2 text-white bg-congressBlue hover:bg-cornflowerBlue rounded-full baseline text-lg md:block lg:text-xl">
                 Get Started
             </a>
         </div>
@@ -45,7 +45,7 @@
                     Step into the future of work with hotdesking, where the landscape of productivity transforms. Unleash your productivity, any seat, anytime.
                 </p>
                 <div class="flex justify-center md:justify-start">
-                    <a href="#" class="p-3 px-6 pt-2 text-white bg-congressBlue hover:bg-cornflowerBlue rounded-full baseline text-lg md:block lg:text-xl">
+                    <a href="/register" class="p-3 px-6 pt-2 text-white bg-congressBlue hover:bg-cornflowerBlue rounded-full baseline text-lg md:block lg:text-xl">
                         Get Started
                     </a>
                 </div>
