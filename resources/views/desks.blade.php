@@ -12,7 +12,7 @@
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="/bookings">
                     <i class='bx bxs-book-alt'></i>
                     <span class="text">Booking</span>
@@ -31,7 +31,7 @@
                 </a>
             </li>
 
-            <li>
+            <li class="active">
                 <a href="/desks">
                     <i class='bx bx-desktop'></i>
                     <span class="text">Manage Desks</span>
@@ -94,14 +94,12 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Bookings History</h1>
-                    <a href="/bookings"
-                        style="color: rgb(24, 111, 211);padding: 10px 20px;border: 1px solid black;border-radius: 10px;">Show
-                        Bookings</a>
+                    <h1>Manage Desks</h1>
 
                 </div>
 
             </div>
+
             <div class="table-data">
                 <div class="order">
                     <div class="head">
@@ -111,98 +109,69 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>User</th>
-                                <th>Office</th>
-                                <th>Desk</th>
-                                <th>Date </th>
-                                <th>Time</th>
-                                <th>Status</th>
+                                <th>Image</th>
+                                <th>Desk </th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>
-                                    <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
-                                    <p>John Doe</p>
+                                    <img src="{{ asset('images/main/desk2.jpg') }}">
+
                                 </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status completed">Done</span></td>
+                                <td>Desk 2A</td>
+                                <td><span class="status cancelled">Delete</span></td>
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
-                                    <p>John Doe</p>
+                                    <img src="{{ asset('images/main/desk2.jpg') }}">
+
                                 </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status completed">Done</span></td>
+                                <td>Desk 2B</td>
+                                <td><span class="status cancelled">Delete</span></td>
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
-                                    <p>John Doe</p>
+                                    <img src="{{ asset('images/main/desk3.jpg') }}">
+
                                 </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status completed">Done</span></td>
+                                <td>Desk 2C</td>
+                                <td><span class="status cancelled">Delete</span></td>
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
-                                    <p>John Doe</p>
+                                    <img src="{{ asset('images/main/desk4.jpg') }}">
+
                                 </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status completed">Done</span></td>
+                                <td>Desk 2D</td>
+                                <td><span class="status cancelled">Delete</span></td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
-                                    <p>John Doe</p>
-                                </td>
 
-                                <td>Office 1</td>
-                                <td>3C</td>
 
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status completed">Done</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
-                                    <p>John Doe</p>
-                                </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status completed">Done</span></td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
 
+                <div class="todo">
+                    <div class="head">
+                        <h3></h3>
+                        <p>Add Desk</p>
+                        <i class='bx bx-plus'></i>
 
+                    </div>
+
+
+                    <ul class="todo-list">
+                        <input type="text" placeholder="Enter DeskNumber"
+                            style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;">
+                    </ul>
+                    <button>Upload Photo</button>
+                    <ul class="todo-list" style="margin-top: 10px;">
+                        <button style="padding: 5px 10px; background-color: green;">Add</button>
+                        <button style="padding: 5px 10px;background-color: red;">Cancel</button>
+                    </ul>
+                </div>
             </div>
 
         </main>

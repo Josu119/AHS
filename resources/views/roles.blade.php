@@ -12,7 +12,7 @@
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="/bookings">
                     <i class='bx bxs-book-alt'></i>
                     <span class="text">Booking</span>
@@ -37,7 +37,7 @@
                     <span class="text">Manage Desks</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="/roles">
                     <i class='bx bx-user-pin'></i>
                     <span class="text">Manage Roles</span>
@@ -94,29 +94,22 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Bookings History</h1>
-                    <a href="/bookings"
-                        style="color: rgb(24, 111, 211);padding: 10px 20px;border: 1px solid black;border-radius: 10px;">Show
-                        Bookings</a>
-
+                    <h1>Manage Roles</h1>
                 </div>
-
             </div>
+
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-
-
                     </div>
                     <table>
                         <thead>
                             <tr>
                                 <th>User</th>
-                                <th>Office</th>
-                                <th>Desk</th>
-                                <th>Date </th>
-                                <th>Time</th>
-                                <th>Status</th>
+                                <th>Email </th>
+                                <th>Role </th>
+                                <th>Start Date </th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -125,88 +118,46 @@
                                     <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
                                     <p>John Doe</p>
                                 </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status completed">Done</span></td>
+                                <td>Johndoe@laverdad.com</td>
+                                <td>Admin</td>
+                                <td>September 01,2020</td>
+                                <td><span class="status process">Assign Role</span></td>
                             </tr>
                             <tr>
                                 <td>
                                     <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
                                     <p>John Doe</p>
                                 </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status completed">Done</span></td>
+                                <td>Johndoe@laverdad.com</td>
+                                <td>Admin</td>
+                                <td>September 01,2020</td>
+                                <td><span class="status process">Assign Role</span></td>
                             </tr>
                             <tr>
                                 <td>
                                     <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
                                     <p>John Doe</p>
                                 </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status completed">Done</span></td>
+                                <td>Johndoe@laverdad.com</td>
+                                <td>Admin</td>
+                                <td>September 01,2020</td>
+                                <td><span class="status process">Assign Role</span></td>
                             </tr>
                             <tr>
                                 <td>
                                     <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
                                     <p>John Doe</p>
                                 </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status completed">Done</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
-                                    <p>John Doe</p>
-                                </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status completed">Done</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
-                                    <p>John Doe</p>
-                                </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status completed">Done</span></td>
+                                <td>Johndoe@laverdad.com</td>
+                                <td>Admin</td>
+                                <td>September 01,2020</td>
+                                <td><span class="status process">Assign Role</span></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-
-
             </div>
 
         </main>
-
-    </section>
 
 </x-layout>

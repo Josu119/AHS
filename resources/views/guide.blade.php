@@ -18,7 +18,7 @@
                     <span class="text">Booking</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="/office_map">
                     <i class='bx bxs-map'></i>
                     <span class="text">Office Map</span>
@@ -51,7 +51,7 @@
                     <span class="text">FAQs</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="/guide">
                     <i class='bx bxs-component'></i>
                     <span class="text">User Guide</span>
@@ -91,62 +91,40 @@
         <!-- NAVBAR -->
 
         <!-- MAIN -->
-        <main>
-            <div class="head-title">
-                <div class="left">
-                    <h1>Office Map</h1>
+        <section>
+            <div class="background-section">
+                <div class="faqs-section">
+                    <h2>User Guide</h2>
+
+                    <div class="faq-item" onclick="toggleAnswer(this)">
+                        <h3>Creating an Account:</h3>
+                        <p>To access the hotdesk booking system, you need to create a user account. Follow these
+                            steps:<br>
+                            a. Open the website and click on the "Sign Up" or "Register" option.<br>
+                            b. Fill out the required information, such as your name, email address, and password.<br>
+                            c. Click on the "Create Account" button to complete the registration process.</p>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleAnswer(this)">
+                        <h3>Logging In:</h3>
+                        <p>Once you have registered, follow these steps to log in:<br>
+                            a. Visit the website's homepage.<br>
+                            b. Click on the "Login" option.<br>
+                            c. Enter your registered email address and password.<br>
+                            d. Click on the "Login" button.</p>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleAnswer(this)">
+                        <h3>How to Book?:</h3>
+                        <p>Booking a hotdesk, you can use the following steps:<br>
+                            a. On the website's home, Fing Booking.<br>
+                            b. enter desk number. <br>
+                            c. Specify the desired date and time.<br>
+                            d. Then click "Book Now"</p>
+                    </div>
                 </div>
             </div>
-        </main>
-
+        </section>
     </section>
-    <div style="position: absolute;z-index: 1;margin-left: 30px;">
-        <svg class="floor-plan" width="700" height="450" xmlns="http://www.w3.org/2000/svg">
-            <!-- Define a pattern for the background image -->
-            <defs>
-                <pattern id="bg-pattern" width="100%" height="100%" patternContentUnits="objectBoundingBox">
-                    <image href="{{ asset('images/main/officesample.jpg') }}" width="1" height="1"
-                        preserveAspectRatio="none"></image>
-                </pattern>
-            </defs>
-
-            <!-- Living Room -->
-            <rect class="room living-room" width="300" height="200" x="0" y="0" onclick="changeColor(this)" />
-            <text class="room-label" x="100" y="105">OFFICE 1</text>
-
-
-            <!-- Bedroom -->
-            <rect class="room bedroom" width="170" height="100" x="298" y="0" onclick="changeColor(this)" />
-            <text class="room-label" x="330" y="60">OFFICE 2</text>
-
-
-            <rect class="room bedroom" width="170" height="100" x="298" y="100" onclick="changeColor(this)" />
-            <text class="room-label" x="330" y="150">OFFICE 3</text>
-
-            <rect class="room bedroom" width="235" height="200" x="467" y="0" onclick="changeColor(this)" />
-            <text class="room-label" x="530" y="105">OFFICE 4</text>
-
-
-
-            <!-- Kitchen -->
-            <rect class="room kitchen" width="300" height="220" x="0" y="230" onclick="changeColor(this)" />
-            <text class="room-label" x="100" y="345">OFFICE 5</text>
-
-
-            <!-- Bathroom -->
-            <rect class="room bathroom" width="330" height="220" x="370" y="230" onclick="changeColor(this)" />
-            <text class="room-label" x="480" y="345">OFFICE 6</text>
-
-        </svg>
-        <button
-            style="position: absolute;margin-left:2%;z-index: 1;margin-top: 1px;background-color: aliceblue;cursor: pointer;padding: 5px;border-radius: 10px;">Update
-            Office Plan</button>
-        <div class="box">
-            <div
-                style="background-color: rgb(156, 163, 163);height: 30px;width: 100px;text-align: center;font-size: larger;border-radius: 5px;border:1px solid black">
-                Office
-            </div>
-        </div>
-    </div>
 
 </x-layout>

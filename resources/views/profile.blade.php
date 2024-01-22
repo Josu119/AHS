@@ -18,7 +18,7 @@
                     <span class="text">Booking</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="/office_map">
                     <i class='bx bxs-map'></i>
                     <span class="text">Office Map</span>
@@ -94,59 +94,37 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Office Map</h1>
+                    <div class="profile">
+
+                        <div class="pfp">
+                            <img src="{{ asset('images/main/monk.jpg') }}" alt=" "style="width:300px">
+                            <button style="padding:5px">Upload photo</button>
+                        </div>
+
+                        <div class="user">
+                            <p style="font-size: 30px;">John Doe Meng</p>
+                            <p style="font-size: 20px; color: rgb(29, 58, 91);">Administrator</p>
+                        </div>
+                    </div>
+                    <div style="border: 1px solid #3a425f;  margin-top: 20px;"> </div>
+
+                    <div class="info" style="font-size: 20px; margin-top: 20px;">
+                        <div style="margin-bottom: 15px;">
+                            <label for="Name" style="padding-right: 5px;">Name:</label> <input type="text"
+                                id="email" placeholder="John Doe Meng" size="40">
+                            <i id="clickableicon" class="fa-solid fa-pencil"></i>
+                        </div>
+
+                        <div>
+                            <label for="Email" style="padding-right: 9px;">Email:</label> <input type="text"
+                                id="email" placeholder="johndmeng@gmail.com" size="40">
+                            <i id="clickableicon" class="fa-solid fa-pencil"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
 
     </section>
-    <div style="position: absolute;z-index: 1;margin-left: 30px;">
-        <svg class="floor-plan" width="700" height="450" xmlns="http://www.w3.org/2000/svg">
-            <!-- Define a pattern for the background image -->
-            <defs>
-                <pattern id="bg-pattern" width="100%" height="100%" patternContentUnits="objectBoundingBox">
-                    <image href="{{ asset('images/main/officesample.jpg') }}" width="1" height="1"
-                        preserveAspectRatio="none"></image>
-                </pattern>
-            </defs>
-
-            <!-- Living Room -->
-            <rect class="room living-room" width="300" height="200" x="0" y="0" onclick="changeColor(this)" />
-            <text class="room-label" x="100" y="105">OFFICE 1</text>
-
-
-            <!-- Bedroom -->
-            <rect class="room bedroom" width="170" height="100" x="298" y="0" onclick="changeColor(this)" />
-            <text class="room-label" x="330" y="60">OFFICE 2</text>
-
-
-            <rect class="room bedroom" width="170" height="100" x="298" y="100" onclick="changeColor(this)" />
-            <text class="room-label" x="330" y="150">OFFICE 3</text>
-
-            <rect class="room bedroom" width="235" height="200" x="467" y="0" onclick="changeColor(this)" />
-            <text class="room-label" x="530" y="105">OFFICE 4</text>
-
-
-
-            <!-- Kitchen -->
-            <rect class="room kitchen" width="300" height="220" x="0" y="230" onclick="changeColor(this)" />
-            <text class="room-label" x="100" y="345">OFFICE 5</text>
-
-
-            <!-- Bathroom -->
-            <rect class="room bathroom" width="330" height="220" x="370" y="230" onclick="changeColor(this)" />
-            <text class="room-label" x="480" y="345">OFFICE 6</text>
-
-        </svg>
-        <button
-            style="position: absolute;margin-left:2%;z-index: 1;margin-top: 1px;background-color: aliceblue;cursor: pointer;padding: 5px;border-radius: 10px;">Update
-            Office Plan</button>
-        <div class="box">
-            <div
-                style="background-color: rgb(156, 163, 163);height: 30px;width: 100px;text-align: center;font-size: larger;border-radius: 5px;border:1px solid black">
-                Office
-            </div>
-        </div>
-    </div>
 
 </x-layout>

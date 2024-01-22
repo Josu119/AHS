@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>ApexHubSpot</title>
     @vite('resources/css/app.css')
 </head>
+
 <body class="font-semibold landing">
     {{-- NavBar --}}
     <nav class="relative container mx-auto p-4 text-center md:p-6">
@@ -15,7 +17,8 @@
             {{-- Logo --}}
             <a href="/" class="pt-2">
                 <h1 class="font-bold text-2xl text-congressBlue lg:text-3xl">
-                    <img class="display: inline-block h-8 pb-2 lg:h-10 lg:pb-3" src="{{asset('images/ahs-ape.svg')}}" alt="A">pexHubSpot
+                    <img class="display: inline-block h-8 pb-2 lg:h-10 lg:pb-3" src="{{ asset('images/ahs-ape.svg') }}"
+                        alt="A">pexHubSpot
                 </h1>
             </a>
 
@@ -26,7 +29,8 @@
             </div>
 
             {{-- Button --}}
-            <a href="/register" class="hidden p-3 px-6 pt-2 text-white bg-congressBlue hover:bg-cornflowerBlue rounded-full baseline text-lg md:block lg:text-xl">
+            <a href="/register"
+                class="hidden p-3 px-6 pt-2 text-white bg-congressBlue hover:bg-cornflowerBlue rounded-full baseline text-lg md:block lg:text-xl">
                 Get Started
             </a>
         </div>
@@ -39,13 +43,16 @@
             {{-- Left Item --}}
             <div class="flex flex-col mb-32 space-y-6 md:space-y-12 md:w-1/2">
                 <h1 class="max-w-md text-4xl text-center md:text-5xl md:text-left">
-                    Where <span class="text-darkOlive">Flexibility</span> Meets <span class="text-mulberryWood">Productivity</span> in Every Seat
+                    Where <span class="text-darkOlive">Flexibility</span> Meets <span
+                        class="text-mulberryWood">Productivity</span> in Every Seat
                 </h1>
                 <p class="max-w-sm mx-auto text-xl text-center text-mainBlue md:text-left">
-                    Step into the future of work with hotdesking, where the landscape of productivity transforms. Unleash your productivity, any seat, anytime.
+                    Step into the future of work with hotdesking, where the landscape of productivity transforms.
+                    Unleash your productivity, any seat, anytime.
                 </p>
                 <div class="flex justify-center md:justify-start">
-                    <a href="/register" class="p-3 px-6 pt-2 text-white bg-congressBlue hover:bg-cornflowerBlue rounded-full baseline text-lg md:block lg:text-xl">
+                    <a href="/register"
+                        class="p-3 px-6 pt-2 text-white bg-congressBlue hover:bg-cornflowerBlue rounded-full baseline text-lg md:block lg:text-xl">
                         Get Started
                     </a>
                 </div>
@@ -53,7 +60,7 @@
 
             {{-- Image --}}
             <div class="md:1/2">
-                <img src="{{asset('images/hero.png')}}" alt=" " class="h-72 mx-auto md:w-96 md:h-auto">
+                <img src="{{ asset('images/hero.png') }}" alt=" " class="h-72 mx-auto md:w-96 md:h-auto">
             </div>
         </div>
     </section>
@@ -68,7 +75,9 @@
                     What is Hotdesking?
                 </h1>
                 <p class="max-w-sm mx-auto text-xl text-center text-mainBlue md:text-left">
-                    Hotdesking is a flexible office arrangement where employees do not have assigned desks, but instead can choose from a pool of available workstations each day. In our system, employees can book a desk through our online platform or mobile app.
+                    Hotdesking is a flexible office arrangement where employees do not have assigned desks, but instead
+                    can choose from a pool of available workstations each day. In our system, employees can book a desk
+                    through our online platform or mobile app.
                 </p>
             </div>
             {{-- Offer --}}
@@ -77,14 +86,20 @@
                     Service We Offer
                 </h1>
                 <p class="max-w-sm mx-auto text-xl text-center text-mainBlue md:text-left">
-                    To reserve a hotdesk, employees can log into our system using their credentials and access the hotdesking feature. They can view the availability of desks for a specific date and time, and select a desk that suits their requirements. Once they have made a reservation, the desk will be reserved under their name for the designated time slot.
+                    To reserve a hotdesk, employees can log into our system using their credentials and access the
+                    hotdesking feature. They can view the availability of desks for a specific date and time, and select
+                    a desk that suits their requirements. Once they have made a reservation, the desk will be reserved
+                    under their name for the designated time slot.
 
                 </p>
                 <p class="max-w-sm mx-auto text-xl text-center text-mainBlue md:text-left">
-                    In our hotdesking system, employees can use a desk for the designated time slot they have reserved. The time could be a few hours, half a day, or a full day, depending on their preference and availability.
+                    In our hotdesking system, employees can use a desk for the designated time slot they have reserved.
+                    The time could be a few hours, half a day, or a full day, depending on their preference and
+                    availability.
                 </p>
             </div>
         </div>
     </section>
 </body>
+
 </html>

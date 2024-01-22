@@ -32,13 +32,13 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="/desks">
                     <i class='bx bx-desktop'></i>
                     <span class="text">Manage Desks</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/roles">
                     <i class='bx bx-user-pin'></i>
                     <span class="text">Manage Roles</span>
                 </a>
@@ -46,13 +46,13 @@
         </ul>
         <ul class="side-menu">
             <li>
-                <a href="#">
+                <a href="/faqs">
                     <i class='bx bx-question-mark'></i>
                     <span class="text">FAQs</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/guide">
                     <i class='bx bxs-component'></i>
                     <span class="text">User Guide</span>
                 </a>
@@ -84,7 +84,7 @@
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
             </a>
-            <a href="profile.html" class="profile">
+            <a href="/profile" class="profile">
                 <img src="{{ asset('images/main/monk.jpg') }}">
             </a>
         </nav>
