@@ -24,3 +24,16 @@ Route::get('/register', function () {
 Route::get('/sign_in', function () {
     return view('sign_in');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard', [
+        'cssPaths' => [
+            'resources/css/main/default.css',
+            'resources/css/main/sidebar.css',
+            'resources/css/main/content.css',
+            'resources/css/main/content2.css',
+            'resources/css/main/dashboard.css',
+        ],
+        'title' => 'Dashboard | ApexHubSpot'
+    ]);
+});
