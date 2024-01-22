@@ -7,52 +7,52 @@
         </a>
         <ul class="side-menu top">
             <li class="active">
-                <a href="homepage.html">
+                <a href="/dashboard">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="booking.html">
+                <a href="/bookings">
                     <i class='bx bxs-book-alt'></i>
                     <span class="text">Booking</span>
                 </a>
             </li>
             <li>
-                <a href="officemap.html">
+                <a href="/office_map">
                     <i class='bx bxs-map'></i>
                     <span class="text">Office Map</span>
                 </a>
             </li>
             <li>
-                <a href="manageuser.html">
+                <a href="/users">
                     <i class='bx bxs-group'></i>
                     <span class="text">Manage Users</span>
                 </a>
             </li>
 
             <li>
-                <a href="managedesk.html">
+                <a href="#">
                     <i class='bx bx-desktop'></i>
-                    <span class="text">Manage Desk</span>
+                    <span class="text">Manage Desks</span>
                 </a>
             </li>
             <li>
-                <a href="managerole.html">
+                <a href="#">
                     <i class='bx bx-user-pin'></i>
-                    <span class="text">Manage Role</span>
+                    <span class="text">Manage Roles</span>
                 </a>
             </li>
         </ul>
         <ul class="side-menu">
             <li>
-                <a href="faqs.html">
-                    <i class='bx bxs-cog'></i>
+                <a href="#">
+                    <i class='bx bx-question-mark'></i>
                     <span class="text">FAQs</span>
                 </a>
             </li>
             <li>
-                <a href="userguide.html">
+                <a href="#">
                     <i class='bx bxs-component'></i>
                     <span class="text">User Guide</span>
                 </a>
@@ -84,7 +84,7 @@
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
             </a>
-            <a href="profile.html" class="profile">
+            <a href="#" class="profile">
                 <img src="{{ asset('images/main/monk.jpg') }}">
             </a>
         </nav>
@@ -95,7 +95,7 @@
             <div class="head-title">
                 <div class="left">
                     <h1>Dashboard</h1>
-                    <ul class="breadcrumb">
+                    {{-- <ul class="breadcrumb">
                         <li>
                             <a href="#">Dashboard</a>
                         </li>
@@ -103,7 +103,7 @@
                         <li>
                             <a class="active" href="#">Home</a>
                         </li>
-                    </ul>
+                    </ul> --}}
                 </div>
 
             </div>
@@ -144,7 +144,7 @@
 			<tbody>
 				<tr>
 					<td>
-						<img src="img/people.png">
+						<img src="{{ asset('people.png') }}">
 						<p>John Doe</p>
 					</td>
 					<td>01-10-2021</td>
@@ -152,7 +152,7 @@
 				</tr>
 				<tr>
 					<td>
-						<img src="img/people.png">
+						<img src="{{ asset('people.png') }}">
 						<p>John Doe</p>
 					</td>
 					<td>01-10-2021</td>
@@ -160,7 +160,7 @@
 				</tr>
 				<tr>
 					<td>
-						<img src="img/people.png">
+						<img src="{{ asset('people.png') }}">
 						<p>John Doe</p>
 					</td>
 					<td>01-10-2021</td>
@@ -168,7 +168,7 @@
 				</tr>
 				<tr>
 					<td>
-						<img src="img/people.png">
+						<img src="{{ asset('people.png') }}">
 						<p>John Doe</p>
 					</td>
 					<td>01-10-2021</td>
@@ -176,7 +176,7 @@
 				</tr>
 				<tr>
 					<td>
-						<img src="img/people.png">
+						<img src="{{ asset('people.png') }}">
 						<p>John Doe</p>
 					</td>
 					<td>01-10-2021</td>
@@ -269,7 +269,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <img src="{{ asset('images/main/Alex Gon') }}ley.jpg">
+                                    <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
                                     <p>John Doe</p>
                                 </td>
                                 <td>01-10-2021</td>
@@ -277,7 +277,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="{{ asset('images/main/Alson GC') }}.jpg">
+                                    <img src="{{ asset('images/main/Alson GC.jpg') }}">
                                     <p>John Doe</p>
                                 </td>
                                 <td>01-10-2021</td>
@@ -285,7 +285,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="{{ asset('images/main/Alson GC') }}.jpg">
+                                    <img src="{{ asset('images/main/Alson GC.jpg') }}">
                                     <p>John Doe</p>
                                 </td>
                                 <td>01-10-2021</td>
@@ -293,7 +293,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="{{ asset('images/main/Alson GC') }}.jpg">
+                                    <img src="{{ asset('images/main/Alson GC.jpg') }}">
                                     <p>John Doe</p>
                                 </td>
                                 <td>01-10-2021</td>
@@ -301,7 +301,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="{{ asset('images/main/Alson GC') }}.jpg">
+                                    <img src="{{ asset('images/main/Alson GC.jpg') }}">
                                     <p>John Doe</p>
                                 </td>
                                 <td>01-10-2021</td>
@@ -345,6 +345,5 @@
         <!-- MAIN -->
     </section>
     <!-- CONTENT -->
-    <script src="{{ asset('js/sidebar.js') }}"></script>
 
 </x-layout>
