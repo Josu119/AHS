@@ -12,5 +12,6 @@
 </head>
 <body>
     {{ $slot }}
+    <script src="{{ asset('js/sidebar.js') }}"></script>
 </body>
 </html>
