@@ -23,3 +23,9 @@
 #content main .table-data .todo .todo-list li .bx {
     cursor: pointer;
 }
+
+@media screen and (max-width: 576px) {
+    #content main .table-data .todo .todo-list {
+        min-width: 420px;
+    }
+}

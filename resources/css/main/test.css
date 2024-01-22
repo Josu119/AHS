@@ -1,34 +1,29 @@
 /*
 *   # CSS Lists
 *
+*   *:
+*       default, sidebar
+*
 *   ## ADMIN
 *
 *   [booking, bookingHistory]:
-*       default, content, mediaQueries
+*       content
 *
-*   faqs:
-*       default, mediaQueries
 *   dashboard:
-*       all
+*       content, content2
 *
 *   [manageDesk, manageRole, manageUser]:
-*       default, content2, mediaQueries
+*       all
 *       -- EXCEPT
-*       -- In line 529:
-*       ---- manageDesk:
-*       ------ background: var(--yellow);
+*       -- In #content main .table-data .order table tr td .status.process:
 *       ---- manageRole:
 *       ------ background: var(--light-yellow);
 *       ------ color:var(--dark)
-*
-*   [officeMap, userGuide]:
-*       default, mediaQueries
 *
 *   ## Has INDEPENDENT styles
 *
 *   dashboard
 *   faqs
-*   sidebar
 *   officeMap
 *   userGuide
 *

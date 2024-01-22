@@ -181,3 +181,17 @@
 #content main .table-data .todo .todo-list li:last-child {
     margin-bottom: 0;
 }
+
+@media screen and (max-width: 576px) {
+    #content main .box-info {
+        grid-template-columns: 1fr;
+    }
+
+    #content main .table-data .head {
+        min-width: 420px;
+    }
+
+    #content main .table-data .order table {
+        min-width: 420px;
+    }
+}
