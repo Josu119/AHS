@@ -101,7 +101,8 @@
 
     </section>
     <div style="position: absolute;z-index: 1;margin-left: 30px;">
-        <svg class="floor-plan" width="700" height="450" xmlns="http://www.w3.org/2000/svg">
+        <img src="{{ asset('images/floor-plan.png') }}" alt="Floor Plan" class="floor-plan">
+        {{-- <svg class="floor-plan" width="700" height="450" xmlns="http://www.w3.org/2000/svg">
             <!-- Define a pattern for the background image -->
             <defs>
                 <pattern id="bg-pattern" width="100%" height="100%" patternContentUnits="objectBoundingBox">
@@ -146,7 +147,11 @@
                 style="background-color: rgb(156, 163, 163);height: 30px;width: 100px;text-align: center;font-size: larger;border-radius: 5px;border:1px solid black">
                 Office
             </div>
-        </div>
+        </div> --}}
+    </div>
+
+    <div>
+
     </div>
 
 </x-layout>
