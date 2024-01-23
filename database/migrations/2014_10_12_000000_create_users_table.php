@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('password');
             $table->string('first_name', 50);
             $table->string('last_name', 50);
-            $table->boolean('isApproved');
+            $table->boolean('is_approved');
             $table->enum('role', ['user', 'office_manager', 'admin']);
-            $table->rememberToken('token');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

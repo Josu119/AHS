@@ -113,36 +113,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-                                <td>Johndoe@laverdad.com</td>
-                                <td><span class="status cancelled">Delete</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-                                <td>Johndoe@laverdad.com</td>
-                                <td><span class="status cancelled">Delete</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-                                <td>Johndoe@laverdad.com</td>
-                                <td><span class="status cancelled">Delete</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-                                <td>Johndoe@laverdad.com</td>
-                                <td><span class="status cancelled">Delete</span></td>
-                            </tr>
-
-
+                            @foreach ($users as $user)
+                            <x-user_row :user="$user"/>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -155,8 +128,16 @@
 
                     </div>
                     <ul class="todo-list">
-                        <input type="text" placeholder="Enter Name"
+                        <input type="text" placeholder="Enter Username"
                             style="padding:10px;border-radius: 10px;width:80%">
+                    </ul>
+                    <ul class="todo-list">
+                        <input type="text" placeholder="Enter Firstname"
+                            style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;">
+                    </ul>
+                    <ul class="todo-list">
+                        <input type="text" placeholder="Enter Lastname"
+                            style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;">
                     </ul>
                     <ul class="todo-list">
                         <input type="text" placeholder="Enter Email"
@@ -166,10 +147,9 @@
                         <input type="text" placeholder="Enter Password"
                             style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;">
                     </ul>
-                    <button>Generate Random Password</button>
                     <ul class="todo-list" style="margin-top: 10px;">
                         <button style="padding: 5px 10px; background-color: green;">Add</button>
-                        <button style="padding: 5px 10px;background-color: red;">Cancel</button>
+                        <button style="padding: 5px 10px;background-color: red;">Clear</button>
                     </ul>
                 </div>
             </div>
