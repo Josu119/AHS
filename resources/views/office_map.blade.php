@@ -85,7 +85,7 @@
                 <span class="num">8</span>
             </a>
             <a href="/profile" class="profile">
-                <img src="{{ asset('images/main/monk.jpg') }}">
+                Profile
             </a>
         </nav>
         <!-- NAVBAR -->

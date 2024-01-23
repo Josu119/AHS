@@ -85,7 +85,7 @@
                 <span class="num">8</span>
             </a>
             <a href="/profile" class="profile">
-                <img src="{{ asset('images/main/monk.jpg') }}">
+                Profile
             </a>
         </nav>
         <!-- NAVBAR -->
@@ -95,12 +95,6 @@
             <div class="head-title">
                 <div class="left">
                     <div class="profile">
-
-                        <div class="pfp">
-                            <img src="{{ asset('images/main/monk.jpg') }}" alt=" "style="width:300px">
-                            <button style="padding:5px">Upload photo</button>
-                        </div>
-
                         <div class="user">
                             <p style="font-size: 30px;">John Doe Meng</p>
                             <p style="font-size: 20px; color: rgb(29, 58, 91);">Administrator</p>

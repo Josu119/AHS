@@ -85,7 +85,7 @@
                 <span class="num">8</span>
             </a>
             <a href="/profile" class="profile">
-                <img src="{{ asset('images/main/monk.jpg') }}">
+                Profile
             </a>
         </nav>
         <!-- NAVBAR -->
@@ -115,7 +115,6 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
                                     <p>John Doe</p>
                                 </td>
                                 <td>Johndoe@laverdad.com</td>
@@ -125,7 +124,6 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
                                     <p>John Doe</p>
                                 </td>
                                 <td>Johndoe@laverdad.com</td>
@@ -135,7 +133,6 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
                                     <p>John Doe</p>
                                 </td>
                                 <td>Johndoe@laverdad.com</td>
@@ -145,7 +142,6 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="{{ asset('images/main/Alex Gonley.jpg') }}">
                                     <p>John Doe</p>
                                 </td>
                                 <td>Johndoe@laverdad.com</td>
