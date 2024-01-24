@@ -80,10 +80,10 @@
                 </div>
             </form>
 
-            <a href="#" class="notification">
+            {{-- <a href="#" class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
-            </a>
+            </a> --}}
             <a href="/profile" class="profile">
                 Profile
             </a>
@@ -101,14 +101,14 @@
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-
-
+                        <input type="search" name="search" id="" placeholder="Search by name">
                     </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>User</th>
-                                <th>Email </th>
+                                <th>Username</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -120,7 +120,7 @@
                     </table>
                 </div>
 
-                <div class="todo">
+                {{-- <div class="todo">
                     <div class="head">
                         <h3></h3>
                         <p>Add User</p>
@@ -151,7 +151,7 @@
                         <button style="padding: 5px 10px; background-color: green;">Add</button>
                         <button style="padding: 5px 10px;background-color: red;">Clear</button>
                     </ul>
-                </div>
+                </div> --}}
             </div>
 
         </main>

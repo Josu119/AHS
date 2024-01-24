@@ -80,10 +80,10 @@
                 </div>
             </form>
 
-            <a href="#" class="notification">
+            {{-- <a href="#" class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
-            </a>
+            </a> --}}
             <a href="/profile" class="profile">
                 Profile
             </a>
@@ -95,82 +95,25 @@
             <div class="head-title">
                 <div class="left">
                     <h1>Manage Desks</h1>
-
                 </div>
-
             </div>
 
             <div class="table-data">
                 <div class="order">
-                    <div class="head">
-
-
-                    </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>Image</th>
-                                <th>Desk </th>
+                                <th>Desk</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('images/main/desk2.jpg') }}">
-
-                                </td>
-                                <td>Desk 2A</td>
-                                <td><span class="status cancelled">Delete</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('images/main/desk2.jpg') }}">
-
-                                </td>
-                                <td>Desk 2B</td>
-                                <td><span class="status cancelled">Delete</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('images/main/desk3.jpg') }}">
-
-                                </td>
-                                <td>Desk 2C</td>
-                                <td><span class="status cancelled">Delete</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('images/main/desk4.jpg') }}">
-
-                                </td>
-                                <td>Desk 2D</td>
-                                <td><span class="status cancelled">Delete</span></td>
-                            </tr>
-
-
+                            @foreach ($desks as $desk)
+                            <x-desk_row :desk="$desk"/>
+                            @endforeach
                         </tbody>
                     </table>
-                </div>
-
-                <div class="todo">
-                    <div class="head">
-                        <h3></h3>
-                        <p>Add Desk</p>
-                        <i class='bx bx-plus'></i>
-
-                    </div>
-
-
-                    <ul class="todo-list">
-                        <input type="text" placeholder="Enter DeskNumber"
-                            style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;">
-                    </ul>
-                    <button>Upload Photo</button>
-                    <ul class="todo-list" style="margin-top: 10px;">
-                        <button style="padding: 5px 10px; background-color: green;">Add</button>
-                        <button style="padding: 5px 10px;background-color: red;">Cancel</button>
-                    </ul>
                 </div>
             </div>
 

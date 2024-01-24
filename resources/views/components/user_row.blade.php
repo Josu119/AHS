@@ -1,10 +1,12 @@
 @props(['user'])
 
 <tr>
-    <td>
-        <p>{{ $user->first_name . ' ' . $user->last_name }}</p>
-    </td>
+    <td>{{ $user->username }}</td>
+
+    <td>{{ $user->first_name . ' ' . $user->last_name }}</td>
+
     <td>{{ $user->email }}</td>
+
     <td>
         @if ($user->is_approved === 0)
         <span class="status available">Approve</span>

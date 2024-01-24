@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\DeskController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Models\Desk;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,27 +67,6 @@ Route::get('/office_map', function () {
     ]);
 });
 
-Route::get('/users', function () {
-    return view('users', [
-        'cssPaths' => [
-            'resources/css/main/content.css',
-            'resources/css/main/content2.css',
-        ],
-        'title' => 'Manage Users | ApexHubSpot',
-        'users' => User::all()
-    ]);
-});
-
-Route::get('/desks', function () {
-    return view('desks', [
-        'cssPaths' => [
-            'resources/css/main/content.css',
-            'resources/css/main/content2.css',
-        ],
-        'title' => 'Manage Desks | ApexHubSpot'
-    ]);
-});
-
 Route::get('/roles', function () {
     return view('roles', [
         'cssPaths' => [
@@ -130,3 +112,18 @@ Route::get('/profile', function () {
         'title' => 'Profile | ApexHubSpot'
     ]);
 });
+
+// Common Resource Routes:
+// index - Show all items
+// show - Show single item
+// create - Show form to create new item
+// store - Store new item
+// edit - Show form to edit item
+// update - Update item
+// destroy - Delete item
+
+Route::get('/users', [UserController::class, 'index']);
+
+// Route::get('/users/{user}', [UserController::class, 'show']);
+
+Route::get('/desks', [DeskController::class, 'index']);
