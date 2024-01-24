@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('desks', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('desk_number');
-            $table->boolean('is_out_of_order');
-            $table->boolean('is_available');
+            $table->boolean('is_out_of_order')->default('0');
+            $table->boolean('is_available')->default('1');
             $table->timestamps();
         });
     }

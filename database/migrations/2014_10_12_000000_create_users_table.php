@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('first_name', 50);
             $table->string('last_name', 50);
-            $table->boolean('is_approved');
-            $table->enum('role', ['user', 'office_manager', 'admin']);
+            $table->boolean('is_approved')->default('0');
+            $table->enum('role', ['user', 'office_manager', 'admin'])->default('user');
             $table->rememberToken();
             $table->timestamps();
         });

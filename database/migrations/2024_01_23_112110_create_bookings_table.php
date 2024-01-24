@@ -27,8 +27,8 @@ return new class extends Migration
                   ->cascadeOnUpdate()
                   ->nullOnDelete();
             $table->date('date');
-            $table->boolean('is_canceled');
-            $table->boolean('is_archived');
+            $table->boolean('is_canceled')->default('0');
+            $table->boolean('is_archived')->default('0');
             $table->timestamps();
         });
     }
