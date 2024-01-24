@@ -103,6 +103,9 @@
                     <div class="head">
                         @include('partials._search_user')
                     </div>
+                    <div>
+                        {{ $users->links() }}
+                    </div>
                     <table>
                         <thead>
                             <tr>
@@ -118,13 +121,18 @@
                                     <a href="/users/create" class="h-10 w-40 text-white text-center leading-10 bg-darkOlive rounded-full">Create a User</a>
                                 </td>
                             </tr>
-                            @foreach ($users as $user)
-                            <x-user_row :user="$user"/>
-                            @endforeach
+                            @unless (count($users) == 0)
+                                @foreach ($users as $user)
+                                    <x-user_row :user="$user"/>
+                                @endforeach
+                            @else
+                                <p>No user found.</p>
+                            @endunless
                         </tbody>
                     </table>
                 </div>
             </div>
+
 
         </main>
 

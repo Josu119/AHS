@@ -15,7 +15,7 @@ class UserController extends Controller
                 'resources/css/main/content.css',
             ],
             'title' => 'Manage Users | ApexHubSpot',
-            'users' => User::latest()->filter(request(['search']))->get()
+            'users' => User::latest()->filter(request(['search']))->paginate(10)
         ]);
     }
 
@@ -54,6 +54,33 @@ class UserController extends Controller
 
         User::create($formFields);
 
-        return redirect('/users')->with('message', 'Users list updated!');
+        return redirect('/users')->with('message', 'Update: User created!');
+    }
+
+    // Show edit form
+    public function edit(User $user) {
+        return view('users.edit', [
+            'cssPaths' => [
+                'resources/css/main/content.css',
+                'resources/css/main/content2.css',
+            ],
+            'title' => 'Manage Users | ApexHubSpot',
+            'user' => $user,
+        ]);
+    }
+
+    // Update item data
+    public function update(Request $request, User $user) {
+        $formFields = $request->validate([
+            'username' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            // 'email' => ['required', 'email'],
+            // 'password' => 'required',
+        ]);
+
+        $user->update($formFields);
+
+        return redirect('/users')->with('message', 'Update: User edited!');
     }
 }

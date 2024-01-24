@@ -93,48 +93,50 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Create User</h1>
+                    <h1>Edit {{ $user->username }}'s Profile</h1>
                 </div>
             </div>
 
-            <form method="POST" action="/users">
+            <form method="POST" action="/users/{{ $user->id }}/edit">
                 @csrf {{-- Prevents cross-site scripting attacks --}}
+                @method('PUT')
                 <div class="table-data">
                     <div class="todo">
                         <div class="head">
                         </div>
                         <ul class="todo-list">
-                            <input type="text" name="username" placeholder="Username" style="padding:10px;border-radius: 10px;width:80%" value="{{ old('username') }}" />
+                            <input type="text" name="username" placeholder="Username" style="padding:10px;border-radius: 10px;width:80%" value="{{ $user->username }}" />
                             @error('username')
                                 <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </ul>
                         <ul class="todo-list">
-                            <input type="text" name="first_name" placeholder="First Name" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;" value="{{ old('first_name') }}" />
+                            <input type="text" name="first_name" placeholder="First Name" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;" value="{{ $user->first_name }}" />
                             @error('first_name')
                                 <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </ul>
                         <ul class="todo-list">
-                            <input type="text" name="last_name" placeholder="Last Name" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;" value="{{ old('last_name') }}" />
+                            <input type="text" name="last_name" placeholder="Last Name" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;" value="{{ $user->last_name }}" />
                             @error('last_name')
                                 <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </ul>
-                        <ul class="todo-list">
-                            <input type="text" name="email" placeholder="Email" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;" value="{{ old('email') }}" />
+                        {{-- <ul class="todo-list">
+                            <input type="text" name="email" placeholder="Email" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;" value="{{ $user->email }}" disabled />
                             @error('email')
                                 <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </ul>
                         <ul class="todo-list">
-                            <input type="password" name="password" placeholder="Password" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;" />
+                            <input type="password" name="password" placeholder="Password" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;" value="{{ $user->password }}" disabled />
                             @error('password')
                                 <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
                             @enderror
-                        </ul>
+                        </ul> --}}
                         <ul class="todo-list" style="margin-top: 10px;">
-                            <button type="submit" class="px-3 py-1 bg-darkOlive text-white rounded-xl">Add</button>
+                            <button type="submit" class="px-3 py-1 bg-orange-700 text-white rounded-xl">Update</button>
+                            <a href="/users" class="px-3 py-1 bg-gray-300 text-black rounded-xl">Cancel</a>
                             {{-- <button class="px-3 py-1 bg-red-700 text-white rounded-xl">Clear</button> --}}
                         </ul>
                     </div>

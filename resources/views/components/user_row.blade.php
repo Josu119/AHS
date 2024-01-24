@@ -8,6 +8,9 @@
     <td>{{ $user->email }}</td>
 
     <td>
+        <a href="/users/{{ $user->id }}/edit">
+            <span class="status bg-cautionYellow !text-black">Edit</span>
+        </a>
         <span class="status cancelled">Delete</span>
         @if ($user->is_approved === 0)
         <span class="status available">Approve</span>
