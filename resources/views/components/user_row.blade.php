@@ -8,10 +8,9 @@
     <td>{{ $user->email }}</td>
 
     <td>
+        <span class="status cancelled">Delete</span>
         @if ($user->is_approved === 0)
         <span class="status available">Approve</span>
-        @elseif ($user->is_approved === 1)
-        <span class="status cancelled">Delete</span>
         @endif
     </td>
 </tr>
