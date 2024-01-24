@@ -101,7 +101,7 @@
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <input type="search" name="search" id="" placeholder="Search by name">
+                        @include('partials._search_user')
                     </div>
                     <table>
                         <thead>

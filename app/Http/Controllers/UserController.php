@@ -15,7 +15,7 @@ class UserController extends Controller
                 'resources/css/main/content2.css',
             ],
             'title' => 'Manage Users | ApexHubSpot',
-            'users' => User::all()
+            'users' => User::latest()->filter(request(['search']))->get()
         ]);
     }
 
