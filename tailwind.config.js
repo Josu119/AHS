@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -34,7 +36,12 @@ module.exports = {
         // technical colors
         dangerRed: '#c73737',
         cautionYellow: '#f8b800',
-        safeGreen: '#57b03b'
+        safeGreen: '#57b03b',
+
+        // pulling default palette
+        emerald: colors.emerald,
+        orange: colors.orange,
+        yellow: colors.yellow,
       }
     },
   },
