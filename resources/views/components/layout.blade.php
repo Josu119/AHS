@@ -18,5 +18,6 @@
 <body>
     {{ $slot }}
     <script src="{{ asset('js/sidebar.js') }}"></script>
+    <x-flash_message />
 </body>
 </html>

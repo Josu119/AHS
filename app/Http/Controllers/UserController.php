@@ -54,6 +54,6 @@ class UserController extends Controller
 
         User::create($formFields);
 
-        return redirect('/users');
+        return redirect('/users')->with('message', 'Users list updated!');
     }
 }
