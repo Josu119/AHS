@@ -124,6 +124,11 @@ Route::get('/profile', function () {
 
 Route::get('/users', [UserController::class, 'index']);
 
+Route::get('/users/create', [UserController::class, 'create']);
+
+Route::post('/users', [UserController::class, 'store']);
+
+// Show route should be always at the last line after preceeding paths
 // Route::get('/users/{user}', [UserController::class, 'show']);
 
 Route::get('/desks', [DeskController::class, 'index']);

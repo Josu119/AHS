@@ -130,10 +130,6 @@
     object-fit: cover;
 }
 
-#content main .table-data .order table tbody tr:hover {
-    background: var(--grey);
-}
-
 #content main .table-data .order table tr td .status {
     font-size: 10px;
     padding: 6px 16px;

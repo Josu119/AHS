@@ -90,41 +90,56 @@
         </nav>
         <!-- NAVBAR -->
 
-        <!-- MAIN -->
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Manage User</h1>
+                    <h1>Create User</h1>
                 </div>
             </div>
 
-            <div class="table-data">
-                <div class="order">
-                    <div class="head">
-                        @include('partials._search_user')
+            <form method="POST" action="/users">
+                @csrf {{-- Prevents cross-site scripting attacks --}}
+                <div class="table-data">
+                    <div class="todo">
+                        <div class="head">
+                        </div>
+                        <ul class="todo-list">
+                            <input type="text" name="username" placeholder="Username" style="padding:10px;border-radius: 10px;width:80%">
+                            @error('username')
+                                <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </ul>
+                        <ul class="todo-list">
+                            <input type="text" name="first_name" placeholder="First Name" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;">
+                            @error('first_name')
+                                <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </ul>
+                        <ul class="todo-list">
+                            <input type="text" name="last_name" placeholder="Last Name" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;">
+                            @error('last_name')
+                                <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </ul>
+                        <ul class="todo-list">
+                            <input type="text" name="email" placeholder="Email" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;">
+                            @error('email')
+                                <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </ul>
+                        <ul class="todo-list">
+                            <input type="password" name="password" placeholder="Password" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;">
+                            @error('password')
+                                <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </ul>
+                        <ul class="todo-list" style="margin-top: 10px;">
+                            <button type="submit" class="px-3 py-1 bg-darkOlive text-white rounded-xl">Add</button>
+                            {{-- <button class="px-3 py-1 bg-red-700 text-white rounded-xl">Clear</button> --}}
+                        </ul>
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>Full Name</th>
-                                <th>Email</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a href="/users/create" class="h-10 w-40 text-white text-center leading-10 bg-darkOlive rounded-full">Create a User</a>
-                                </td>
-                            </tr>
-                            @foreach ($users as $user)
-                            <x-user_row :user="$user"/>
-                            @endforeach
-                        </tbody>
-                    </table>
                 </div>
-            </div>
+            </form>
 
         </main>
 
