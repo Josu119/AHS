@@ -80,10 +80,10 @@
                 </div>
             </form>
 
-            <a href="#" class="notification">
+            {{-- <a href="#" class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
-            </a>
+            </a> --}}
             <a href="/profile" class="profile">
                 Profile
             </a>
