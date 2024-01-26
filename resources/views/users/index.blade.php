@@ -112,7 +112,7 @@
                                 <th>Username</th>
                                 <th>Full Name</th>
                                 <th>Email</th>
-                                <th>Action</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -126,7 +126,9 @@
                                     <x-user_row :user="$user"/>
                                 @endforeach
                             @else
-                                <p>No user found.</p>
+                                <tr>
+                                    <td>No user found.</td>
+                                </tr>
                             @endunless
                         </tbody>
                     </table>

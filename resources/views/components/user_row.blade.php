@@ -11,9 +11,20 @@
         <a href="/users/{{ $user->id }}/edit">
             <span class="status bg-cautionYellow !text-black">Edit</span>
         </a>
-        <span class="status cancelled">Delete</span>
-        @if ($user->is_approved === 0)
-        <span class="status available">Approve</span>
-        @endif
+        {{-- <span class="status cancelled">Delete</span> --}}
+        <form method="POST" action="/users/{{ $user->id }}" style="display: inline-block">
+            @csrf
+            @method('DELETE')
+            <button class="status bg-dangerRed !text-white">Delete</button>
+        </form>
+        <form method="POST" action="/users/{{ $user->id }}" style="display: inline-block">
+            @csrf
+            @method('PUT')
+            @if ($user->is_approved === 0)
+                <button class="status available">Approve</button>
+            @elseif ($user->is_approved === 1)
+                <button class="status bg-orange-700">Put On Hold</button>
+            @endif
+        </form>
     </td>
 </tr>

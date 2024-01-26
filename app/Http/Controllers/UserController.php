@@ -83,4 +83,22 @@ class UserController extends Controller
 
         return back()->with('message', 'Update: User edited!');
     }
+
+    // Delete user
+    public function destroy(User $user) {
+        $user->delete();
+        return redirect('/users')->with('message', 'Update: User deleted!');
+    }
+
+    // Switch is_approve
+    public function approve(User $user) {
+        $message = '';
+        if ($user->is_approved === 0) {
+            $user->update(['is_approved' => 1]);
+            return back()->with('message', 'Update: User approved!');
+        } elseif ($user->is_approved === 1) {
+            $user->update(['is_approved' => 0]);
+            return back()->with('message', 'Update: User put on hold!');
+        }
+    }
 }

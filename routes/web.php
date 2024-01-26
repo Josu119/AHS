@@ -134,6 +134,10 @@ Route::get('/users/{user}/edit', [UserController::class, 'edit']);
 
 Route::put('/users/{user}/edit', [UserController::class, 'update']);
 
+Route::put('/users/{user}', [UserController::class, 'approve']);
+
+Route::delete('/users/{user}', [UserController::class, 'destroy']);
+
 // Show route should be always at the last line after preceeding paths
 // Route::get('/users/{user}', [UserController::class, 'show']);
 
