@@ -81,6 +81,6 @@ class UserController extends Controller
 
         $user->update($formFields);
 
-        return redirect('/users')->with('message', 'Update: User edited!');
+        return back()->with('message', 'Update: User edited!');
     }
 }
