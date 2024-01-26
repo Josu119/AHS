@@ -103,32 +103,37 @@
                     <div class="todo">
                         <div class="head">
                         </div>
-                        <ul class="todo-list">
-                            <input type="text" name="username" placeholder="Username" style="padding:10px;border-radius: 10px;width:80%" value="{{ old('username') }}" />
+                        <ul class="todo-list mb-3">
+                            <p class="font-bold">Username</p>
+                            <input type="text" name="username" placeholder="Username" style="padding:10px;border-radius: 10px;width:80%" value="{{ old('username') }}" required />
                             @error('username')
-                                <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
+                            <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </ul>
-                        <ul class="todo-list">
-                            <input type="text" name="first_name" placeholder="First Name" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;" value="{{ old('first_name') }}" />
+                        <ul class="todo-list mb-3">
+                            <p class="font-bold">First Name</p>
+                            <input type="text" name="first_name" placeholder="First Name" style="padding:10px;border-radius: 10px;width:80%;" value="{{ old('first_name') }}" required />
                             @error('first_name')
                                 <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </ul>
-                        <ul class="todo-list">
-                            <input type="text" name="last_name" placeholder="Last Name" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;" value="{{ old('last_name') }}" />
+                        <ul class="todo-list mb-3">
+                            <p class="font-bold">Last Name</p>
+                            <input type="text" name="last_name" placeholder="Last Name" style="padding:10px;border-radius: 10px;width:80%;" value="{{ old('last_name') }}" required />
                             @error('last_name')
                                 <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </ul>
-                        <ul class="todo-list">
-                            <input type="text" name="email" placeholder="Email" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;" value="{{ old('email') }}" />
+                        <ul class="todo-list mb-3">
+                            <p class="font-bold">Email</p>
+                            <input type="text" name="email" placeholder="Email" style="padding:10px;border-radius: 10px;width:80%;" value="{{ old('email') }}" required />
                             @error('email')
                                 <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </ul>
-                        <ul class="todo-list">
-                            <input type="password" name="password" placeholder="Password" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;" />
+                        <ul class="todo-list mb-3">
+                            <p class="font-bold">Password</p>
+                            <input type="password" name="password" placeholder="Password" style="padding:10px;border-radius: 10px;width:80%;" required />
                             @error('password')
                                 <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
                             @enderror
