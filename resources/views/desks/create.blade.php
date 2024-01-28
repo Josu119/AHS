@@ -115,7 +115,7 @@
                             @enderror
                         </ul>
                         <ul class="todo-list mb-3">
-                            <p class="font-bold" style="display: inline">Accessible?</p><br>
+                            <p class="font-bold">Accessible?</p>
                             <input type="radio" name="is_out_of_order" value="0" id="out_of_order" required>
                             <label for="out_of_order">Yes</label><br>
                             <input type="radio" name="is_out_of_order" value="1" id="available" required>
