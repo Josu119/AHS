@@ -105,23 +105,60 @@
                         <div class="head">
                         </div>
                         <ul class="todo-list">
+                            <p class="font-bold">Username</p>
                             <input type="text" name="username" placeholder="Username" style="padding:10px;border-radius: 10px;width:80%" value="{{ $user->username }}" />
                             @error('username')
                                 <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </ul>
                         <ul class="todo-list">
+                            <p class="font-bold">First Name</p>
                             <input type="text" name="first_name" placeholder="First Name" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;" value="{{ $user->first_name }}" />
                             @error('first_name')
                                 <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </ul>
                         <ul class="todo-list">
+                            <p class="font-bold">Last Name</p>
                             <input type="text" name="last_name" placeholder="Last Name" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;" value="{{ $user->last_name }}" />
                             @error('last_name')
                                 <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </ul>
+                        @unless ($user->role === 'admin')
+                        <ul class="todo-list mb-3">
+                            <p class="font-bold">Role:</p>
+                            <select name="role" class="p-1 border-2 rounded-2xl active:rounded-2xl">
+                                @if ($user->role === 'user')
+                                <option value="user" selected>User</option>
+                                <option value="office_manager">Office Manager</option>
+                                @elseif ($user->role === 'office_manager')
+                                <option value="user">User</option>
+                                <option value="office_manager" selected>Office Manager</option>
+                                @endif
+                            </select>
+                            @error('role')
+                            <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </ul>
+                        {{-- <ul class="todo-list mb-3">
+                            <p class="font-bold">Role</p>
+                            @if ($user->role === 'user')
+                            <input type="radio" name="role" value="user" id="user" checked required>
+                            <label for="user">User</label><br>
+                            <input type="radio" name="role" value="office_manager" id="office_manager" required>
+                            <label for="office_manager">Office Manager</label>
+                            @elseif ($user->role === 'office_manager')
+                            <input type="radio" name="role" value="user" id="user" required>
+                            <label for="user">User</label><br>
+                            <input type="radio" name="role" value="office_manager" id="office_manager" checked required>
+                            <label for="office_manager">Office Manager</label>
+                            @endif
+                            @error('role')
+                            <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </ul> --}}
+                        @endunless
                         {{-- <ul class="todo-list">
                             <input type="text" name="email" placeholder="Email" style="padding:10px;border-radius: 10px;width:80%;margin-top: 10px;" value="{{ $user->email }}" disabled />
                             @error('email')

@@ -138,6 +138,16 @@
                                 <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </ul>
+                        <ul class="todo-list mb-3">
+                            <p class="font-bold" style="display: inline">Role:</p><br>
+                            <select name="role" class="p-1 border-2 rounded-2xl active:rounded-2xl">
+                                <option value="user">User</option>
+                                <option value="office_manager">Office Manager</option>
+                            </select>
+                            @error('role')
+                            <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </ul>
                         <ul class="todo-list" style="margin-top: 10px;">
                             <button type="submit" class="px-3 py-1 bg-darkOlive text-white rounded-xl">Add User</button>
                             {{-- <button class="px-3 py-1 bg-red-700 text-white rounded-xl">Clear</button> --}}

@@ -50,6 +50,7 @@ class UserController extends Controller
             'last_name' => 'required',
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => 'required',
+            'role' => 'required',
         ]);
 
         User::create($formFields);
@@ -71,17 +72,22 @@ class UserController extends Controller
 
     // Update item data
     public function update(Request $request, User $user) {
-        $formFields = $request->validate([
-            'username' => 'required',
-            'first_name' => 'required',
-            'last_name' => 'required',
-            // 'email' => ['required', 'email'],
-            // 'password' => 'required',
-        ]);
+        if ($user->role != 'admin') {
+            $formFields = $request->validate([
+                'username' => 'required',
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'role' => 'required',
+                // 'email' => ['required', 'email'],
+                // 'password' => 'required',
+            ]);
 
-        $user->update($formFields);
+            $user->update($formFields);
 
-        return back()->with('message', 'Update: User edited!');
+            return back()->with('message', 'Update: User edited!');
+        } else {
+            return back()->with('message', 'Error: You cannot do that!');
+        }
     }
 
     // Delete item

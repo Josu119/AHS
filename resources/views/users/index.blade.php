@@ -94,7 +94,7 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Manage User</h1>
+                    <h1>Manage Users</h1>
                 </div>
             </div>
 
@@ -110,8 +110,9 @@
                         <thead>
                             <tr>
                                 <th>Username</th>
-                                <th>Full Name</th>
-                                <th>Email</th>
+                                <th class="hidden md:table-cell">Full Name</th>
+                                <th class="hidden lg:table-cell">Email</th>
+                                <th class="hidden md:table-cell">Role</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
