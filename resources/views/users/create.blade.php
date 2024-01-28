@@ -139,7 +139,7 @@
                             @enderror
                         </ul>
                         <ul class="todo-list" style="margin-top: 10px;">
-                            <button type="submit" class="px-3 py-1 bg-darkOlive text-white rounded-xl">Add</button>
+                            <button type="submit" class="px-3 py-1 bg-darkOlive text-white rounded-xl">Add User</button>
                             {{-- <button class="px-3 py-1 bg-red-700 text-white rounded-xl">Clear</button> --}}
                         </ul>
                     </div>
