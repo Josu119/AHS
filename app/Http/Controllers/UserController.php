@@ -38,7 +38,7 @@ class UserController extends Controller
                 'resources/css/main/content.css',
                 'resources/css/main/content2.css',
             ],
-            'title' => 'Manage Users | ApexHubSpot',
+            'title' => 'Create User | ApexHubSpot',
         ]);
     }
 
@@ -64,7 +64,7 @@ class UserController extends Controller
                 'resources/css/main/content.css',
                 'resources/css/main/content2.css',
             ],
-            'title' => 'Manage Users | ApexHubSpot',
+            'title' => "Edit" . $user->username . "'s Profile | ApexHubSpot",
             'user' => $user,
         ]);
     }
@@ -84,7 +84,7 @@ class UserController extends Controller
         return back()->with('message', 'Update: User edited!');
     }
 
-    // Delete user
+    // Delete item
     public function destroy(User $user) {
         $user->delete();
         return redirect('/users')->with('message', 'Update: User deleted!');
