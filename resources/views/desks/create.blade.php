@@ -90,46 +90,47 @@
         </nav>
         <!-- NAVBAR -->
 
-        <!-- MAIN -->
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Manage Desks</h1>
+                    <h1>Create Desk</h1>
                 </div>
             </div>
 
-            <div class="table-data">
-                <div class="order">
-                    <div>
-                        {{ $desks->links() }}
+            <form method="POST" action="/desks">
+                @csrf {{-- Prevents cross-site scripting attacks --}}
+                <div class="table-data">
+                    <div class="todo">
+                        <div class="head">
+                        </div>
+                        <ul class="todo-list mb-3">
+                            <p class="font-bold" style="display: inline">Desk Number:</p><br>
+                            <select name="desk_number" class="p-1 border-2 rounded-2xl active:rounded-2xl">
+                                @for ($i = 1; $i <= 33; $i++)
+                                    <option value="{{ $i }}">{{ $i }}</option>
+                                @endfor
+                            </select>
+                            @error('desk_number')
+                            <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </ul>
+                        <ul class="todo-list mb-3">
+                            <p class="font-bold" style="display: inline">Accessible?</p><br>
+                            <input type="radio" name="is_out_of_order" value="0" id="out_of_order" required>
+                            <label for="out_of_order">Yes</label><br>
+                            <input type="radio" name="is_out_of_order" value="1" id="available" required>
+                            <label for="available">No</label>
+                            @error('is_out_of_order')
+                            <p class="text-red-700 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </ul>
+                        <ul class="todo-list" style="margin-top: 10px;">
+                            <button type="submit" class="px-3 py-1 bg-darkOlive text-white rounded-xl">Add Desk</button>
+                            {{-- <button class="px-3 py-1 bg-red-700 text-white rounded-xl">Clear</button> --}}
+                        </ul>
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Desk</th>
-                                <th>Current Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a href="/desks/create" class="h-10 w-40 text-white text-center leading-10 bg-darkOlive rounded-full">Create a Desk</a>
-                                </td>
-                            </tr>
-                            @unless (count($desks) == 0)
-                                @foreach ($desks as $desk)
-                                <x-desk_row :desk="$desk"/>
-                                @endforeach
-                            @else
-                                <tr>
-                                    <td>No user found.</td>
-                                </tr>
-                            @endunless
-                        </tbody>
-                    </table>
                 </div>
-            </div>
+            </form>
 
         </main>
 

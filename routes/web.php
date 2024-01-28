@@ -142,3 +142,11 @@ Route::delete('/users/{user}', [UserController::class, 'destroy']);
 // Route::get('/users/{user}', [UserController::class, 'show']);
 
 Route::get('/desks', [DeskController::class, 'index']);
+
+Route::get('/desks/create', [DeskController::class, 'create']);
+
+Route::post('/desks', [DeskController::class, 'store']);
+
+Route::put('/desks/{desk}', [DeskController::class, 'availability']);
+
+Route::delete('/desks/{desk}', [DeskController::class, 'destroy']);

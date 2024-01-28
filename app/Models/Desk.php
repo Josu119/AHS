@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Desk extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'desk_number',
+        'is_out_of_order',
+    ];
 }
