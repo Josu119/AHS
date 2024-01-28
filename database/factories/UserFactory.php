@@ -28,7 +28,7 @@ class UserFactory extends Factory
             'last_name' => fake()->lastName(),
             // 'email_verified_at' => now(),
             'is_approved' => random_int(0, 1),
-            'role' => fake()->randomElement(['user', 'office_manager', 'admin']),
+            'role' => fake()->randomElement(['user', 'office_manager']),
             'remember_token' => Str::random(10),
         ];
     }
