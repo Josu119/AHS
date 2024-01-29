@@ -120,10 +120,8 @@
                         <thead>
                             <tr>
                                 <th>User</th>
-                                <th>Office</th>
                                 <th>Desk</th>
                                 <th>Date </th>
-                                <th>Time</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -133,72 +131,10 @@
                                     <p>John Doe</p>
                                 </td>
 
-                                <td>Office 1</td>
                                 <td>3C</td>
 
                                 <td>01-10-2021</td>
-                                <td>10:00AM</td>
                                 <td><span class="status completed">On Going</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status available">Confirmed</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status completed">On Going</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status available">Confirmed</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status completed">On Going</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-
-                                <td>Office 1</td>
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td>10:00AM</td>
-                                <td><span class="status available">Confirmed</span></td>
                             </tr>
                         </tbody>
                     </table>
