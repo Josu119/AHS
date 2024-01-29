@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Validation\Rule;
+use PhpParser\Node\Expr\FuncCall;
 
 class UserController extends Controller
 {
@@ -43,15 +44,17 @@ class UserController extends Controller
     }
 
     // Store item data
-    public function store(Request $request) {
+    public function admin_store(Request $request) {
         $formFields = $request->validate([
-            'username' => ['required', Rule::unique('users', 'username')],
+            'username' => ['required', 'min:3', Rule::unique('users', 'username')],
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => 'required',
             'role' => 'required',
         ]);
+
+        $formFields['password'] = bcrypt($formFields['password']);
 
         User::create($formFields);
 
@@ -74,7 +77,7 @@ class UserController extends Controller
     public function update(Request $request, User $user) {
         if ($user->role != 'admin') {
             $formFields = $request->validate([
-                'username' => 'required',
+                'username' => ['required', 'min:3', Rule::unique('users', 'username')],
                 'first_name' => 'required',
                 'last_name' => 'required',
                 'role' => 'required',
@@ -106,5 +109,61 @@ class UserController extends Controller
             $user->update(['is_approved' => 0]);
             return back()->with('message', 'Update: User put on hold!');
         }
+    }
+
+    // Register form
+    public function register() {
+        return view('users.register');
+    }
+
+    public function store(Request $request) {
+        $formFields = $request->validate([
+            'username' => ['required', 'min:3', Rule::unique('users', 'username')],
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => ['required', 'email', Rule::unique('users', 'email')],
+            'password' => ['required', 'confirmed', 'min:7'],
+        ]);
+
+        // Hash Password
+        $formFields['password'] = bcrypt($formFields['password']);
+
+        // Creates user
+        $user = User::create($formFields);
+
+        // Login
+        auth()->login($user);
+
+        return redirect('/dashboard')->with('message', 'User registered and logged in!');
+    }
+
+    // Logout
+    public function logout(Request $request) {
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/')->with('message', 'You have been logged out!');
+    }
+
+    // Sign in form
+    public function sign_in() {
+        return view('users.sign_in');
+    }
+
+    public function authenticate(Request $request) {
+        $formFields = $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        if(auth()->attempt($formFields)) {
+            $request->session()->regenerate();
+
+            return redirect('/dashboard')->with('message', 'You are now logged in!');
+        }
+
+        return back()->withErrors(['username' => 'Invalid credentials!'])->onlyInput('username');
     }
 }

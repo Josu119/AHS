@@ -21,9 +21,15 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::get('/register', function () {
-    return view('register');
-});
+Route::get('/users/register', [UserController::class, 'register']);
+
+Route::post('/register', [UserController::class, 'store'])->middleware('guest');
+
+Route::post('/logout', [UserController::class, 'logout']);
+
+Route::get('/users/sign_in', [UserController::class, 'sign_in'])->name('login')->middleware('guest');
+
+Route::post('/sign_in', [UserController::class, 'authenticate']);
 
 Route::get('/sign_in', function () {
     return view('sign_in');
@@ -38,7 +44,7 @@ Route::get('/dashboard', function () {
         ],
         'title' => 'Dashboard | ApexHubSpot'
     ]);
-});
+})/*->middleware('auth')*/;
 
 Route::get('/bookings', function () {
     return view('bookings', [
@@ -47,7 +53,7 @@ Route::get('/bookings', function () {
         ],
         'title' => 'Bookings | ApexHubSpot'
     ]);
-});
+})/*->middleware('auth')*/;
 
 Route::get('/bookings_history', function () {
     return view('bookings_history', [
@@ -56,7 +62,7 @@ Route::get('/bookings_history', function () {
         ],
         'title' => 'Bookings History | ApexHubSpot'
     ]);
-});
+})/*->middleware('auth')*/;
 
 Route::get('/office_map', function () {
     return view('office_map', [
@@ -65,7 +71,7 @@ Route::get('/office_map', function () {
         ],
         'title' => 'Office Map | ApexHubSpot'
     ]);
-});
+})/*->middleware('auth')*/;
 
 Route::get('/roles', function () {
     return view('roles', [
@@ -76,7 +82,7 @@ Route::get('/roles', function () {
         ],
         'title' => 'Manage Roles | ApexHubSpot'
     ]);
-});
+})/*->middleware('auth')*/;
 
 Route::get('/faqs', function () {
     return view('faqs', [
@@ -87,7 +93,7 @@ Route::get('/faqs', function () {
         ],
         'title' => 'Frequently Asked Questions | ApexHubSpot'
     ]);
-});
+})/*->middleware('auth')*/;
 
 Route::get('/guide', function () {
     return view('guide', [
@@ -99,7 +105,7 @@ Route::get('/guide', function () {
         ],
         'title' => 'User Guide | ApexHubSpot'
     ]);
-});
+})/*->middleware('auth')*/;
 
 Route::get('/profile', function () {
     return view('profile', [
@@ -111,7 +117,7 @@ Route::get('/profile', function () {
         ],
         'title' => 'Profile | ApexHubSpot'
     ]);
-});
+})/*->middleware('auth')*/;
 
 // Common Resource Routes:
 // index - Show all items
@@ -122,31 +128,31 @@ Route::get('/profile', function () {
 // update - Update item
 // destroy - Delete item
 
-Route::get('/users', [UserController::class, 'index']);
+Route::get('/users', [UserController::class, 'index'])/*->middleware('auth')*/;
 
 // for creating item
-Route::get('/users/create', [UserController::class, 'create']);
+Route::get('/users/create', [UserController::class, 'create'])/*->middleware('auth')*/;
 
-Route::post('/users', [UserController::class, 'store']);
+Route::post('/users', [UserController::class, 'admin_store'])/*->middleware('auth')*/;
 
 // for editing item
-Route::get('/users/{user}/edit', [UserController::class, 'edit']);
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])/*->middleware('auth')*/;
 
-Route::put('/users/{user}/edit', [UserController::class, 'update']);
+Route::put('/users/{user}/edit', [UserController::class, 'update'])/*->middleware('auth')*/;
 
-Route::put('/users/{user}', [UserController::class, 'approve']);
+Route::put('/users/{user}', [UserController::class, 'approve'])/*->middleware('auth')*/;
 
-Route::delete('/users/{user}', [UserController::class, 'destroy']);
+Route::delete('/users/{user}', [UserController::class, 'destroy'])/*->middleware('auth')*/;
 
 // Show route should be always at the last line after preceeding paths
-// Route::get('/users/{user}', [UserController::class, 'show']);
+// Route::get('/users/{user}', [UserController::class, 'show'])->middleware('auth');
 
-Route::get('/desks', [DeskController::class, 'index']);
+Route::get('/desks', [DeskController::class, 'index'])/*->middleware('auth')*/;
 
-Route::get('/desks/create', [DeskController::class, 'create']);
+Route::get('/desks/create', [DeskController::class, 'create'])/*->middleware('auth')*/;
 
-Route::post('/desks', [DeskController::class, 'store']);
+Route::post('/desks', [DeskController::class, 'store'])/*->middleware('auth')*/;
 
-Route::put('/desks/{desk}', [DeskController::class, 'availability']);
+Route::put('/desks/{desk}', [DeskController::class, 'availability'])/*->middleware('auth')*/;
 
-Route::delete('/desks/{desk}', [DeskController::class, 'destroy']);
+Route::delete('/desks/{desk}', [DeskController::class, 'destroy'])/*->middleware('auth')*/;

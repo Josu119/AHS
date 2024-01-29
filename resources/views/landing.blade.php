@@ -29,7 +29,7 @@
             </div>
 
             {{-- Button --}}
-            <a href="/register"
+            <a href="/users/register"
                 class="hidden p-3 px-6 pt-2 text-white bg-congressBlue hover:bg-cornflowerBlue rounded-full baseline text-lg md:block lg:text-xl">
                 Get Started
             </a>
