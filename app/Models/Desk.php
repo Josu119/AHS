@@ -13,4 +13,8 @@ class Desk extends Model
         'desk_number',
         'is_out_of_order',
     ];
+
+    public function bookings() {
+        return $this->hasMany(Booking::class, 'desk_id');
+    }
 }

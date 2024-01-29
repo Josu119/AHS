@@ -55,4 +55,8 @@ class User extends Authenticatable
                 ->orWhere('email', 'like', '%' . request('search') . '%');
         }
     }
+
+    public function bookings() {
+        return $this->hasMany(Booking::class, 'user_id');
+    }
 }
