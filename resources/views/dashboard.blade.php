@@ -37,12 +37,12 @@
                     <span class="text">Manage Desks</span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="/roles">
                     <i class='bx bx-user-pin bx-sm'></i>
                     <span class="text">Manage Roles</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
         <ul class="side-menu">
             <li>

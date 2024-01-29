@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DeskController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -46,41 +47,12 @@ Route::get('/dashboard', function () {
     ]);
 })/*->middleware('auth')*/;
 
-Route::get('/bookings', function () {
-    return view('bookings', [
-        'cssPaths' => [
-            'resources/css/main/content.css',
-        ],
-        'title' => 'Bookings | ApexHubSpot'
-    ]);
-})/*->middleware('auth')*/;
-
-Route::get('/bookings_history', function () {
-    return view('bookings_history', [
-        'cssPaths' => [
-            'resources/css/main/content.css',
-        ],
-        'title' => 'Bookings History | ApexHubSpot'
-    ]);
-})/*->middleware('auth')*/;
-
 Route::get('/office_map', function () {
     return view('office_map', [
         'cssPaths' => [
             'resources/css/main/office_map.css',
         ],
         'title' => 'Office Map | ApexHubSpot'
-    ]);
-})/*->middleware('auth')*/;
-
-Route::get('/roles', function () {
-    return view('roles', [
-        'cssPaths' => [
-            'resources/css/main/content.css',
-            'resources/css/main/content2.css',
-            'resources/css/main/roles.css',
-        ],
-        'title' => 'Manage Roles | ApexHubSpot'
     ]);
 })/*->middleware('auth')*/;
 
@@ -144,9 +116,6 @@ Route::put('/users/{user}', [UserController::class, 'approve'])/*->middleware('a
 
 Route::delete('/users/{user}', [UserController::class, 'destroy'])/*->middleware('auth')*/;
 
-// Show route should be always at the last line after preceeding paths
-// Route::get('/users/{user}', [UserController::class, 'show'])->middleware('auth');
-
 Route::get('/desks', [DeskController::class, 'index'])/*->middleware('auth')*/;
 
 Route::get('/desks/create', [DeskController::class, 'create'])/*->middleware('auth')*/;
@@ -156,3 +125,23 @@ Route::post('/desks', [DeskController::class, 'store'])/*->middleware('auth')*/;
 Route::put('/desks/{desk}', [DeskController::class, 'availability'])/*->middleware('auth')*/;
 
 Route::delete('/desks/{desk}', [DeskController::class, 'destroy'])/*->middleware('auth')*/;
+
+Route::get('/bookings', [BookingController::class, 'index'])/*->middleware('auth')*/;
+
+// * UNUSED ROUTES
+
+// Route::get('/roles', function () {
+//     return view('roles', [
+//         'cssPaths' => [
+//             'resources/css/main/content.css',
+//             'resources/css/main/content2.css',
+//             'resources/css/main/roles.css',
+//         ],
+//         'title' => 'Manage Roles | ApexHubSpot'
+//     ]);
+// })/*->middleware('auth')*/;
+
+// Route::get('/bookings/history', [BookingController::class, 'history'])/*->middleware('auth')*/;
+
+// Show route should be always at the last line after preceeding paths
+// Route::get('/users/{user}', [UserController::class, 'show'])->middleware('auth');
