@@ -32,6 +32,8 @@ Route::get('/users/sign_in', [UserController::class, 'sign_in'])->name('login')-
 
 Route::post('/sign_in', [UserController::class, 'authenticate'])->middleware('guest');
 
+Route::get('/hold', [UserController::class, 'hold']);
+
 Route::get('/dashboard', function () {
     return view('dashboard', [
         'cssPaths' => [
@@ -96,33 +98,33 @@ Route::get('/profile', function () {
 // update - Update item
 // destroy - Delete item
 
-Route::get('/users', [UserController::class, 'index'])->middleware(['auth', 'admin']);
+Route::get('/users', [UserController::class, 'index'])->middleware(['auth', 'hold', 'admin']);
 
 // for creating item
-Route::get('/users/create', [UserController::class, 'create'])->middleware(['auth', 'admin']);
+Route::get('/users/create', [UserController::class, 'create'])->middleware(['auth', 'hold', 'admin']);
 
-Route::post('/users', [UserController::class, 'admin_store'])->middleware(['auth', 'admin']);
+Route::post('/users', [UserController::class, 'admin_store'])->middleware(['auth', 'hold', 'admin']);
 
 // for editing item
-Route::get('/users/{user}/edit', [UserController::class, 'edit'])->middleware(['auth', 'admin']);
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->middleware(['auth', 'hold', 'admin']);
 
-Route::put('/users/{user}/edit', [UserController::class, 'update'])->middleware(['auth', 'admin']);
+Route::put('/users/{user}/edit', [UserController::class, 'update'])->middleware(['auth', 'hold', 'admin']);
 
-Route::put('/users/{user}', [UserController::class, 'approve'])->middleware(['auth', 'office_manager']);
+Route::put('/users/{user}', [UserController::class, 'approve'])->middleware(['auth', 'hold', 'office_manager']);
 
-Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware(['auth', 'admin']);
+Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware(['auth', 'hold', 'admin']);
 
-Route::get('/desks', [DeskController::class, 'index'])->middleware(['auth', 'office_manager']);
+Route::get('/desks', [DeskController::class, 'index'])->middleware(['auth', 'hold', 'office_manager']);
 
-Route::get('/desks/create', [DeskController::class, 'create'])->middleware(['auth', 'office_manager']);
+Route::get('/desks/create', [DeskController::class, 'create'])->middleware(['auth', 'hold', 'office_manager']);
 
-Route::post('/desks', [DeskController::class, 'store'])->middleware(['auth', 'office_manager']);
+Route::post('/desks', [DeskController::class, 'store'])->middleware(['auth', 'hold', 'office_manager']);
 
-Route::put('/desks/{desk}', [DeskController::class, 'availability'])->middleware(['auth', 'office_manager']);
+Route::put('/desks/{desk}', [DeskController::class, 'availability'])->middleware(['auth', 'hold', 'office_manager']);
 
-Route::delete('/desks/{desk}', [DeskController::class, 'destroy'])->middleware(['auth', 'office_manager']);
+Route::delete('/desks/{desk}', [DeskController::class, 'destroy'])->middleware(['auth', 'hold', 'office_manager']);
 
-Route::get('/bookings', [BookingController::class, 'index'])->middleware('auth');
+Route::get('/bookings', [BookingController::class, 'index'])->middleware(['auth', 'hold']);
 
 // * UNUSED ROUTES
 

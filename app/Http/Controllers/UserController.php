@@ -166,4 +166,8 @@ class UserController extends Controller
 
         return back()->withErrors(['username' => 'Invalid credentials!'])->onlyInput('username');
     }
+
+    public function hold() {
+        return view('users.hold');
+    }
 }
