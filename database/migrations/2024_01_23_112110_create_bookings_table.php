@@ -17,15 +17,11 @@ return new class extends Migration
             $table->foreignId('user_id')
                   ->nullable()
                   ->constrained(table: 'users', indexName: 'bookings_user_id')
-                  ->cascadeOnDelete()
-                  ->cascadeOnUpdate()
-                  ->nullOnDelete();
+                  ->cascadeOnDelete();
             $table->foreignId('desk_id')
                   ->nullable()
                   ->constrained(table: 'desks', indexName: 'bookings_desk_id')
-                  ->cascadeOnDelete()
-                  ->cascadeOnUpdate()
-                  ->nullOnDelete();
+                  ->cascadeOnDelete();
             $table->date('date');
             $table->boolean('is_canceled')->default('0');
             $table->boolean('is_archived')->default('0');
