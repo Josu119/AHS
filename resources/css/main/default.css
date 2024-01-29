@@ -133,7 +133,8 @@ body {
     z-index: -1;
 }
 
-#sidebar .side-menu li a {
+#sidebar .side-menu li a,
+#sidebar .side-menu li button {
     width: 100%;
     height: 100%;
     background: var(--light);
@@ -150,12 +151,13 @@ body {
     color: var(--blue);
 }
 
-#sidebar.hide .side-menu li a {
+#sidebar.hide .side-menu li a,
+#sidebar.hide .side-menu li button {
     width: calc(48px - (4px * 2));
     transition: width .3s ease;
 }
 
-#sidebar .side-menu li a.logout {
+#sidebar .side-menu li button.logout {
     color: var(--red);
 }
 
@@ -163,7 +165,8 @@ body {
     color: var(--blue);
 }
 
-#sidebar .side-menu li a .bx {
+#sidebar .side-menu li a .bx,
+#sidebar .side-menu li button .bx {
     min-width: calc(60px - ((4px + 6px) * 2));
     display: flex;
     justify-content: center;
