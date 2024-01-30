@@ -32,7 +32,7 @@
             </li>
 
             <li>
-                <a href="/desks">
+                <a href="/desks/available">
                     <i class='bx bx-desktop bx-sm'></i>
                     <span class="text">Manage Desks</span>
                 </a>
@@ -111,53 +111,10 @@
 
     </section>
     <div style="position: absolute;z-index: 1;margin-left: 30px;">
-        <img src="{{ asset('images/floor-plan.png') }}" alt="Floor Plan" class="floor-plan">
-        {{-- <svg class="floor-plan" width="700" height="450" xmlns="http://www.w3.org/2000/svg">
-            <!-- Define a pattern for the background image -->
-            <defs>
-                <pattern id="bg-pattern" width="100%" height="100%" patternContentUnits="objectBoundingBox">
-                    <image href="{{ asset('images/main/officesample.jpg') }}" width="1" height="1"
-                        preserveAspectRatio="none"></image>
-                </pattern>
-            </defs>
-
-            <!-- Living Room -->
-            <rect class="room living-room" width="300" height="200" x="0" y="0" onclick="changeColor(this)" />
-            <text class="room-label" x="100" y="105">OFFICE 1</text>
-
-
-            <!-- Bedroom -->
-            <rect class="room bedroom" width="170" height="100" x="298" y="0" onclick="changeColor(this)" />
-            <text class="room-label" x="330" y="60">OFFICE 2</text>
-
-
-            <rect class="room bedroom" width="170" height="100" x="298" y="100" onclick="changeColor(this)" />
-            <text class="room-label" x="330" y="150">OFFICE 3</text>
-
-            <rect class="room bedroom" width="235" height="200" x="467" y="0" onclick="changeColor(this)" />
-            <text class="room-label" x="530" y="105">OFFICE 4</text>
-
-
-
-            <!-- Kitchen -->
-            <rect class="room kitchen" width="300" height="220" x="0" y="230" onclick="changeColor(this)" />
-            <text class="room-label" x="100" y="345">OFFICE 5</text>
-
-
-            <!-- Bathroom -->
-            <rect class="room bathroom" width="330" height="220" x="370" y="230" onclick="changeColor(this)" />
-            <text class="room-label" x="480" y="345">OFFICE 6</text>
-
-        </svg>
-        <button
-            style="position: absolute;margin-left:2%;z-index: 1;margin-top: 1px;background-color: aliceblue;cursor: pointer;padding: 5px;border-radius: 10px;">Update
-            Office Plan</button>
-        <div class="box">
-            <div
-                style="background-color: rgb(156, 163, 163);height: 30px;width: 100px;text-align: center;font-size: larger;border-radius: 5px;border:1px solid black">
-                Office
-            </div>
-        </div> --}}
+        <img src="{{ asset('images/main/floor-plan/1.png') }}" alt="Floor Plan" class="floor-plan">
+        <img src="{{ asset('images/main/floor-plan/2.png') }}" alt="Floor Plan" class="floor-plan">
+        <img src="{{ asset('images/main/floor-plan/3.png') }}" alt="Floor Plan" class="floor-plan">
+        <img src="{{ asset('images/main/floor-plan/4.png') }}" alt="Floor Plan" class="floor-plan">
     </div>
 
     <div>
