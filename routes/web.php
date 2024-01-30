@@ -103,7 +103,7 @@ Route::get('/users', [UserController::class, 'index'])->middleware(['auth', 'hol
 // for creating item
 Route::get('/users/create', [UserController::class, 'create'])->middleware(['auth', 'hold', 'admin']);
 
-Route::post('/users', [UserController::class, 'admin_store'])->middleware(['auth', 'hold', 'admin']);
+Route::post('/users', [UserController::class, 'admin_store'])->middleware(['auth', 'hold', 'office_manager']);
 
 // for editing item
 Route::get('/users/{user}/edit', [UserController::class, 'edit'])->middleware(['auth', 'hold', 'admin']);
@@ -125,6 +125,8 @@ Route::put('/desks/{desk}', [DeskController::class, 'availability'])->middleware
 Route::delete('/desks/{desk}', [DeskController::class, 'destroy'])->middleware(['auth', 'hold', 'office_manager']);
 
 Route::get('/bookings', [BookingController::class, 'index'])->middleware(['auth', 'hold']);
+
+Route::get('/desks/available', [BookingController::class, 'list_desks'])->middleware(['auth', 'hold']);
 
 // * UNUSED ROUTES
 
