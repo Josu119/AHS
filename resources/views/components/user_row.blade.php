@@ -23,11 +23,13 @@
                 <span class="status bg-cautionYellow !text-black">Edit</span>
             </a>
             {{-- <span class="status cancelled">Delete</span> --}}
+            @if (auth()->user()->role == 'admin')
             <form method="POST" action="/users/{{ $user->id }}" style="display: inline-block">
                 @csrf
                 @method('DELETE')
                 <button class="status bg-dangerRed !text-white">Delete</button>
             </form>
+            @endif
             <form method="POST" action="/users/{{ $user->id }}" style="display: inline-block">
                 @csrf
                 @method('PUT')

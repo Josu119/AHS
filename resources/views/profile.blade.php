@@ -32,7 +32,7 @@
             </li>
 
             <li>
-                <a href="/desks">
+                <a href="/desks/available">
                     <i class='bx bx-desktop bx-sm'></i>
                     <span class="text">Manage Desks</span>
                 </a>
@@ -106,25 +106,24 @@
                 <div class="left">
                     <div class="profile">
                         <div class="user">
-                            <p style="font-size: 30px;">John Doe Meng</p>
-                            <p style="font-size: 20px; color: rgb(29, 58, 91);">Administrator</p>
+                            @auth
+                            @php
+                                if (auth()->user()->role == 'admin') {$role = 'Administrator';}
+                                elseif (auth()->user()->role == 'office_manager') {$role = 'Office Manager';}
+                                elseif (auth()->user()->role == 'user') {$role = 'User';}
+                            @endphp
+                            <p style="font-size: 30px;">Hello, {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}!</p>
+                            <p style="font-size: 20px; color: rgb(29, 58, 91);">{{ $role }}</p>
+                            @else
+                            <p style="font-size: 30px;">Hello, user!</p>
+                            <p style="font-size: 20px; color: rgb(29, 58, 91);">Guest</p>
+                            @endauth
                         </div>
                     </div>
-                    <div style="border: 1px solid #3a425f;  margin-top: 20px;"> </div>
-
-                    <div class="info" style="font-size: 20px; margin-top: 20px;">
-                        <div style="margin-bottom: 15px;">
-                            <label for="Name" style="padding-right: 5px;">Name:</label> <input type="text"
-                                id="email" placeholder="John Doe Meng" size="40">
-                            <i id="clickableicon" class="fa-solid fa-pencil"></i>
-                        </div>
-
-                        <div>
-                            <label for="Email" style="padding-right: 9px;">Email:</label> <input type="text"
-                                id="email" placeholder="johndmeng@gmail.com" size="40">
-                            <i id="clickableicon" class="fa-solid fa-pencil"></i>
-                        </div>
-                    </div>
+                    <div style="border: 1px solid #3a425f;" class="mt-2"></div>
+                    @auth
+                    <p>{{ auth()->user()->email }}</p>
+                    @endauth
                 </div>
             </div>
         </main>

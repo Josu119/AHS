@@ -29,7 +29,7 @@ class UserFactory extends Factory
             // 'email_verified_at' => now(),
             'is_approved' => random_int(0, 1),
             'role' => fake()->randomElement(['user', 'office_manager']),
-            'remember_token' => Str::random(10),
+            'remember_token' => Str::random(60),
         ];
     }
 

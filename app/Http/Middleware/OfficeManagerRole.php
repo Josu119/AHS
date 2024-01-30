@@ -15,7 +15,7 @@ class OfficeManagerRole
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth()->user()->role == 'office_manager' || 'admin') {
+        if (Auth()->user()->role != 'user') {
             return $next($request);
         }
         abort(401);

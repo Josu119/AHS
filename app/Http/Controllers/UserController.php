@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use PhpParser\Node\Expr\FuncCall;
+use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
@@ -75,7 +76,7 @@ class UserController extends Controller
 
     // Update item data
     public function update(Request $request, User $user) {
-        if ($user->role != 'admin') {
+        if (auth()->user()->role == 'admin') {
             $formFields = $request->validate([
                 'username' => ['required', 'min:3', Rule::unique('users', 'username')],
                 'first_name' => 'required',
@@ -122,7 +123,15 @@ class UserController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => ['required', 'confirmed', 'min:7'],
+            'password' => [
+                'required',
+                'confirmed',
+                Password::min(10)->letters()
+                                ->mixedCase()
+                                ->numbers()
+                                ->symbols()
+                                ->uncompromised()
+            ],
         ]);
 
         // Hash Password
@@ -131,10 +140,7 @@ class UserController extends Controller
         // Creates user
         $user = User::create($formFields);
 
-        // Login
-        auth()->login($user);
-
-        return redirect('/dashboard')->with('message', 'User registered and logged in!');
+        return redirect('/hold');
     }
 
     // Logout
@@ -160,6 +166,15 @@ class UserController extends Controller
 
         if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
+
+            if(auth()->user()->is_approved == 0) {
+                auth()->logout();
+
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
+                return redirect('/hold');
+            }
 
             return redirect('/dashboard')->with('message', 'You are now logged in!');
         }
