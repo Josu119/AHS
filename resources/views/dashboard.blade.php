@@ -32,7 +32,7 @@
             </li>
 
             <li>
-                <a href="/desks">
+                <a href="/desks/available">
                     <i class='bx bx-desktop bx-sm'></i>
                     <span class="text">Manage Desks</span>
                 </a>
@@ -136,64 +136,64 @@
 
             </ul>
 
-            <div class="table-data">
+            {{-- <div class="table-data">
                 <div class="order">
                     <div class="head">
                         <h3>Calendar</h3>
 
                     </div>
 
-                    <!-- <table>
-			<thead>
-				<tr>
-					<th>User</th>
-					<th>Date </th>
-					<th>Status</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>
-						<img src="{{ asset('people.png') }}">
-						<p>John Doe</p>
-					</td>
-					<td>01-10-2021</td>
-					<td><span class="status completed">Completed</span></td>
-				</tr>
-				<tr>
-					<td>
-						<img src="{{ asset('people.png') }}">
-						<p>John Doe</p>
-					</td>
-					<td>01-10-2021</td>
-					<td><span class="status completed">Completed</span></td>
-				</tr>
-				<tr>
-					<td>
-						<img src="{{ asset('people.png') }}">
-						<p>John Doe</p>
-					</td>
-					<td>01-10-2021</td>
-					<td><span class="status completed">Completed</span></td>
-				</tr>
-				<tr>
-					<td>
-						<img src="{{ asset('people.png') }}">
-						<p>John Doe</p>
-					</td>
-					<td>01-10-2021</td>
-					<td><span class="status cancelled">Cancelled</span></td>
-				</tr>
-				<tr>
-					<td>
-						<img src="{{ asset('people.png') }}">
-						<p>John Doe</p>
-					</td>
-					<td>01-10-2021</td>
-					<td><span class="status completed">Completed</span></td>
-				</tr>
-			</tbody>
-		</table> -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Date </th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('people.png') }}">
+                                    <p>John Doe</p>
+                                </td>
+                                <td>01-10-2021</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('people.png') }}">
+                                    <p>John Doe</p>
+                                </td>
+                                <td>01-10-2021</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('people.png') }}">
+                                    <p>John Doe</p>
+                                </td>
+                                <td>01-10-2021</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('people.png') }}">
+                                    <p>John Doe</p>
+                                </td>
+                                <td>01-10-2021</td>
+                                <td><span class="status cancelled">Cancelled</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('people.png') }}">
+                                    <p>John Doe</p>
+                                </td>
+                                <td>01-10-2021</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                        </tbody>
+		            </table>
                 </div>
 
                 <div class="todo">
@@ -261,7 +261,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
             <div class="table-data">
                 <div class="order">
                     <div class="head">

@@ -5,18 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Booking extends Model
+class AvailableDesk extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'date',
+        'desk_id',
     ];
 
-    // Relationship to User
-    public function user() {
-        return $this->belongsTo(User::class);
-        // Equivalent to belongsTo(User::class, 'user_id')
+    public function scopeFilter($query, array $filters) {
+        if($filters['search'] ?? false) {
+            $query->where('date', 'like', '%' . request('search') . '%');
+        }
     }
 
     // Relationship to Desks

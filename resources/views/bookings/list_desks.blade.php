@@ -12,7 +12,7 @@
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="/bookings">
                     <i class='bx bxs-book-alt bx-sm'></i>
                     <span class="text">Booking</span>
@@ -31,7 +31,7 @@
                 </a>
             </li>
 
-            <li>
+            <li class="active">
                 <a href="/desks/available">
                     <i class='bx bx-desktop bx-sm'></i>
                     <span class="text">Manage Desks</span>
@@ -104,45 +104,75 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Bookings</h1>
-                    {{-- <a href="/bookings_history"
-                        style="color: rgb(24, 111, 211);padding: 10px 20px;border: 1px solid black;border-radius: 10px;">Show
-                        Bookings History</a> --}}
+                    <h1>Available Desks</h1>
                 </div>
-
             </div>
+            @unless (auth()->user()->role == 'user')
+            <a href="/desks" class="px-3 py-1 text-white text-center leading-10 bg-orange-700 rounded-full">Manage Desks</a>
+            @endunless
             <div class="table-data">
                 <div class="order">
-                    <div class="head">
-
+                    <div>
+                        @php
+                            $today = Carbon\Carbon::now()->toDateString();
+                            $future_day_span = 7;
+                            $end = Carbon\Carbon::parse($today)->addDays($future_day_span)->toDateString();
+                        @endphp
+                        <form action="/desks/available">
+                            <label for="date" class="font-bold">Date:</label>
+                            <input type="date" name="date" value="{{ $today }}" min="{{ $today }}" max="{{ $end }}" class="ml-2 rounded-xl border-2 border-black px-2">
+                            <button type="submit" class="ml-2 h-7 w-20 text-white text-center leading-5 bg-congressBlue rounded-full">
+                                Search
+                            </button>
+                        </form>
+                    </div>
+                    <div>
+                        {{ $desks->links() }}
                     </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>User</th>
                                 <th>Desk</th>
-                                <th>Date </th>
-                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @unless (count($desks) == 0)
+                            @foreach ($desks as $desk)
                             <tr>
                                 <td>
-                                    <p>John Doe</p>
+                                    Desk {{ \App\Models\Desk::find($desk->desk_id)->desk_number }}
                                 </td>
-
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td><span class="status completed">On Going</span></td>
+                                <td>
+                                    {{ $desk->date }}
+                                </td>
+                                <td>
+                                    <form method="POST" action="/book/{{ \App\Models\Desk::find($desk->desk_id)->id }}" style="display: inline-block">
+                                        @csrf
+                                        @method('PUT')
+                                        <button class="status bg-congressBlue !text-white">BOOK NOW</button>
+                                    </form>
+                                </td>
                             </tr>
+                            @endforeach
+                            @endunless
+                            {{-- @unless (count($desks) == 0)
+                                @foreach ($desks as $desk)
+                                <x-desk_row :desk="$desk"/>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td>No user found.</td>
+                                </tr>
+                            @endunless --}}
                         </tbody>
                     </table>
                 </div>
             </div>
-        </main>
-    </section>
 
-    <script src="{{ asset('js/booking.js') }}"></script>
+        </main>
+
+    </section>
 
 </x-layout>

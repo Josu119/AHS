@@ -32,7 +32,7 @@
             </li>
 
             <li class="active">
-                <a href="/desks">
+                <a href="/desks/available">
                     <i class='bx bx-desktop bx-sm'></i>
                     <span class="text">Manage Desks</span>
                 </a>
