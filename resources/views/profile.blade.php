@@ -6,30 +6,39 @@
             <img src="{{ asset('images/main/logo.png') }}" alt="" style="width:60px">
         </span>
         <ul class="side-menu top">
-            <li>
-                <a href="/dashboard">
-                    <i class='bx bxs-dashboard bx-sm'></i>
-                    <span class="text">Dashboard</span>
-                </a>
-            </li>
+             <li >
+    <a href="/dashboard">
+        <?php if (auth()->user()->role == 'user'): ?>
+            <i class='bx bxs-home bx-sm'></i>
+            <span class="text">Home</span>
+        <?php else: ?>
+            <i class='bx bxs-dashboard bx-sm'></i>
+            <span class="text">Dashboard</span>
+        <?php endif; ?>
+    </a>
+</li>
+            @unless (auth()->user()->role == 'user')
             <li>
                 <a href="/bookings">
                     <i class='bx bxs-book-alt bx-sm'></i>
                     <span class="text">Booking</span>
                 </a>
             </li>
+            @endunless
             <li>
                 <a href="/office_map">
                     <i class='bx bxs-map bx-sm'></i>
                     <span class="text">Office Map</span>
                 </a>
             </li>
+             @unless (auth()->user()->role == 'user' || auth()->user()->role == 'office_manager')
             <li>
                 <a href="/users">
                     <i class='bx bxs-group bx-sm'></i>
                     <span class="text">Manage Users</span>
                 </a>
             </li>
+            @endunless
 
             <li>
                 <a href="/desks/available">
@@ -91,7 +100,7 @@
                 <span class="num">8</span>
             </a> --}}
             @auth
-            <a href="/profile" class="profile">
+            <a href="/profile" class="profile" style="background-color:black;padding:5px 20px;color:white;border-radius:10px;border:1px solid black;">
                 {{ auth()->user()->username }}
             </a>
             @else
@@ -112,7 +121,7 @@
                                 elseif (auth()->user()->role == 'office_manager') {$role = 'Office Manager';}
                                 elseif (auth()->user()->role == 'user') {$role = 'User';}
                             @endphp
-                            <p style="font-size: 30px;">Hello, {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}!</p>
+                            <p style="font-size: 30px;"> {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}!</p>
                             <p style="font-size: 20px; color: rgb(29, 58, 91);">{{ $role }}</p>
                             @else
                             <p style="font-size: 30px;">Hello, user!</p>
@@ -126,8 +135,44 @@
                     @endauth
                 </div>
             </div>
+
+
+
+
+             <div class="table-data">
+                <div class="order">
+                    <div class="head">
+
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Desk</th>
+                                <th>Date </th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>John Doe</p>
+                                </td>
+
+                                <td>3C</td>
+
+                                <td>01-10-2021</td>
+                                <td><span class="status completed">On Going</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </main>
 
     </section>
+
+
+    
 
 </x-layout>

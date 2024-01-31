@@ -91,7 +91,7 @@
                 <span class="num">8</span>
             </a> --}}
             @auth
-            <a href="/profile" class="profile">
+            <a href="/profile" class="profile" style="background-color:black;padding:5px 20px;color:white;border-radius:10px;border:1px solid black;">
                 {{ auth()->user()->username }}
             </a>
             @else

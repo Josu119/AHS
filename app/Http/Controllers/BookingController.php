@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\AvailableDesk;
 use App\Models\Desk;
 use Carbon\Carbon;
+use App\Models\Booking;
 use Illuminate\Http\Request;
+
+
 
 class BookingController extends Controller
 {
@@ -18,35 +21,37 @@ class BookingController extends Controller
         ]);
     }
 
-    public function list_desks() {
-        AvailableDesk::truncate();
+public function list_desks(Request $request)
+{
+    $searchDate = Carbon::parse($request->input('date'))->toDateString();
 
+    // Retrieve the desks that are available on the specified date
+    $availableDesks = Desk::where('is_out_of_order', 0)->get();
 
-        foreach (Desk::all() as $desk) {
-            $date = Carbon::now();
-            for ($i = 1; $i <= 7; $i++) {
-                AvailableDesk::create([
-                    'date' => $date->toDateString(),
-                    'desk_id' => $desk->id,
-                ]);
-                $date->addDays(1);
-            }
-        }
-
-        // dd(AvailableDesks::all());
-
-        return view('bookings.list_desks', [
-            'cssPaths' => [
-                'resources/css/main/content.css',
-                'resources/css/main/content2.css',
-            ],
-            'title' => 'Available Desks | ApexHubSpot',
-            'desks' => AvailableDesk::orderBy('desk_id', 'asc')
-                                    ->orderBy('date', 'asc')
-                                    ->filter(request(['search']))
-                                    ->paginate(10)
+    // Create the available desk entries for the specified date
+    AvailableDesk::truncate();
+    foreach ($availableDesks as $desk) {
+        AvailableDesk::create([
+            'date' => $searchDate,
+            'desk_id' => $desk->id,
         ]);
     }
+
+    return view('bookings.list_desks', [
+        'cssPaths' => [
+            'resources/css/main/content.css',
+            'resources/css/main/content2.css',
+        ],
+        'title' => 'Available Desks | ApexHubSpot',
+        'desks' => AvailableDesk::where('date', $searchDate)
+            ->orderBy('desk_id', 'asc')
+            ->orderBy('date', 'asc')
+            ->paginate(5)
+    ]);
+}
+
+
+
 
     public function show_list_desks() {
 
@@ -60,4 +65,14 @@ class BookingController extends Controller
     //         'title' => 'Bookings History | ApexHubSpot'
     //     ]);
     // }
+
+
+
+ public function index1()
+    {
+        $bookings = Booking::all(); // Fetch all the data from the "booking" table
+        
+        return view('bookings.index', compact('bookings'));
+    }
+
 }

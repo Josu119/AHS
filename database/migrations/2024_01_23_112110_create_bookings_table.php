@@ -11,18 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bookings', function (Blueprint $table) {
+         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            // CHECK nullable(), cascadeOnDelete(), cascadeOnUpdate(), AND nullOnDelete() IF ANY DATABASE-RELATED ERRORS/BUGS OCCUR (removed)
-            $table->foreignId('user_id')
-                  ->constrained(/*table: 'users', indexName: 'bookings_user_id'*/)
-                  ->cascadeOnDelete();
-            $table->foreignId('desk_id')
-                  ->constrained()
-                  ->cascadeOnDelete();
             $table->date('date');
-            $table->boolean('is_canceled')->default('0');
-            $table->boolean('is_archived')->default('0');
+             $table->integer('user_id');
+        
+            $table->integer('desk_number');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

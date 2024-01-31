@@ -6,30 +6,40 @@
             <img src="{{ asset('images/main/logo.png') }}" alt="" style="width:60px">
         </span>
         <ul class="side-menu top">
-            <li class="active">
-                <a href="/dashboard">
-                    <i class='bx bxs-dashboard bx-sm'></i>
-                    <span class="text">Dashboard</span>
-                </a>
-            </li>
+           <li class="active">
+    <a href="/dashboard">
+        <?php if (auth()->user()->role == 'user'): ?>
+            <i class='bx bxs-home bx-sm'></i>
+            <span class="text">Home</span>
+        <?php else: ?>
+            <i class='bx bxs-dashboard bx-sm'></i>
+            <span class="text">Dashboard</span>
+        <?php endif; ?>
+    </a>
+</li>
+
+                @unless (auth()->user()->role == 'user')
             <li>
                 <a href="/bookings">
                     <i class='bx bxs-book-alt bx-sm'></i>
                     <span class="text">Booking</span>
                 </a>
             </li>
+            @endunless
             <li>
                 <a href="/office_map">
                     <i class='bx bxs-map bx-sm'></i>
                     <span class="text">Office Map</span>
                 </a>
             </li>
+          @unless (auth()->user()->role == 'user' || auth()->user()->role == 'office_manager')
             <li>
                 <a href="/users">
                     <i class='bx bxs-group bx-sm'></i>
                     <span class="text">Manage Users</span>
                 </a>
             </li>
+            @endunless
 
             <li>
                 <a href="/desks/available">
@@ -86,12 +96,8 @@
                 </div>
             </form>
 
-            {{-- <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a> --}}
             @auth
-            <a href="/profile" class="profile">
+            <a href="/profile" class="profile" style="background-color:black;padding:5px 20px;color:white;border-radius:10px;border:1px solid black;">
                 {{ auth()->user()->username }}
             </a>
             @else
@@ -104,7 +110,7 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Dashboard</h1>
+                  
                     {{-- <ul class="breadcrumb">
                         <li>
                             <a href="#">Dashboard</a>
@@ -118,7 +124,11 @@
 
             </div>
 
+             @unless (auth()->user()->role == 'user')
+  <p style="font-size:30px">Dashboard</p>
             <ul class="box-info">
+                
+                
                 <li>
                     <i class='bx bxs-calendar-check'></i>
                     <span class="text">
@@ -133,222 +143,48 @@
                         <p>Users</p>
                     </span>
                 </li>
+                <li>
+                    <i class='bx bxs-group'></i>
+                    <span class="text">
+                        <h3>284</h3>
+                        <p>Users</p>
+                    </span>
+                </li>
+
+                <li>
+                    <i class='bx bx-table' style="background-color:yellowgreen"></i>
+                    <span class="text">
+                        <h3>284</h3>
+                        <p>Total Desk</p>
+                    </span>
+                </li>
+
 
             </ul>
+            @endunless
 
-            {{-- <div class="table-data">
+
+
+
+<br>
+
+
+
+
+             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Calendar</h3>
+
+                    <p style="font-size:30px">Good Day  {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}, Book Your Desk Now</p><br>
+                  <a href="/desks/available" style="background-color:darkblue;color:white;font-size:30px;padding:10px;border-radius:10px">Book Now</a>
 
                     </div>
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>User</th>
-                                <th>Date </th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('people.png') }}">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>01-10-2021</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('people.png') }}">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>01-10-2021</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('people.png') }}">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>01-10-2021</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('people.png') }}">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>01-10-2021</td>
-                                <td><span class="status cancelled">Cancelled</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('people.png') }}">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>01-10-2021</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                        </tbody>
-		            </table>
+       
                 </div>
-
-                <div class="todo">
-                    <div class="head">
-                        <h3>Available Desk</h3>
-
-
-                    </div>
-                    <p style="color: green;font-size: 12px;">available</p>
-                    <p style="color: red;font-size: 12px;">not-available</p>
-                    <ul class="todo-list">
-
-
-                        <li class="completed">
-                            <p>Office 1</p>
-
-                            <p style="color: red;">1A</p>
-                            <p style="color: green;">1B</p>
-                            <p style="color: green;">1C</p>
-                            <p style="color: red;">1D</p>
-                        </li>
-                        <li class="completed">
-                            <p>Office 2</p>
-                            <p style="color: red;">2A</p>
-                            <p style="color: green;">2B</p>
-                            <p style="color: green;">2C</p>
-                            <p style="color: red;">2D</p>
-
-                        </li>
-                        <li class="completed">
-                            <p>Office 3</p>
-                            <p style="color: red;">3A</p>
-                            <p style="color: red;">3B</p>
-                            <p style="color: green;">3C</p>
-                            <p style="color: red;">3D</p>
-
-                        </li>
-                        <li class="completed">
-                            <p>Office 4</p>
-                            <p style="color: red;">4A</p>
-                            <p style="color: green;">4B</p>
-                            <p style="color: green;">4C</p>
-                            <p style="color: red;">4D</p>
-                            <p style="color: green;">4E</p>
-                            <p style="color: red;">4F</p>
-
-                        </li>
-                        <li class="completed">
-                            <p>Office 5</p>
-                            <p style="color: green;">5A</p>
-                            <p style="color: green;">5B</p>
-                            <p style="color: green;">5C</p>
-                            <p style="color: red;">5D</p>
-                            <p style="color: green;">5E</p>
-                            <p style="color: red;">5F</p>
-
-                        </li>
-                        <li class="completed">
-                            <p>Office 6</p>
-                            <p style="color: green;">6A</p>
-                            <p style="color: green;">6B</p>
-                            <p style="color: green;">6C</p>
-                            <p style="color: red;">6D</p>
-
-                        </li>
-                    </ul>
-                </div>
-            </div> --}}
-            <div class="table-data">
-                <div class="order">
-                    <div class="head">
-                        <h3>Recent Bookings</h3>
-
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>User</th>
-                                <th>Date </th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-                                <td>01-10-2021</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-                                <td>01-10-2021</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-                                <td>01-10-2021</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-                                <td>01-10-2021</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-                                <td>01-10-2021</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- <div class="todo">
-					<div class="head">
-						<h3>Todos</h3>
-						<i class='bx bx-plus' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<ul class="todo-list">
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-					</ul>
-				</div> -->
             </div>
-        </main>
-        <!-- MAIN -->
-    </section>
+         
+
+           
     <!-- CONTENT -->
 
 </x-layout>

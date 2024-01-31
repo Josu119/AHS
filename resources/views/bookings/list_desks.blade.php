@@ -6,30 +6,39 @@
             <img src="{{ asset('images/main/logo.png') }}" alt="" style="width:60px">
         </span>
         <ul class="side-menu top">
-            <li>
-                <a href="/dashboard">
-                    <i class='bx bxs-dashboard bx-sm'></i>
-                    <span class="text">Dashboard</span>
-                </a>
-            </li>
+            <li >
+    <a href="/dashboard">
+        <?php if (auth()->user()->role == 'user'): ?>
+            <i class='bx bxs-home bx-sm'></i>
+            <span class="text">Home</span>
+        <?php else: ?>
+            <i class='bx bxs-dashboard bx-sm'></i>
+            <span class="text">Dashboard</span>
+        <?php endif; ?>
+    </a>
+</li>
+                @unless (auth()->user()->role == 'user')
             <li>
                 <a href="/bookings">
                     <i class='bx bxs-book-alt bx-sm'></i>
                     <span class="text">Booking</span>
                 </a>
             </li>
+            @endunless
             <li>
                 <a href="/office_map">
                     <i class='bx bxs-map bx-sm'></i>
                     <span class="text">Office Map</span>
                 </a>
             </li>
+             @unless (auth()->user()->role == 'user' || auth()->user()->role == 'office_manager')
             <li>
                 <a href="/users">
                     <i class='bx bxs-group bx-sm'></i>
                     <span class="text">Manage Users</span>
                 </a>
             </li>
+            @endunless
 
             <li class="active">
                 <a href="/desks/available">
@@ -91,7 +100,7 @@
                 <span class="num">8</span>
             </a> --}}
             @auth
-            <a href="/profile" class="profile">
+            <a href="/profile" class="profile" style="background-color:black;padding:5px 20px;color:white;border-radius:10px;border:1px solid black;">
                 {{ auth()->user()->username }}
             </a>
             @else
@@ -107,6 +116,27 @@
                     <h1>Available Desks</h1>
                 </div>
             </div>
+
+<div>
+        @if(session()->has('success'))
+        <div style="color:white;background-color:#7EE27C;width:250px;padding:10px;border-radius:20px">
+            {{session('success')}}
+        </div>
+
+        @endif
+    </div>
+    <div>
+        @if(session()->has('error'))
+        <div style="color:white;background-color:#FF4848;width:250px;padding:10px;border-radius:20px">
+            {{session('error')}}
+        </div>
+
+        @endif
+    </div>
+
+
+
+           
             @unless (auth()->user()->role == 'user')
             <a href="/desks" class="px-3 py-1 text-white text-center leading-10 bg-orange-700 rounded-full">Manage Desks</a>
             @endunless
@@ -139,7 +169,7 @@
                         </thead>
                         <tbody>
                             @unless (count($desks) == 0)
-                            @foreach ($desks as $desk)
+                            @foreach ($desks  as $desk)
                             <tr>
                                 <td>
                                     Desk {{ \App\Models\Desk::find($desk->desk_id)->desk_number }}
@@ -149,10 +179,12 @@
                                 </td>
                                 <td>
                                     <form method="POST" action="/book/{{ \App\Models\Desk::find($desk->desk_id)->id }}" style="display: inline-block">
-                                        @csrf
-                                        @method('PUT')
-                                        <button class="status bg-congressBlue !text-white">BOOK NOW</button>
-                                    </form>
+    @csrf
+    @method('PUT')
+    <input type="hidden" name="date" value="{{ $desk->date }}">
+    <button class="status bg-congressBlue !text-white">BOOK NOW</button>
+</form>
+
                                 </td>
                             </tr>
                             @endforeach

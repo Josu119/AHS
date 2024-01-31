@@ -122,33 +122,7 @@
                                 <td>September 01,2020</td>
                                 <td><span class="status process">Assign Role</span></td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-                                <td>Johndoe@laverdad.com</td>
-                                <td>Admin</td>
-                                <td>September 01,2020</td>
-                                <td><span class="status process">Assign Role</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-                                <td>Johndoe@laverdad.com</td>
-                                <td>Admin</td>
-                                <td>September 01,2020</td>
-                                <td><span class="status process">Assign Role</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-                                <td>Johndoe@laverdad.com</td>
-                                <td>Admin</td>
-                                <td>September 01,2020</td>
-                                <td><span class="status process">Assign Role</span></td>
-                            </tr>
+                          
                         </tbody>
                     </table>
                 </div>

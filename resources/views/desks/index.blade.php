@@ -6,30 +6,39 @@
             <img src="{{ asset('images/main/logo.png') }}" alt="" style="width:60px">
         </span>
         <ul class="side-menu top">
-            <li>
-                <a href="/dashboard">
-                    <i class='bx bxs-dashboard bx-sm'></i>
-                    <span class="text">Dashboard</span>
-                </a>
-            </li>
+             <li >
+    <a href="/dashboard">
+        <?php if (auth()->user()->role == 'user'): ?>
+            <i class='bx bxs-home bx-sm'></i>
+            <span class="text">Home</span>
+        <?php else: ?>
+            <i class='bx bxs-dashboard bx-sm'></i>
+            <span class="text">Dashboard</span>
+        <?php endif; ?>
+    </a>
+</li>
+                @unless (auth()->user()->role == 'user')
             <li>
                 <a href="/bookings">
                     <i class='bx bxs-book-alt bx-sm'></i>
                     <span class="text">Booking</span>
                 </a>
             </li>
+            @endunless
             <li>
                 <a href="/office_map">
                     <i class='bx bxs-map bx-sm'></i>
                     <span class="text">Office Map</span>
                 </a>
             </li>
+            @unless (auth()->user()->role == 'user' || auth()->user()->role == 'office_manager')
             <li>
                 <a href="/users">
                     <i class='bx bxs-group bx-sm'></i>
                     <span class="text">Manage Users</span>
                 </a>
             </li>
+            @endunless
 
             <li class="active">
                 <a href="/desks/available">
@@ -37,12 +46,7 @@
                     <span class="text">Manage Desks</span>
                 </a>
             </li>
-            {{-- <li>
-                <a href="/roles">
-                    <i class='bx bx-user-pin bx-sm'></i>
-                    <span class="text">Manage Roles</span>
-                </a>
-            </li> --}}
+           
         </ul>
         <ul class="side-menu">
             <li>
@@ -91,7 +95,7 @@
                 <span class="num">8</span>
             </a> --}}
             @auth
-            <a href="/profile" class="profile">
+             <a href="/profile" class="profile" style="background-color:black;padding:5px 20px;color:white;border-radius:10px;border:1px solid black;">
                 {{ auth()->user()->username }}
             </a>
             @else
@@ -133,7 +137,7 @@
                                 @endforeach
                             @else
                                 <tr>
-                                    <td>No user found.</td>
+                                    <td>No desk found.</td>
                                 </tr>
                             @endunless
                         </tbody>

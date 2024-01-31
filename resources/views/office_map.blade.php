@@ -7,30 +7,38 @@
         </span>
         <ul class="side-menu top">
             <li>
-                <a href="/dashboard">
-                    <i class='bx bxs-dashboard bx-sm'></i>
-                    <span class="text">Dashboard</span>
-                </a>
-            </li>
+    <a href="/dashboard">
+        <?php if (auth()->user()->role == 'user'): ?>
+            <i class='bx bxs-home bx-sm'></i>
+            <span class="text">Home</span>
+        <?php else: ?>
+            <i class='bx bxs-dashboard bx-sm'></i>
+            <span class="text">Dashboard</span>
+        <?php endif; ?>
+    </a>
+</li>
+                @unless (auth()->user()->role == 'user')
             <li>
                 <a href="/bookings">
                     <i class='bx bxs-book-alt bx-sm'></i>
                     <span class="text">Booking</span>
                 </a>
             </li>
+            @endunless
             <li class="active">
                 <a href="/office_map">
                     <i class='bx bxs-map bx-sm'></i>
                     <span class="text">Office Map</span>
                 </a>
             </li>
+           @unless (auth()->user()->role == 'user' || auth()->user()->role == 'office_manager')
             <li>
                 <a href="/users">
                     <i class='bx bxs-group bx-sm'></i>
                     <span class="text">Manage Users</span>
                 </a>
             </li>
-
+@endunless
             <li>
                 <a href="/desks/available">
                     <i class='bx bx-desktop bx-sm'></i>
@@ -91,7 +99,7 @@
                 <span class="num">8</span>
             </a> --}}
             @auth
-            <a href="/profile" class="profile">
+             <a href="/profile" class="profile" style="background-color:black;padding:5px 20px;color:white;border-radius:10px;border:1px solid black;">
                 {{ auth()->user()->username }}
             </a>
             @else
@@ -110,12 +118,17 @@
         </main>
 
     </section>
-    <div style="position: absolute;z-index: 1;margin-left: 30px;">
-        <img src="{{ asset('images/main/floor-plan/1.png') }}" alt="Floor Plan" class="floor-plan">
-        <img src="{{ asset('images/main/floor-plan/2.png') }}" alt="Floor Plan" class="floor-plan">
-        <img src="{{ asset('images/main/floor-plan/3.png') }}" alt="Floor Plan" class="floor-plan">
-        <img src="{{ asset('images/main/floor-plan/4.png') }}" alt="Floor Plan" class="floor-plan">
-    </div>
+   
+<div style="display:flex">
+      <img src="{{ asset('images/main/floor-plan/1.png') }}" alt="Floor Plan" class="floor-plan" style="width:500px;height:400px">
+        <img src="{{ asset('images/main/floor-plan/2.png') }}" alt="Floor Plan" class="floor-plan" style="width:500px;height:400px">
+</div>
+<div style="display:flex">
+      
+        <img src="{{ asset('images/main/floor-plan/3.png') }}" alt="Floor Plan" class="floor-plan" style="width:500px;height:400px">
+        <img src="{{ asset('images/main/floor-plan/4.png') }}" alt="Floor Plan" class="floor-plan" style="width:500px;height:400px">
+</div>
+    
 
     <div>
 

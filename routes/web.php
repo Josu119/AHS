@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Desk;
-
+use App\Models\Booking;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -145,3 +145,7 @@ Route::get('/desks/available', [BookingController::class, 'list_desks'])->middle
 
 // Show route should be always at the last line after preceeding paths
 // Route::get('/users/{user}', [UserController::class, 'show'])->middleware('auth');
+Route::put('/book/{desk}', [DeskController::class, 'book'])->name('book');
+// Route::get('/bookings', 'BookingController@index')->name('bookings.index1');
+
+Route::get('/bookings', [BookingController::class, 'index1']);

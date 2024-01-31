@@ -6,30 +6,39 @@
             <img src="{{ asset('images/main/logo.png') }}" alt="" style="width:60px">
         </span>
         <ul class="side-menu top">
-            <li>
-                <a href="/dashboard">
-                    <i class='bx bxs-dashboard bx-sm'></i>
-                    <span class="text">Dashboard</span>
-                </a>
-            </li>
+             <li>
+    <a href="/dashboard">
+        <?php if (auth()->user()->role == 'user'): ?>
+            <i class='bx bxs-home bx-sm'></i>
+            <span class="text">Home</span>
+        <?php else: ?>
+            <i class='bx bxs-dashboard bx-sm'></i>
+            <span class="text">Dashboard</span>
+        <?php endif; ?>
+    </a>
+</li>
+                @unless (auth()->user()->role == 'user')
             <li>
                 <a href="/bookings">
                     <i class='bx bxs-book-alt bx-sm'></i>
                     <span class="text">Booking</span>
                 </a>
             </li>
+            @endunless
             <li>
                 <a href="/office_map">
                     <i class='bx bxs-map bx-sm'></i>
                     <span class="text">Office Map</span>
                 </a>
             </li>
+         @unless (auth()->user()->role == 'user' || auth()->user()->role == 'office_manager')
             <li>
                 <a href="/users">
                     <i class='bx bxs-group bx-sm'></i>
                     <span class="text">Manage Users</span>
                 </a>
             </li>
+            @endunless
 
             <li>
                 <a href="/desks/available">
@@ -91,7 +100,7 @@
                 <span class="num">8</span>
             </a> --}}
             @auth
-            <a href="/profile" class="profile">
+             <a href="/profile" class="profile" style="background-color:black;padding:5px 20px;color:white;border-radius:10px;border:1px solid black;">
                 {{ auth()->user()->username }}
             </a>
             @else
@@ -110,9 +119,14 @@
                         <h3>Creating an Account:</h3>
                         <p>To access the hotdesk booking system, you need to create a user account. Follow these
                             steps:<br>
-                            a. Open the website and click on the "Sign Up" or "Register" option.<br>
-                            b. Fill out the required information, such as your name, email address, and password.<br>
-                            c. Click on the "Create Account" button to complete the registration process.</p>
+                             Open the website and click on the "Get Started"<br>
+                                <img src="{{ asset('images/landing.png') }}" alt="" style="height:300px"> <br>
+                            a. click on the  "Register"<br>
+                            b. Fill out the required information, such as your username, firstname, lastname, email address, and password.<br>
+                            c. Click on the "Join" button to complete the registration process. <br>
+                              <img src="{{ asset('images/create.png') }}" alt="" style="height:300px"> <br>
+                            d. After you complete the registration, you can see that it is hold at the moment <br>
+                              <img src="{{ asset('images/hold.png') }}" alt="" style="height:300px"> </p>
                     </div>
 
                     <div class="faq-item" onclick="toggleAnswer(this)">
@@ -121,16 +135,20 @@
                             a. Visit the website's homepage.<br>
                             b. Click on the "Login" option.<br>
                             c. Enter your registered email address and password.<br>
-                            d. Click on the "Login" button.</p>
+                            d. Click on the "Enter" button. <br>
+                              <img src="{{ asset('images/login.png') }}" alt="" style="height:300px">
+                        </p>
                     </div>
 
                     <div class="faq-item" onclick="toggleAnswer(this)">
                         <h3>How to Book?:</h3>
                         <p>Booking a hotdesk, you can use the following steps:<br>
-                            a. On the website's home, Fing Booking.<br>
-                            b. enter desk number. <br>
-                            c. Specify the desired date and time.<br>
-                            d. Then click "Book Now"</p>
+                            a. On the website's home, Click "Book Now".<br>
+                              <img src="{{ asset('images/home.png') }}" alt="" style="height:300px"> <br>
+                         
+                            b. Specify the desired date, click "Search".<br>
+                            c. A list of available desk will be shown, choose your desk! then click "Book Now" <br>
+                              <img src="{{ asset('images/booking.png') }}" alt="" style="height:300px"></p>
                     </div>
                 </div>
             </div>

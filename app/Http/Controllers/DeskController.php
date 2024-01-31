@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Desk;
 use Illuminate\Validation\Rule;
+use App\Models\Booking;
 
 class DeskController extends Controller
 {
@@ -59,4 +60,45 @@ class DeskController extends Controller
             return back()->with('message', 'Update: Desk'. $desk->desk_number .' OPEN for booking!');
         }
     }
+
+
+  public function book(Request $request, Desk $desk)
+{
+    $date = $request->input('date');
+    $existingBooking = Booking::where('desk_number', $desk->desk_number)
+        ->where('date', $date)
+        ->where('user_id', auth()->id())
+        ->first();
+    $existingBookings = Booking::where('desk_number', $desk->desk_number)
+    ->where('date', $date)
+    ->first();
+
+    if ($existingBooking) {
+        return redirect('/desks/available')->with('error', 'You have already booked a desk for this day.');
+    }
+     if ($existingBookings) {
+        return redirect('/desks/available')->with('error', 'Someone booked this already, try another desk.');
+    }
+
+    $previousBooking = Booking::where('date', $date)
+        ->where('user_id', auth()->id())
+        ->first();
+
+    if ($previousBooking) {
+        return redirect('/desks/available')->with('error', 'You have already booked a desk for this day.');
+    }
+    
+
+    // Store the booking in the database
+    $booking = new Booking();
+    $booking->desk_number = $desk->desk_number;
+    $booking->date = $date;
+    $booking->user_id = auth()->id();
+    $booking->save();
+
+    return redirect('/desks/available')->with('success', 'Desk booked successfully.');
+}
+
+
+
 }
