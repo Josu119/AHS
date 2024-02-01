@@ -6,24 +6,24 @@
             <img src="{{ asset('images/main/logo.png') }}" alt="" style="width:60px">
         </span>
         <ul class="side-menu top">
-             <li >
-    <a href="/dashboard">
-        <?php if (auth()->user()->role == 'user'): ?>
-            <i class='bx bxs-home bx-sm'></i>
-            <span class="text">Home</span>
-        <?php else: ?>
-            <i class='bx bxs-dashboard bx-sm'></i>
-            <span class="text">Dashboard</span>
-        <?php endif; ?>
-    </a>
-</li>
-                @unless (auth()->user()->role == 'user')
             <li>
-                <a href="/bookings">
-                    <i class='bx bxs-book-alt bx-sm'></i>
-                    <span class="text">Booking</span>
+                <a href="/dashboard">
+                    <?php if (auth()->user()->role == 'user'): ?>
+                    <i class='bx bxs-home bx-sm'></i>
+                    <span class="text">Home</span>
+                    <?php else: ?>
+                    <i class='bx bxs-dashboard bx-sm'></i>
+                    <span class="text">Dashboard</span>
+                    <?php endif; ?>
                 </a>
             </li>
+            @unless (auth()->user()->role == 'user')
+                <li>
+                    <a href="/bookings">
+                        <i class='bx bxs-book-alt bx-sm'></i>
+                        <span class="text">Booking</span>
+                    </a>
+                </li>
             @endunless
             <li>
                 <a href="/office_map">
@@ -32,12 +32,12 @@
                 </a>
             </li>
             @unless (auth()->user()->role == 'user' || auth()->user()->role == 'office_manager')
-            <li>
-                <a href="/users">
-                    <i class='bx bxs-group bx-sm'></i>
-                    <span class="text">Manage Users</span>
-                </a>
-            </li>
+                <li>
+                    <a href="/users">
+                        <i class='bx bxs-group bx-sm'></i>
+                        <span class="text">Manage Users</span>
+                    </a>
+                </li>
             @endunless
 
             <li class="active">
@@ -46,7 +46,7 @@
                     <span class="text">Manage Desks</span>
                 </a>
             </li>
-           
+
         </ul>
         <ul class="side-menu">
             <li>
@@ -95,11 +95,12 @@
                 <span class="num">8</span>
             </a> --}}
             @auth
-             <a href="/profile" class="profile" style="background-color:black;padding:5px 20px;color:white;border-radius:10px;border:1px solid black;">
-                {{ auth()->user()->username }}
-            </a>
+                <a href="/profile" class="profile"
+                    style="background-color:black;padding:5px 20px;color:white;border-radius:10px;border:1px solid black;">
+                    {{ auth()->user()->username }}
+                </a>
             @else
-            <a href="/profile" class="profile font-bold">Profile</a>
+                <a href="/profile" class="profile font-bold">Profile</a>
             @endauth
         </nav>
         <!-- NAVBAR -->
@@ -128,12 +129,14 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <a href="/desks/create" class="h-10 w-40 text-white text-center leading-10 bg-darkOlive rounded-full">Create a Desk</a>
+                                    <a href="/desks/create"
+                                        class="h-10 w-40 text-white text-center leading-10 bg-darkOlive rounded-full">Create
+                                        a Desk</a>
                                 </td>
                             </tr>
                             @unless (count($desks) == 0)
                                 @foreach ($desks as $desk)
-                                <x-desk_row :desk="$desk"/>
+                                    <x-desk_row :desk="$desk" />
                                 @endforeach
                             @else
                                 <tr>

@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AvailableDeskController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DeskController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FloorPlanController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Desk;
@@ -44,7 +46,7 @@ Route::get('/dashboard', function () {
         ],
         'title' => 'Dashboard | ApexHubSpot'
     ]);
-})->middleware('auth');
+})->middleware('auth', 'hold');
 
 Route::get('/office_map', function () {
     return view('office_map', [
@@ -53,7 +55,7 @@ Route::get('/office_map', function () {
         ],
         'title' => 'Office Map | ApexHubSpot'
     ]);
-})->middleware('auth');
+})->middleware('auth', 'hold');
 
 Route::get('/faqs', function () {
     return view('faqs', [
@@ -78,18 +80,6 @@ Route::get('/guide', function () {
     ]);
 })->middleware('auth');
 
-Route::get('/profile', function () {
-    return view('profile', [
-        'cssPaths' => [
-            'resources/css/main/content.css',
-            'resources/css/main/content2.css',
-            'resources/css/main/faqs.css',
-            'resources/css/main/guide.css',
-        ],
-        'title' => 'Profile | ApexHubSpot'
-    ]);
-})->middleware('auth');
-
 // Common Resource Routes:
 // index - Show all items
 // show - Show single item
@@ -99,6 +89,8 @@ Route::get('/profile', function () {
 // update - Update item
 // destroy - Delete item
 
+
+// UserController
 Route::get('/users', [UserController::class, 'index'])->middleware(['auth', 'hold', 'admin']);
 
 // for creating item
@@ -115,6 +107,8 @@ Route::put('/users/{user}', [UserController::class, 'approve'])->middleware(['au
 
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware(['auth', 'hold', 'admin']);
 
+
+// DeskController
 Route::get('/desks', [DeskController::class, 'index'])->middleware(['auth', 'hold', 'office_manager']);
 
 Route::get('/desks/create', [DeskController::class, 'create'])->middleware(['auth', 'hold', 'office_manager']);
@@ -125,9 +119,27 @@ Route::put('/desks/{desk}', [DeskController::class, 'availability'])->middleware
 
 Route::delete('/desks/{desk}', [DeskController::class, 'destroy'])->middleware(['auth', 'hold', 'office_manager']);
 
+
+// BookingController
 Route::get('/bookings', [BookingController::class, 'index'])->middleware(['auth', 'hold']);
 
-Route::get('/desks/available', [BookingController::class, 'list_desks'])->middleware(['auth', 'hold']);
+Route::delete('/bookings/{booking}', [BookingController::class, 'destroy'])->middleware(['auth', 'hold', 'office_manager']);
+
+Route::put('/book/{available_desk}', [BookingController::class, 'book'])->middleware(['auth', 'hold']);
+
+Route::get('/profile', [BookingController::class, 'profile'])->middleware(['auth', 'hold']);
+
+Route::delete('/profile/bookings/{booking}', [BookingController::class, 'destroy_self'])->middleware(['auth', 'hold']);
+
+
+// AvailableDeskController
+Route::get('/desks/available', [AvailableDeskController::class, 'index'])->middleware(['auth', 'hold']);
+
+Route::get('/desks/available/search', [AvailableDeskController::class, 'show'])->middleware(['auth', 'hold']);
+
+
+// DashboardController
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'hold', 'office_manager']);
 
 // * UNUSED ROUTES
 
@@ -146,23 +158,3 @@ Route::get('/desks/available', [BookingController::class, 'list_desks'])->middle
 
 // Show route should be always at the last line after preceeding paths
 // Route::get('/users/{user}', [UserController::class, 'show'])->middleware('auth');
-Route::put('/book/{desk}', [DeskController::class, 'book'])->name('book');
-// Route::get('/bookings', 'BookingController@index')->name('bookings.index1');
-
-Route::get('/bookings', [BookingController::class, 'index1']);
-Route::get('/profile',[DeskController::class, 'getSelfBookings'])->name('self.bookings');
-
-
-
-Route::delete('/booking/{booking}/destroy',[BookingController::class,'destroy'])->name('booking.destroy');
-
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
-
-Route::get('/dashboard', [DashboardController::class, 'index']);
-
-
-
-use App\Http\Controllers\FloorPlanController;
-
-Route::resource('floor-plans', FloorPlanController::class)->only(['update']);
-Route::get('/office-map/{id}', 'FloorPlanController@show')->name('office.map.show');

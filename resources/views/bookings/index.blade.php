@@ -1,56 +1,27 @@
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-
-    <!-- Boxicons -->
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-       <link rel="shortcut icon" href="{{asset('assets/img/favicon.png')}}">
-        <title>ApexHubSpot</title>
-    <!-- My CSS -->
-      <link rel="stylesheet" href="{{asset('css/homepage.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-   
-    
-</head>
-
-<body>
-
-
-
+<x-layout :cssPaths="$cssPaths" :title="$title">
     <section id="sidebar" class="hide">
         <span class="brand opacity-0">
-           
+
         </span>
         <ul class="side-menu top">
             <li>
-    <a href="/dashboard">
-        <?php if (auth()->user()->role == 'user'): ?>
-            <i class='bx bxs-home bx-sm'></i>
-            <span class="text">Home</span>
-        <?php else: ?>
-            <i class='bx bxs-dashboard bx-sm'></i>
-            <span class="text">Dashboard</span>
-        <?php endif; ?>
-    </a>
-</li>
-                @unless (auth()->user()->role == 'user')
-            <li class="active">
-                <a href="/bookings">
-                    <i class='bx bxs-book-alt bx-sm'></i>
-                    <span class="text">Booking</span>
+                <a href="/dashboard">
+                    <?php if (auth()->user()->role == 'user'): ?>
+                    <i class='bx bxs-home bx-sm'></i>
+                    <span class="text">Home</span>
+                    <?php else: ?>
+                    <i class='bx bxs-dashboard bx-sm'></i>
+                    <span class="text">Dashboard</span>
+                    <?php endif; ?>
                 </a>
             </li>
+            @unless (auth()->user()->role == 'user')
+                <li class="active">
+                    <a href="/bookings">
+                        <i class='bx bxs-book-alt bx-sm'></i>
+                        <span class="text">Booking</span>
+                    </a>
+                </li>
             @endunless
             <li>
                 <a href="/office_map">
@@ -58,13 +29,13 @@
                     <span class="text">Office Map</span>
                 </a>
             </li>
-           @unless (auth()->user()->role == 'user' || auth()->user()->role == 'office_manager')
-            <li>
-                <a href="/users">
-                    <i class='bx bxs-group bx-sm'></i>
-                    <span class="text">Manage Users</span>
-                </a>
-            </li>
+            @unless (auth()->user()->role != 'admin')
+                <li>
+                    <a href="/users">
+                        <i class='bx bxs-group bx-sm'></i>
+                        <span class="text">Manage Users</span>
+                    </a>
+                </li>
             @endunless
 
             <li>
@@ -73,7 +44,7 @@
                     <span class="text">Manage Desks</span>
                 </a>
             </li>
-           
+
         </ul>
         <ul class="side-menu">
             <li>
@@ -91,10 +62,10 @@
             <li>
                 <form method="POST" action="/logout">
                     @csrf
-                    <button type="submit" class="logout" style="color:red;border:none;margin-left:10px">
+                    <button type="submit" class="logout">
                         <i class='bx bxs-log-out-circle bx-sm'></i>
-                        
-                    </button><span class="text" style="position:absolute;margin-left:15px">Logout</span>
+                        <span class="text">Logout</span>
+                    </button>
                 </form>
             </li>
         </ul>
@@ -106,9 +77,9 @@
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu bx-sm'></i>
-            <h1 class="font-bold text-md text-congressBlue lg:text-xl flex" style="color:darkblue;margin-bottom:14px">
+            <h1 class="font-bold text-md text-congressBlue lg:text-xl flex">
                 <img class="inline-block h-7 pb-2 lg:h-9 lg:pb-3" src="{{ asset('images/ahs-ape.svg') }}"
-                    alt="A" style="position:relative;height:25px;">pexHubSpot
+                    alt="A">pexHubSpot
             </h1>
 
             <form action="#">
@@ -122,11 +93,12 @@
                 <span class="num">8</span>
             </a> --}}
             @auth
-             <a href="/profile" class="profile" style="background-color:black;padding:5px 20px;color:white;border-radius:10px;border:1px solid black;">
-                {{ auth()->user()->username }}
-            </a>
+                <a href="/profile" class="profile"
+                    style="background-color:black;padding:5px 20px;color:white;border-radius:10px;border:1px solid black;">
+                    {{ auth()->user()->username }}
+                </a>
             @else
-            <a href="/profile" class="profile font-bold">Profile</a>
+                <a href="/profile" class="profile font-bold">Profile</a>
             @endauth
         </nav>
         <!-- NAVBAR -->
@@ -136,58 +108,32 @@
             <div class="head-title">
                 <div class="left">
                     <h1>Bookings</h1>
-                    
+
                 </div>
 
             </div>
 
-             <div>
-        @if(session()->has('success'))
-        <div style="color:white;background-color:#7EE27C;width:250px;padding:10px;border-radius:20px">
-            {{session('success')}}
-        </div>
-
-        @endif
-    </div>
-            
             <div class="table-data">
                 <div class="order">
+                    {{ $bookings->links() }}
                     <div class="head">
-
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>User Id</th>
-                                <th>Desk Number</th>
-                                <th>Date </th>
-                                <th>Status</th>
-                                 <th>Action</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Desk Number</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                                 @foreach ($bookings as $booking)
-            <tr>
-                <td>{{ $booking->user_id }}</td>
-               
-                <td>Desk {{ $booking->desk_number }}</td>
-                <td>{{ $booking->date }}</td>
-               <td style="color:{{ $booking->status ? 'green' : 'red'}};">{{ $booking->status ? 'Accepted' : 'Cancelled' }}</td>
- <td>
-        <form method="post" action="{{route('booking.destroy',$booking->id)}}">
-            @csrf
-            @method('DELETE')
-      
-        <input type="submit" value="Cancel" style="background-color: #ef7364; color: #fff; padding: 5px 10px; border: none; border-radius: 3px; cursor: pointer;"/>
-    </form>
-    </td>
-            </tr>
-            @endforeach
-                            </tr>
-                        </tbody>
-                    </table>
+                                <x-booking_row :booking="$booking" />
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </main>
@@ -195,7 +141,5 @@
 
     <script src="{{ asset('js/booking.js') }}"></script>
 
-    <script src="{{asset('javascript/homepage.js')}}"></script>
-</body>
-
-</html>
+    <script src="{{ asset('javascript/homepage.js') }}"></script>
+</x-layout>

@@ -6,24 +6,24 @@
             <img src="{{ asset('images/main/logo.png') }}" alt="" style="width:60px">
         </span>
         <ul class="side-menu top">
-            <li >
-    <a href="/dashboard">
-        <?php if (auth()->user()->role == 'user'): ?>
-            <i class='bx bxs-home bx-sm'></i>
-            <span class="text">Home</span>
-        <?php else: ?>
-            <i class='bx bxs-dashboard bx-sm'></i>
-            <span class="text">Dashboard</span>
-        <?php endif; ?>
-    </a>
-</li>
-                @unless (auth()->user()->role == 'user')
             <li>
-                <a href="/bookings">
-                    <i class='bx bxs-book-alt bx-sm'></i>
-                    <span class="text">Booking</span>
+                <a href="/dashboard">
+                    <?php if (auth()->user()->role == 'user'): ?>
+                    <i class='bx bxs-home bx-sm'></i>
+                    <span class="text">Home</span>
+                    <?php else: ?>
+                    <i class='bx bxs-dashboard bx-sm'></i>
+                    <span class="text">Dashboard</span>
+                    <?php endif; ?>
                 </a>
             </li>
+            @unless (auth()->user()->role == 'user')
+                <li>
+                    <a href="/bookings">
+                        <i class='bx bxs-book-alt bx-sm'></i>
+                        <span class="text">Booking</span>
+                    </a>
+                </li>
             @endunless
             <li>
                 <a href="/office_map">
@@ -31,13 +31,13 @@
                     <span class="text">Office Map</span>
                 </a>
             </li>
-             @unless (auth()->user()->role == 'user' || auth()->user()->role == 'office_manager')
-            <li>
-                <a href="/users">
-                    <i class='bx bxs-group bx-sm'></i>
-                    <span class="text">Manage Users</span>
-                </a>
-            </li>
+            @unless (auth()->user()->role == 'user' || auth()->user()->role == 'office_manager')
+                <li>
+                    <a href="/users">
+                        <i class='bx bxs-group bx-sm'></i>
+                        <span class="text">Manage Users</span>
+                    </a>
+                </li>
             @endunless
 
             <li class="active">
@@ -95,13 +95,14 @@
                 </div>
             </form>
 
-          
+
             @auth
-            <a href="/profile" class="profile" style="background-color:black;padding:5px 20px;color:white;border-radius:10px;border:1px solid black;">
-                {{ auth()->user()->username }}
-            </a>
+                <a href="/profile" class="profile"
+                    style="background-color:black;padding:5px 20px;color:white;border-radius:10px;border:1px solid black;">
+                    {{ auth()->user()->username }}
+                </a>
             @else
-            <a href="/profile" class="profile font-bold">Profile</a>
+                <a href="/profile" class="profile font-bold">Profile</a>
             @endauth
         </nav>
         <!-- NAVBAR -->
@@ -113,48 +114,32 @@
                     <h1>Available Desks</h1>
                 </div>
             </div>
-
-<div>
-        @if(session()->has('success'))
-        <div style="color:white;background-color:#7EE27C;width:250px;padding:10px;border-radius:20px">
-            {{session('success')}}
-        </div>
-
-        @endif
-    </div>
-    <div>
-        @if(session()->has('error'))
-        <div style="color:white;background-color:#FF4848;width:250px;padding:10px;border-radius:20px">
-            {{session('error')}}
-        </div>
-
-        @endif
-    </div>
-
-
-
-           
             @unless (auth()->user()->role == 'user')
-            <a href="/desks" class="px-3 py-1 text-white text-center leading-10 bg-orange-700 rounded-full">Manage Desks</a>
+                <a href="/desks" class="px-3 py-1 text-white text-center leading-10 bg-orange-700 rounded-full">Manage
+                    Desks</a>
             @endunless
             <div class="table-data">
                 <div class="order">
                     <div>
                         @php
                             $today = Carbon\Carbon::now()->toDateString();
-                            $future_day_span = 14;
-                            $end = Carbon\Carbon::parse($today)->addDays($future_day_span)->toDateString();
+                            $future_day_span = 13;
+                            $end = Carbon\Carbon::parse($today)
+                                ->addDays($future_day_span)
+                                ->toDateString();
                         @endphp
-                        <form action="/desks/available">
+                        <form action="/desks/available/search">
                             <label for="date" class="font-bold">Date:</label>
-                            <input type="date" name="date" value="{{ $today }}" min="{{ $today }}" max="{{ $end }}" class="ml-2 rounded-xl border-2 border-black px-2">
-                            <button type="submit" class="ml-2 h-7 w-20 text-white text-center leading-5 bg-congressBlue rounded-full">
+                            <input type="date" name="date" value="{{ $today }}" min="{{ $today }}"
+                                max="{{ $end }}" class="ml-2 rounded-xl border-2 border-black px-2">
+                            <button type="submit"
+                                class="ml-2 h-7 w-20 text-white text-center leading-5 bg-congressBlue rounded-full">
                                 Search
                             </button>
                         </form>
                     </div>
                     <div>
-                        {{ $desks->links() }}
+                        {{ $available_desks->links() }}
                     </div>
                     <table>
                         <thead>
@@ -165,35 +150,38 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @unless (count($desks) == 0)
-                            @foreach ($desks  as $desk)
-                            <tr>
-                                <td>
-                                    Desk {{ \App\Models\Desk::find($desk->desk_id)->desk_number }}
-                                </td>
-                                <td>
-                                    {{ $desk->date }}
-                                </td>
-                                <td>
-                                    <form method="POST" action="/book/{{ \App\Models\Desk::find($desk->desk_id)->id }}" style="display: inline-block">
-    @csrf
-    @method('PUT')
-    <input type="hidden" name="date" value="{{ $desk->date }}">
-    <button class="status bg-congressBlue !text-white">BOOK NOW</button>
-</form>
+                            @unless (count($available_desks) == 0)
+                                @foreach ($available_desks as $available_desk)
+                                    <tr>
+                                        <td>
+                                            Desk {{ \App\Models\Desk::find($available_desk->desk_id)->desk_number }}
+                                        </td>
+                                        <td>
+                                            {{ $available_desk->date }}
+                                        </td>
+                                        <td>
+                                            <form method="POST"
+                                                action="/book/{{ $available_desk->id }}"
+                                                style="display: inline-block">
+                                                @csrf
+                                                @method('PUT')
+                                                <input type="hidden" name="date" value="{{ $available_desk->date }}">
+                                                <button class="status bg-congressBlue !text-white">BOOK NOW</button>
+                                            </form>
 
-                                </td>
-                            </tr>
-                            @endforeach
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td>No available desk found.</td>
+                                </tr>
                             @endunless
                             {{-- @unless (count($desks) == 0)
                                 @foreach ($desks as $desk)
                                 <x-desk_row :desk="$desk"/>
                                 @endforeach
-                            @else
-                                <tr>
-                                    <td>No user found.</td>
-                                </tr>
+
                             @endunless --}}
                         </tbody>
                     </table>
