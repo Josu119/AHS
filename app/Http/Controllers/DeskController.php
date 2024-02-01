@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AvailableDesk;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Models\Desk;
-use Illuminate\Validation\Rule;
 use App\Models\Booking;
+use Illuminate\Http\Request;
+use App\Models\AvailableDesk;
+use Illuminate\Validation\Rule;
 
 class DeskController extends Controller
 {
@@ -42,7 +43,16 @@ class DeskController extends Controller
             'is_out_of_order' => 'required',
         ]);
 
-        Desk::create($formFields);
+        $desk = Desk::create($formFields);
+
+        $date = Carbon::now();
+        for ($i = 1; $i <= 14; $i++) {
+            AvailableDesk::create([
+                'date' => $date->toDateString(),
+                'desk_id' => $desk->id,
+            ]);
+            $date->addDays(1);
+        }
 
         return redirect('/desks')->with('message', 'Update: Desk created!');
     }
