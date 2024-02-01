@@ -59,10 +59,13 @@ class BookingController extends Controller
         }
 
         $booked_by_user = Booking::where('available_desk_id', $available_desk->id)
-            ->where('user_id', auth()->id())
-            ->first();
+                                 ->where('user_id', auth()->id())
+                                 ->first();
         $booked_by_other = Booking::where('available_desk_id', $available_desk->id)
-            ->first();
+                                  ->first();
+        // $booked_same_date = Booking::withAggregate('available_desk', 'date')
+        //                            ->where('user_id', auth()->id())
+        //                            ->where('available_desk_date', $available_desk->date);
 
         if ($booked_by_user) {
             return back()->with('error', 'You have already booked a desk for this day.');
