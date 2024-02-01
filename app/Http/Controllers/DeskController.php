@@ -99,6 +99,14 @@ class DeskController extends Controller
     return redirect('/desks/available')->with('success', 'Desk booked successfully.');
 }
 
+ public function getSelfBookings()
+    {
+        $self_bookings = Booking::all()->where('user_id', auth()->id());
+
+        return view('profile')->with('bookings', $self_bookings);
+    }
+
+
 
 
 }

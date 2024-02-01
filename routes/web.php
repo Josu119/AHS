@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DeskController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -149,3 +150,19 @@ Route::put('/book/{desk}', [DeskController::class, 'book'])->name('book');
 // Route::get('/bookings', 'BookingController@index')->name('bookings.index1');
 
 Route::get('/bookings', [BookingController::class, 'index1']);
+Route::get('/profile',[DeskController::class, 'getSelfBookings'])->name('self.bookings');
+
+
+
+Route::delete('/booking/{booking}/destroy',[BookingController::class,'destroy'])->name('booking.destroy');
+
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
+
+
+
+use App\Http\Controllers\FloorPlanController;
+
+Route::resource('floor-plans', FloorPlanController::class)->only(['update']);
+Route::get('/office-map/{id}', 'FloorPlanController@show')->name('office.map.show');

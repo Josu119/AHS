@@ -75,4 +75,13 @@ public function list_desks(Request $request)
         return view('bookings.index', compact('bookings'));
     }
 
+
+    
+public function destroy(Booking $booking){
+    $booking->delete();
+
+  return redirect()->back()->with('success', 'Booking Cancelled successfully.');
+
+}
+
 }

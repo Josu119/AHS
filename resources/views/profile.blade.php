@@ -1,9 +1,37 @@
-<x-layout :cssPaths="$cssPaths" :title="$title">
 
-    <!-- SIDEBAR -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+       <link rel="shortcut icon" href="{{asset('assets/img/favicon.png')}}">
+        <title>ApexHubSpot</title>
+    <!-- My CSS -->
+      <link rel="stylesheet" href="{{asset('css/homepage.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+   
+    
+</head>
+
+<body>
+
+
+
+
     <section id="sidebar" class="hide">
         <span class="brand opacity-0">
-            <img src="{{ asset('images/main/logo.png') }}" alt="" style="width:60px">
+          
         </span>
         <ul class="side-menu top">
              <li >
@@ -69,10 +97,10 @@
             <li>
                 <form method="POST" action="/logout">
                     @csrf
-                    <button type="submit" class="logout">
+                    <button type="submit" class="logout" style="color:red;border:none;margin-left:10px">
                         <i class='bx bxs-log-out-circle bx-sm'></i>
-                        <span class="text">Logout</span>
-                    </button>
+                        
+                    </button><span class="text" style="position:absolute;margin-left:15px">Logout</span>
                 </form>
             </li>
         </ul>
@@ -84,10 +112,11 @@
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu bx-sm'></i>
-            <h1 class="font-bold text-md text-congressBlue lg:text-xl flex">
+            <h1 class="font-bold text-md text-congressBlue lg:text-xl flex" style="color:darkblue;margin-bottom:14px">
                 <img class="inline-block h-7 pb-2 lg:h-9 lg:pb-3" src="{{ asset('images/ahs-ape.svg') }}"
-                    alt="A">pexHubSpot
+                    alt="A" style="position:relative;height:25px;">pexHubSpot
             </h1>
+
 
             <form action="#">
                 <div class="form-input">
@@ -95,10 +124,7 @@
                 </div>
             </form>
 
-            {{-- <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a> --}}
+           
             @auth
             <a href="/profile" class="profile" style="background-color:black;padding:5px 20px;color:white;border-radius:10px;border:1px solid black;">
                 {{ auth()->user()->username }}
@@ -113,7 +139,10 @@
         <main>
             <div class="head-title">
                 <div class="left">
+                     <img src="{{ asset('images/dummy.png') }}" alt="" style="height:100px;border-radius:50px">
                     <div class="profile">
+
+                    
                         <div class="user">
                             @auth
                             @php
@@ -136,43 +165,75 @@
                 </div>
             </div>
 
+  <div>
+        @if(session()->has('success'))
+        <div style="color:white;background-color:#7EE27C;width:250px;padding:10px;border-radius:20px">
+            {{session('success')}}
+        </div>
 
+        @endif
+    </div>
 
 
              <div class="table-data">
                 <div class="order">
                     <div class="head">
+                      
+                      
+                         
+                    
 
+                            <table>
+        <tr>
+           
+            <th>Date</th>
+            <th>Desk Number</th>
+            <th>Status</th>
+             <th>Action</th>
+          
+          
+            
+        </tr>
+
+      
+   @foreach ($bookings as $booking)
+
+        <tr>
+           
+            <td>{{$booking->date}}</td>
+            <td>Desk {{$booking->desk_number}}</td>
+          
+            <td style="color:{{$booking->status ? 'green' : 'red'}}">{{$booking->status ? 'Accepted' : 'Cancelled'}}</td>
+
+ 
+    <td>
+        <form method="post" action="{{route('booking.destroy',$booking->id)}}">
+            @csrf
+            @method('DELETE')
+      
+        <input type="submit" value="Cancel" style="background-color: #ef7364; color: #fff; padding: 5px 10px; border: none; border-radius: 3px; cursor: pointer;"/>
+    </form>
+    </td>
+        
+        </tr>
+@endforeach
+
+    </table>
+                       
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>User</th>
-                                <th>Desk</th>
-                                <th>Date </th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p>John Doe</p>
-                                </td>
-
-                                <td>3C</td>
-
-                                <td>01-10-2021</td>
-                                <td><span class="status completed">On Going</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    
+                  
                 </div>
+
             </div>
+          
         </main>
 
     </section>
 
+ <script src="{{ asset('js/booking.js') }}"></script>
 
-    
+    <script src="{{asset('javascript/homepage.js')}}"></script>
+</body>
 
-</x-layout>
+</html>

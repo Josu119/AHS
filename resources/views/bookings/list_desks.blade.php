@@ -95,10 +95,7 @@
                 </div>
             </form>
 
-            {{-- <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a> --}}
+          
             @auth
             <a href="/profile" class="profile" style="background-color:black;padding:5px 20px;color:white;border-radius:10px;border:1px solid black;">
                 {{ auth()->user()->username }}
@@ -145,7 +142,7 @@
                     <div>
                         @php
                             $today = Carbon\Carbon::now()->toDateString();
-                            $future_day_span = 7;
+                            $future_day_span = 14;
                             $end = Carbon\Carbon::parse($today)->addDays($future_day_span)->toDateString();
                         @endphp
                         <form action="/desks/available">

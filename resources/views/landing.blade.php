@@ -95,7 +95,7 @@
                 
                 <p class="max-w-sm mx-auto text-xl text-center text-mainBlue md:text-left">
                     In our hotdesking system, employees can use a desk for the designated time slot they have reserved.
-                    The time could be a few hours, half a day, or a full day, depending on their preference and
+                    The time is full day, depending on their preference and
                     availability.
                 </p>
            
@@ -210,7 +210,7 @@
     </section>
 
     <div class="copyright">
-        <p>&#169; AHS </p>
+        <p>&#169; AHS 2024</p>
     </div>
 
 

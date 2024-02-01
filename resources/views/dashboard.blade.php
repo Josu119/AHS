@@ -1,9 +1,35 @@
-<x-layout :cssPaths="$cssPaths" :title="$title">
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+       <link rel="shortcut icon" href="{{asset('assets/img/favicon.png')}}">
+        <title>ApexHubSpot</title>
+    <!-- My CSS -->
+      <link rel="stylesheet" href="{{asset('css/homepage.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+   
+    
+</head>
+
+<body>
 
     <!-- SIDEBAR -->
     <section id="sidebar" class="hide">
         <span class="brand opacity-0">
-            <img src="{{ asset('images/main/logo.png') }}" alt="" style="width:60px">
+          
         </span>
         <ul class="side-menu top">
            <li class="active">
@@ -70,10 +96,10 @@
             <li>
                 <form method="POST" action="/logout">
                     @csrf
-                    <button type="submit" class="logout">
+                    <button type="submit" class="logout" style="color:red;border:none;margin-left:10px">
                         <i class='bx bxs-log-out-circle bx-sm'></i>
-                        <span class="text">Logout</span>
-                    </button>
+                        
+                    </button><span class="text" style="position:absolute;margin-left:15px">Logout</span>
                 </form>
             </li>
         </ul>
@@ -85,9 +111,9 @@
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu bx-sm'></i>
-            <h1 class="font-bold text-md text-congressBlue lg:text-xl flex">
+             <h1 class="font-bold text-md text-congressBlue lg:text-xl flex" style="color:darkblue;margin-bottom:14px">
                 <img class="inline-block h-7 pb-2 lg:h-9 lg:pb-3" src="{{ asset('images/ahs-ape.svg') }}"
-                    alt="A">pexHubSpot
+                    alt="A" style="position:relative;height:25px;">pexHubSpot
             </h1>
 
             <form action="#">
@@ -132,32 +158,48 @@
                 <li>
                     <i class='bx bxs-calendar-check'></i>
                     <span class="text">
-                        <h3>100</h3>
+                        <h3>{{ $totalBookings }}</h3>
                         <p>Total Bookings</p>
                     </span>
                 </li>
                 <li>
                     <i class='bx bxs-group'></i>
                     <span class="text">
-                        <h3>284</h3>
-                        <p>Users</p>
+                        <h3>{{ $totalUsers }}</h3>
+                        <p>Total Users</p>
                     </span>
                 </li>
                 <li>
                     <i class='bx bxs-group'></i>
                     <span class="text">
-                        <h3>284</h3>
-                        <p>Users</p>
+                        <h3>{{ $adminCount }}</h3>
+                        <p>Total Admin</p>
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bxs-group' style="background-color:lightblue"></i>
+                    <span class="text">
+                        <h3>{{ $managerCount }}</h3>
+                        <p>Office Manager</p>
+                    </span>
+                </li>
+                 <li>
+                    <i class='bx bxs-group' style="background-color:pink"></i>
+                    <span class="text">
+                        <h3>{{ $normal }}</h3>
+                        <p>Normal Users</p>
                     </span>
                 </li>
 
-                <li>
-                    <i class='bx bx-table' style="background-color:yellowgreen"></i>
+                
+                  <li>
+                    <i class='bx bx-table' style="background-color:lightgreen"></i>
                     <span class="text">
-                        <h3>284</h3>
-                        <p>Total Desk</p>
+                        <h3>{{ $available }}</h3>
+                        <p>Available Desk</p>
                     </span>
                 </li>
+                 
 
 
             </ul>
@@ -187,4 +229,10 @@
            
     <!-- CONTENT -->
 
-</x-layout>
+
+ <script src="{{ asset('js/booking.js') }}"></script>
+
+    <script src="{{asset('javascript/homepage.js')}}"></script>
+</body>
+
+</html>
