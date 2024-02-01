@@ -184,11 +184,11 @@
                 <div class="order">
                     <div class="head">
 
-                        <p style="font-size:30px">Good Day {{ auth()->user()->first_name }}
-                            {{ auth()->user()->last_name }}, Book Your Desk Now</p><br>
+                        <p style="font-size:30px">Welcome, {{ auth()->user()->first_name }}
+                            {{ auth()->user()->last_name }}! You may book your desk.</p><br>
                         <a href="/desks/available"
                             style="background-color:darkblue;color:white;font-size:30px;padding:10px;border-radius:10px">Book
-                            Now</a>
+                            now</a>
 
                     </div>
 

@@ -138,7 +138,7 @@
                                     }
                                 @endphp
                                 <p style="font-size: 30px;"> {{ auth()->user()->first_name }}
-                                    {{ auth()->user()->last_name }}!</p>
+                                    {{ auth()->user()->last_name }}</p>
                                 <p style="font-size: 20px; color: rgb(29, 58, 91);">{{ $role }}</p>
                             @else
                                 <p style="font-size: 30px;">Hello, user!</p>
