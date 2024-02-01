@@ -12,17 +12,15 @@ class AvailableDeskController extends Controller
 {
     public function index()
     {
-        if (count(AvailableDesk::all()) == 0)
-        {
-            foreach (Desk::where('is_out_of_order', 0)->get() as $desk) {
-            $date = Carbon::now();
-            for ($i = 1; $i <= 14; $i++) {
-                AvailableDesk::create([
-                    'date' => $date->toDateString(),
-                    'desk_id' => $desk->id,
-                ]);
-                $date->addDays(1);
-                }
+        AvailableDesk::query()->delete();
+        foreach (Desk::where('is_out_of_order', 0)->get() as $desk) {
+        $date = Carbon::now();
+        for ($i = 1; $i <= 14; $i++) {
+            AvailableDesk::create([
+                'date' => $date->toDateString(),
+                'desk_id' => $desk->id,
+            ]);
+            $date->addDays(1);
             }
         }
         $today = Carbon::create(Carbon::now()->toDateString()); // set to current day at 12am
@@ -37,8 +35,8 @@ class AvailableDeskController extends Controller
                 'resources/css/main/content2.css',
             ],
             'title' => 'Available Desks | ApexHubSpot',
-            'available_desks' => AvailableDesk::query()
-                ->orderBy('desk_id', 'asc')
+            'available_desks' => AvailableDesk::withAggregate('desk', 'desk_number')
+                ->orderBy('desk_desk_number', 'asc')
                 ->orderBy('date', 'asc')
                 ->paginate(10)
         ]);
@@ -52,7 +50,8 @@ class AvailableDeskController extends Controller
             ],
             'title' => 'Available Desks | ApexHubSpot',
             'available_desks' => AvailableDesk::where('date', Carbon::parse($request->input('date'))->toDateString())
-                                    ->orderBy('desk_id', 'asc')
+                                    ->withAggregate('desk', 'desk_number')
+                                    ->orderBy('desk_desk_number', 'asc')
                                     ->orderBy('date', 'asc')
                                     ->paginate(10)
         ]);
