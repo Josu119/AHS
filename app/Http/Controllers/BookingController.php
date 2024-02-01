@@ -66,7 +66,7 @@ class BookingController extends Controller
             'available_desk_id' => $available_desk->id
         ]);
 
-        return redirect('/bookings')->with('message', 'You have booked a desk at ' . $available_desk->date . '!');
+        return redirect('/profile')->with('message', 'You have booked a desk at ' . $available_desk->date . '!');
     }
 
     // Delete booking (office_manager)

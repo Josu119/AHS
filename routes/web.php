@@ -121,7 +121,7 @@ Route::delete('/desks/{desk}', [DeskController::class, 'destroy'])->middleware([
 
 
 // BookingController
-Route::get('/bookings', [BookingController::class, 'index'])->middleware(['auth', 'hold']);
+Route::get('/bookings', [BookingController::class, 'index'])->middleware(['auth', 'hold', 'office_manager']);
 
 Route::delete('/bookings/{booking}', [BookingController::class, 'destroy'])->middleware(['auth', 'hold', 'office_manager']);
 
@@ -139,7 +139,7 @@ Route::get('/desks/available/search', [AvailableDeskController::class, 'show'])-
 
 
 // DashboardController
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'hold', 'office_manager']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'hold']);
 
 // * UNUSED ROUTES
 
