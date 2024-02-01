@@ -51,7 +51,15 @@ class UserController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => 'required',
+            'password' => [
+                'required',
+                'confirmed',
+                Password::min(10)->letters()
+                                ->mixedCase()
+                                ->numbers()
+                                ->symbols()
+                                ->uncompromised()
+            ],
             'role' => 'required',
         ]);
 
