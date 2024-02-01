@@ -139,7 +139,22 @@
         <main>
             <div class="head-title">
                 <div class="left">
+    @unless (auth()->user()->role == 'user' || auth()->user()->role == 'office_manager')
+
+                     <img src="{{ asset('images/admin.jpg') }}" alt="" style="height:100px;border-radius:50px">
+@endunless
+
+ @unless (auth()->user()->role == 'admin' || auth()->user()->role == 'office_manager')
+
                      <img src="{{ asset('images/dummy.png') }}" alt="" style="height:100px;border-radius:50px">
+@endunless
+
+ @unless (auth()->user()->role == 'admin' || auth()->user()->role == 'user')
+
+                     <img src="{{ asset('images/manager.jpg') }}" alt="" style="height:100px;border-radius:50px">
+@endunless
+
+
                     <div class="profile">
 
                     
