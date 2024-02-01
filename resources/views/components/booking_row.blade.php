@@ -17,6 +17,8 @@
     <td>
         @if ($today == $book_date)
         <span class="status bg-orange-400 !text-black">On Going</span>
+        @elseif (\App\Models\Desk::find($booking->desk_id)->is_out_of_order == 1)
+        <span class="status bg-red-400 !text-black">Canceled</span>
         @else
         <span class="status bg-emerald-400 !text-black">Accepted</span>
         @endif

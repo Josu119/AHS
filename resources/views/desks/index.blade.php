@@ -130,7 +130,7 @@
                             <tr>
                                 <td>
                                     <a href="/desks/create"
-                                        class="h-10 w-40 text-white text-center leading-10 bg-darkOlive rounded-full">Create
+                                        class="h-10 w-40 text-white text-center font-semibold leading-10 bg-darkOlive rounded-full">Create
                                         a Desk</a>
                                 </td>
                             </tr>

@@ -129,7 +129,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <a href="/users/create" class="h-10 w-40 text-white text-center leading-10 bg-darkOlive rounded-full">Create a User</a>
+                                    <a href="/users/create" class="h-10 w-40 text-white text-center font-semibold leading-10 bg-darkOlive rounded-full">Create a User</a>
                                 </td>
                             </tr>
                             @unless (count($users) == 0)

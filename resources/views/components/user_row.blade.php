@@ -13,14 +13,14 @@
         @elseif ($user->role === 'office_manager')
             Office Manager
         @elseif ($user->role === 'admin')
-            <span class="status bg-congressBlue !text-white">Admin</span>
+            <span class="status bg-cornflowerBlue !text-black">Admin</span>
         @endif
     </td>
 
     <td>
         @unless ($user->role === 'admin')
             <a href="/users/{{ $user->id }}/edit">
-                <span class="status bg-cautionYellow !text-black">Edit</span>
+                <span class="status bg-yellow-800">Edit</span>
             </a>
             {{-- <span class="status cancelled">Delete</span> --}}
             @if (auth()->user()->role == 'admin')
@@ -34,9 +34,9 @@
                 @csrf
                 @method('PUT')
                 @if ($user->is_approved === 0)
-                    <button class="status available">Approve</button>
+                    <button class="status bg-darkOlive">Approve</button>
                 @elseif ($user->is_approved === 1)
-                    <button class="status bg-orange-700">Put On Hold</button>
+                    <button class="status bg-mulberryWood">Put On Hold</button>
                 @endif
             </form>
         @else
