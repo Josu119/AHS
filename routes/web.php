@@ -46,7 +46,7 @@ Route::get('/dashboard', function () {
         ],
         'title' => 'Dashboard | ApexHubSpot'
     ]);
-})->middleware('auth', 'hold');
+})->middleware(['auth', 'hold']);
 
 Route::get('/office_map', function () {
     return view('office_map', [
@@ -55,7 +55,7 @@ Route::get('/office_map', function () {
         ],
         'title' => 'Office Map | ApexHubSpot'
     ]);
-})->middleware('auth', 'hold');
+})->middleware(['auth', 'hold']);
 
 Route::get('/faqs', function () {
     return view('faqs', [
