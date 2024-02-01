@@ -196,7 +196,7 @@
                     <i class='bx bx-table' style="background-color:lightgreen"></i>
                     <span class="text">
                         <h3>{{ $available }}</h3>
-                        <p>Available Desk</p>
+                        <p>Total Desks</p>
                     </span>
                 </li>
                  
