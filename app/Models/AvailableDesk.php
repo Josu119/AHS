@@ -20,6 +20,11 @@ class AvailableDesk extends Model
         }
     }
 
+    // Relationship to Bookings
+    public function bookings() {
+        return $this->hasMany(Booking::class, 'available_desk_id');
+    }
+
     // Relationship to Desks
     public function desk() {
         return $this->belongsTo(Desk::class);

@@ -28,4 +28,9 @@ class Booking extends Model
     public function desk() {
         return $this->belongsTo(Desk::class);
     }
+
+    // Relationship to AvailableDesks
+    public function available_desk() {
+        return $this->belongsTo(AvailableDesk::class);
+    }
 }
