@@ -160,6 +160,7 @@
                                             {{ $available_desk->date }}
                                         </td>
                                         <td>
+                                            @unless (\App\Models\Desk::find($available_desk->desk_id)->is_out_of_order == 1)
                                             <form method="POST"
                                                 action="/book/{{ $available_desk->id }}"
                                                 style="display: inline-block">
@@ -168,7 +169,9 @@
                                                 <input type="hidden" name="date" value="{{ $available_desk->date }}">
                                                 <button class="status bg-congressBlue !text-white">BOOK NOW</button>
                                             </form>
-
+                                            @else
+                                            <span class="status bg-red-400 !text-black">Disabled</span>
+                                            @endunless
                                         </td>
                                     </tr>
                                 @endforeach
