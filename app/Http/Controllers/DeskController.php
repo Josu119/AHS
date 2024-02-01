@@ -59,6 +59,7 @@ class DeskController extends Controller
     public function availability(Desk $desk)
     {
         if ($desk->is_out_of_order === 0) {
+            Booking::where('desk_id', $desk->id)->delete();
             $desk->update(['is_out_of_order' => 1]);
             return back()->with('message', 'Update: Desk' . $desk->desk_number . ' CLOSED for booking!');
         } elseif ($desk->is_out_of_order === 1) {
