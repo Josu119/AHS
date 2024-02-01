@@ -12,15 +12,17 @@ class AvailableDeskController extends Controller
 {
     public function index()
     {
-        AvailableDesk::query()->delete();
-        foreach (Desk::where('is_out_of_order', 0)->get() as $desk) {
-        $date = Carbon::now();
-        for ($i = 1; $i <= 14; $i++) {
-            AvailableDesk::create([
-                'date' => $date->toDateString(),
-                'desk_id' => $desk->id,
-            ]);
-            $date->addDays(1);
+        // AvailableDesk::query()->delete();
+        if (count(AvailableDesk::all()) == 0) {
+            foreach (Desk::where('is_out_of_order', 0)->get() as $desk) {
+            $date = Carbon::now();
+            for ($i = 1; $i <= 14; $i++) {
+                AvailableDesk::create([
+                    'date' => $date->toDateString(),
+                    'desk_id' => $desk->id,
+                ]);
+                $date->addDays(1);
+                }
             }
         }
         $today = Carbon::create(Carbon::now()->toDateString()); // set to current day at 12am
