@@ -14,7 +14,7 @@ class BookingController extends Controller
 {
     public function index()
     {
-        $today = Carbon::now(); // to be used for sorting out bookings from yesterday to preceding days
+        // $today = Carbon::now(); // to be used for sorting out bookings from yesterday to preceding days
         return view('bookings.index', [
             'cssPaths' => [
                 'resources/css/main/content.css',
@@ -82,17 +82,4 @@ class BookingController extends Controller
         $booking->delete();
         return redirect('/profile')->with('message', 'Update: One of your bookings is canceled!');
     }
-
-    // public function show_list_desks()
-    // {
-    // }
-
-    // public function history() {
-    //     return view('bookings.history', [
-    //         'cssPaths' => [
-    //             'resources/css/main/content.css',
-    //         ],
-    //         'title' => 'Bookings History | ApexHubSpot'
-    //     ]);
-    // }
 }
