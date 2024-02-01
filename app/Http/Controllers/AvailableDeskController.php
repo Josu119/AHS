@@ -25,6 +25,12 @@ class AvailableDeskController extends Controller
                 }
             }
         }
+        $today = Carbon::create(Carbon::now()->toDateString()); // set to current day at 12am
+        foreach(AvailableDesk::all() as $desk) {
+            if ($today->greaterThan(Carbon::create($desk->date))) {
+                $desk->delete();
+            }
+        }
         return view('desks.list_desks', [
             'cssPaths' => [
                 'resources/css/main/content.css',

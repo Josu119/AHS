@@ -14,6 +14,12 @@ class BookingController extends Controller
 {
     public function index()
     {
+        $today = Carbon::create(Carbon::now()->toDateString()); // set to current day at 12am
+        foreach(Booking::all() as $booking) {
+            if ($today->greaterThan(Carbon::create(AvailableDesk::find($booking->available_desk_id)->date))) {
+                $booking->delete();
+            }
+        }
         // $today = Carbon::now(); // to be used for sorting out bookings from yesterday to preceding days
         return view('bookings.index', [
             'cssPaths' => [
@@ -47,6 +53,11 @@ class BookingController extends Controller
     public function book(AvailableDesk $available_desk)
     {
         $desk_id = $available_desk->desk_id;
+
+        if (Desk::find($desk_id)->is_out_of_order == 1) {
+            return back()->with('error', 'The desk is out of order!');
+        }
+
         $booked_by_user = Booking::where('available_desk_id', $available_desk->id)
             ->where('user_id', auth()->id())
             ->first();
