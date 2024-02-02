@@ -66,7 +66,7 @@ class UserController extends Controller
 
         User::create($formFields);
 
-        return redirect('/users')->with('message', 'Update: User created!');
+        return redirect('/users')->with('success', 'Update: User created!');
     }
 
     // Show edit form
@@ -95,9 +95,9 @@ class UserController extends Controller
 
             $user->update($formFields);
 
-            return back()->with('message', 'Update: User edited!');
+            return back()->with('success', 'Update: User edited!');
         } else {
-            return back()->with('message', 'Error: You cannot do that!');
+            return back()->with('error', 'Error: You cannot do that!');
         }
     }
 
@@ -112,7 +112,7 @@ class UserController extends Controller
         $message = '';
         if ($user->is_approved === 0) {
             $user->update(['is_approved' => 1]);
-            return back()->with('message', 'Update: User approved!');
+            return back()->with('sucess', 'Update: User approved!');
         } elseif ($user->is_approved === 1) {
             $user->update(['is_approved' => 0]);
             return back()->with('message', 'Update: User put on hold!');
@@ -183,7 +183,7 @@ class UserController extends Controller
                 return redirect('/hold');
             }
 
-            return redirect('/dashboard')->with('message', 'You are now logged in!');
+            return redirect('/dashboard')->with('success', 'You are now logged in!');
         }
 
         return back()->withErrors(['username' => 'Invalid credentials!'])->onlyInput('username');
