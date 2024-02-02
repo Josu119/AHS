@@ -24,7 +24,9 @@
         @endif
     </td>
     <td>
-        @if (auth()->user()->role != 'user')
+        @if($today == $book_date)       
+            <p>No Action</p>
+        @elseif (auth()->user()->role != 'user')  
         <form method="post" action="/bookings/{{ $booking->id }}">
             @csrf
             @method('DELETE')

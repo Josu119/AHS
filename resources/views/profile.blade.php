@@ -183,11 +183,15 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <form method="post" action="/profile/bookings/{{ $booking->id }}">
-                                            @csrf
-                                            @method('DELETE')
+                                        @if($today == $book_date)       
+                                        <p>No Action</p>
+                                        @elseif (auth()->user())  
+                                        <form method="post" action="profile/bookings/{{ $booking->id }}">
+                                        @csrf
+                                        @method('DELETE')
                                             <button class="status bg-dangerRed !text-white">Cancel</button>
                                         </form>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
