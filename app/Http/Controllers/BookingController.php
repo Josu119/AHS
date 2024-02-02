@@ -59,20 +59,11 @@ class BookingController extends Controller
             return back()->with('error', 'The desk is out of order!');
         }
 
-<<<<<<< HEAD
         $booked_by_user = Booking::where('user_id', auth()->id())
         ->where('date', $date)
         ->first();
-=======
-        $booked_by_user = Booking::where('available_desk_id', $available_desk->id)
-                                 ->where('user_id', auth()->id())
-                                 ->first();
->>>>>>> 598e8e2b349a77e972ff160211f2886d486db449
         $booked_by_other = Booking::where('available_desk_id', $available_desk->id)
-                                  ->first();
-        // $booked_same_date = Booking::withAggregate('available_desk', 'date')
-        //                            ->where('user_id', auth()->id())
-        //                            ->where('available_desk_date', $available_desk->date);
+            ->first();
 
         if ($booked_by_user) {
             return back()->with('error', 'You have already booked a desk for this day.');
@@ -88,7 +79,7 @@ class BookingController extends Controller
             'available_desk_id' => $available_desk->id
         ]);
 
-        return redirect('/profile')->with('success', 'You have booked a desk at ' . $available_desk->date . '!');
+        return redirect('/profile')->with('message', 'You have booked a desk at ' . $available_desk->date . '!');
     }
 
     // Delete booking (office_manager)
