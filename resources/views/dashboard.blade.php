@@ -195,7 +195,12 @@
                 </div>
             </div>
         </main>
+
+        @include('calendar')   
+        
     </section>
+
+    
     <!-- CONTENT -->
     <script src="{{ asset('js/booking.js') }}"></script>
 </x-layout>

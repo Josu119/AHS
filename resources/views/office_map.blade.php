@@ -115,23 +115,20 @@
                     <h1>Office Map</h1>
                 </div>
             </div>
-        </main>
 
+            @include('pagination')
+
+        </main>
+        <!-- MAIN -->
     </section>
-   
-<div style="display:flex">
-      <img src="{{ asset('images/main/floor-plan/1.png') }}" alt="Floor Plan" class="floor-plan" style="width:500px;height:400px">
-        <img src="{{ asset('images/main/floor-plan/2.png') }}" alt="Floor Plan" class="floor-plan" style="width:500px;height:400px">
-</div>
-<div style="display:flex">
-      
-        <img src="{{ asset('images/main/floor-plan/3.png') }}" alt="Floor Plan" class="floor-plan" style="width:500px;height:400px">
-        <img src="{{ asset('images/main/floor-plan/4.png') }}" alt="Floor Plan" class="floor-plan" style="width:500px;height:400px">
-</div>
-    
+    <!-- CONTENT -->
+
+    <!-- Additional content remains unchanged -->
+    <!-- <div>
+        <img src="images/office_map.jpg" alt="">
+    </div> -->
 
     <div>
-
     </div>
 
 </x-layout>

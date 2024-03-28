@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Desk;
 use App\Models\Booking;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -140,6 +141,8 @@ Route::get('/desks/available/search', [AvailableDeskController::class, 'show'])-
 
 // DashboardController
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'hold']);
+
+
 
 // * UNUSED ROUTES
 

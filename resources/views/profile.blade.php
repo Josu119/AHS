@@ -125,6 +125,9 @@
 
                     <div class="profile">
 
+                    @include('password_reset')   
+
+
 
                         <div class="user">
                             @auth
@@ -206,6 +209,10 @@
             </div>
 
         </main>
+
+
+
+        
 
     </section>
 
