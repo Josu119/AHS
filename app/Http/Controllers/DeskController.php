@@ -54,7 +54,7 @@ class DeskController extends Controller
             $date->addDays(1);
         }
 
-        return redirect('/desks')->with('success', 'Update: Desk created!');
+        return redirect('/desks')->with('message', 'Update: Desk created!');
     }
 
     // Delete desk
@@ -74,7 +74,7 @@ class DeskController extends Controller
             return back()->with('message', 'Update: Desk' . $desk->desk_number . ' CLOSED for booking!');
         } elseif ($desk->is_out_of_order === 1) {
             $desk->update(['is_out_of_order' => 0]);
-            return back()->with('success', 'Update: Desk' . $desk->desk_number . ' OPEN for booking!');
+            return back()->with('message', 'Update: Desk' . $desk->desk_number . ' OPEN for booking!');
         }
     }
 }
