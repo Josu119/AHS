@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<!-- PASSWORD RESET MODAL -->
+
 <div class="modal" tabindex="-1" id="resetPasswordModal" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -17,10 +17,10 @@
                 <button type="button" class="btn-close"><i class="fas fa-times"></i></button>
             </div>
             <div class="modal-body">
-                <!-- Reset Password Form -->
+                
                 <form action="/password/reset" method="POST">
                     @csrf
-                    <!-- Password Fields -->
+                    
                     <div class="mb-3">
                         <label for="current_password" class="form-label">Current Password</label>
                         <input type="password" class="form-control" id="current_password" name="current_password">
@@ -42,12 +42,12 @@
     </div>
 </div>
 
-<!-- Button to Trigger Modal -->
+
 <button id="openResetPasswordModal" class="btn btn-primary">
     Reset Password
 </button>
 
-<!-- JavaScript to Handle Modal -->
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const openModalBtn = document.getElementById('openResetPasswordModal');
@@ -66,7 +66,7 @@
     });
 </script>
 
-<!-- Modal Styles -->
+
 <style>
     body, html {
         height: 100%;
@@ -160,8 +160,8 @@
     .btn-primary:hover {
         background-color: #0056b3;
     }
-
-    /* Responsive Styles */
+    
+    
     @media (max-width: 768px) {
         .modal-dialog {
             width: 90%;
