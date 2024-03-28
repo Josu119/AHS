@@ -8,16 +8,16 @@
         ul {list-style-type: none;}
         body {font-family: Verdana, sans-serif;}
 
-        /* Month header */
+        
         .month {
             padding: 60px 25px;
             width: 100%;
             background: #1abc9c;
-            /* background: rgba(0, 0, 0, 0.2); */
+
             text-align: center;
         }
 
-        /* Month list */
+        
         .month ul {
             margin: 0;
             padding: 0;
@@ -30,21 +30,21 @@
             letter-spacing: 3px;
         }
 
-        /* Previous button inside month header */
+        
         .month .prev {
             float: left;
             padding-top: 10px;
             cursor: pointer;
         }
 
-        /* Next button */
+        
         .month .next {
             float: right;
             padding-top: 10px;
             cursor: pointer;
         }
 
-        /* Weekdays (Mon-Sun) */
+        
         .weekdays {
             margin: 0;
             padding: 10px 0;
@@ -58,7 +58,7 @@
             text-align: center;
         }
 
-        /* Days (1-31) */
+        
         .days {
             padding: 10px 0;
             background: #eee;
@@ -75,7 +75,7 @@
             color: #777;
         }
 
-        /* Highlight the "current" day */
+
         .days li .active {
             padding: 5px;
             background: #1abc9c;
@@ -105,7 +105,7 @@
     </ul>
 
     <ul class="days" id="daysList">
-        <!-- Days will be dynamically generated here -->
+        
     </ul>
 
     <script>
@@ -148,7 +148,7 @@
                 currentDate.setMonth(currentDate.getMonth() - 1);
             } else {
                 currentDate.setFullYear(currentDate.getFullYear() - 1);
-                currentDate.setMonth(11);  // December
+                currentDate.setMonth(11);
             }
 
             generateCalendar();
@@ -159,13 +159,13 @@
                 currentDate.setMonth(currentDate.getMonth() + 1);
             } else {
                 currentDate.setFullYear(currentDate.getFullYear() + 1);
-                currentDate.setMonth(0);  // January
+                currentDate.setMonth(0);
             }
 
             generateCalendar();
         }
 
-        // Generate the initial calendar
+        
         generateCalendar();
     </script>
 

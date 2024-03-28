@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accordion FAQ</title>
     <style>
-    /* Style the buttons that are used to open and close the accordion panel */
     .accordion {
         background-color: transparent;
         color: #444;
@@ -13,22 +12,21 @@
         padding: 20px;
         width: 100%;
         text-align: left;
-        /* font-style: italic; */
         font-weight: bold;
         border: none;
         outline: none;
         transition: 0.4s;
         border-radius: 15px;
-        font-family: 'Arial', sans-serif; /* Example font styling */
-        font-size: 18px; /* Example font size */
+        font-family: 'Arial', sans-serif;
+        font-size: 18px;
     }
 
-    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    
     .active, .accordion:hover {
         background-color: #ccc;
     }
 
-    /* Style the accordion panel. Note: hidden by default */
+    
     .panel {
         padding: 0 18px;
         background-color: transparent;
@@ -37,19 +35,19 @@
         transition: max-height 0.2s ease-out;
     }
 
-    /* Style the paragraphs inside the panel for indentation */
+    
     .panel p {
         padding-left: 20px;
-        text-indent: -20px; /* Negative text-indent to counteract the left padding */
-        font-size: 20px; /* Example font size */
+        text-indent: -20px; 
+        font-size: 20px; 
         font-style: oblique;
         font-weight: light;
     }
 
-    /* Make the accordion icon slightly larger */
+
     .accordion:after {
         content: '\0076'; 
-        font-size: 26px; /* Increased font size */
+        font-size: 26px;
         color: #777;
         float: right;
         margin-left: 5px;
@@ -64,7 +62,7 @@
 </head>
 <body>
 
-    <!-- FAQ items with accordion structure -->
+
     <button class="accordion">What is hotdesking and how does it work in our system?</button>
     <div class="panel">
         <p>Hotdesking is a flexible office arrangement where employees do not have assigned desks, but instead can choose from a pool of available workstations each day. In our system, employees can book a desk through our online platform or mobile app.</p>
@@ -121,13 +119,13 @@
 
     for (i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function() {
-            /* Check if the clicked panel is active */
+            
             var isActive = this.classList.contains("active");
 
-            /* Close all panels */
+            
             closeAllPanels();
 
-            /* If the clicked panel was not active, open it */
+            
             if (!isActive) {
                 this.classList.toggle("active");
                 var panel = this.nextElementSibling;
@@ -141,7 +139,7 @@
         for (var j = 0; j < panels.length; j++) {
             var panel = panels[j];
             if (panel.style.maxHeight) {
-                /* Remove "active" class from the corresponding accordion button */
+                
                 panel.previousElementSibling.classList.remove("active");
                 panel.style.maxHeight = null;
             }
