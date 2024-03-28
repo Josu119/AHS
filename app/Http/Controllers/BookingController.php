@@ -50,22 +50,20 @@ class BookingController extends Controller
         ]);
     }
 
-    public function book(AvailableDesk $available_desk)
+    public function book(Request $request,AvailableDesk $available_desk)
     {
         $desk_id = $available_desk->desk_id;
+        $date = $request->input('date');
 
         if (Desk::find($desk_id)->is_out_of_order == 1) {
             return back()->with('error', 'The desk is out of order!');
         }
 
-        $booked_by_user = Booking::where('available_desk_id', $available_desk->id)
-                                 ->where('user_id', auth()->id())
-                                 ->first();
+        $booked_by_user = Booking::where('user_id', auth()->id())
+        ->where('date', $date)
+        ->first();
         $booked_by_other = Booking::where('available_desk_id', $available_desk->id)
-                                  ->first();
-        // $booked_same_date = Booking::withAggregate('available_desk', 'date')
-        //                            ->where('user_id', auth()->id())
-        //                            ->where('available_desk_date', $available_desk->date);
+            ->first();
 
         if ($booked_by_user) {
             return back()->with('error', 'You have already booked a desk for this day.');
@@ -75,6 +73,7 @@ class BookingController extends Controller
         }
 
         Booking::create([
+            'date' => $date,
             'user_id' => auth()->user()->id,
             'desk_id' => $desk_id,
             'available_desk_id' => $available_desk->id
@@ -86,13 +85,23 @@ class BookingController extends Controller
     // Delete booking (office_manager)
     public function destroy(Booking $booking)
     {
-        $booking->delete();
+        $today = Carbon::now()->toDateString();
+        $book_date = AvailableDesk::find($booking->available_desk_id)->date;
+        if($today == $book_date){
+            return back()->with('error','The booking is currently on going!');
+        }
+        $booking->delete(); 
         return redirect('/bookings')->with('message', 'Update: Booking canceled!');
     }
 
     // Delete own booking
     public function destroy_self(Booking $booking)
     {
+        $today = Carbon::now()->toDateString();
+        $book_date = AvailableDesk::find($booking->available_desk_id)->date;
+        if($today == $book_date){
+            return back()->with('error','The booking is currently on going!');
+        }
         $booking->delete();
         return redirect('/profile')->with('message', 'Update: One of your bookings is canceled!');
     }
