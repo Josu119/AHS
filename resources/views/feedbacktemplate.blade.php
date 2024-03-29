@@ -1,6 +1,6 @@
 <x-layout :cssPaths="$cssPaths" :title="$title">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-xU7D3wPm5d1DlE1nOzlY1SdMro1tGmuBbt37UbbPQm2GrDfPI7cxWzY4ByVFmccpGoF4d7wUmFZUjcMBsxDddw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-xU7D3wPm5d1DlE1nOzlY1SdMro1tGmuBbt37UbbPQm2GrDfPI7cxWzY4ByVFmccpGoF4d7wUmFZUjcMBsxDddw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- SIDEBAR -->
     <section id="sidebar" class="hide">
@@ -69,9 +69,9 @@
             </li>
 
             <li style="display: flex; justify-content: center; align-items: center;">
-    <a href="/feedbacktemplate">
+    <!-- <a href="/feedback"> -->
         <i class="fas fa-comment-alt bx-sm"></i>
-        <span class="text"></span>
+        <span class="text">Feedback</span>
     </a>
 </li>
 
@@ -122,11 +122,11 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Office Map</h1>
+                    <!-- <h1>Office Map</h1> -->
                 </div>
             </div>
 
-            @include('pagination')
+            @include('feedback')
 
         </main>
         <!-- MAIN -->

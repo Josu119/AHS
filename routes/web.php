@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Desk;
 use App\Models\Booking;
+use App\Http\Controllers\FeedbackController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -141,6 +143,17 @@ Route::get('/desks/available/search', [AvailableDeskController::class, 'show'])-
 
 // DashboardController
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'hold']);
+
+
+Route::get('/feedback', [FeedbackController::class, 'index']);
+Route::get('/feedbacktemplate', [FeedbackController::class, 'feedbacktemplate']);
+
+Route::post('/feedback', [FeedbackController::class, 'show'])->name('feedback.show');
+Route::post('/feedback', [FeedbackController::class, 'send'])->name('feedback.send');
+
+
+
+
 
 
 

@@ -7,7 +7,7 @@
         </span>
         <ul class="side-menu top">
             <li class="active">
-                <a href="/dashboard">
+                <a href="">
                     @if (auth()->user()->role == 'user')
                     <i class='bx bxs-home bx-sm'></i>
                     <span class="text">Home</span>
