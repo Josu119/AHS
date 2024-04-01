@@ -7,11 +7,14 @@ body::before {
     content: ' ';
     display: block;
     position: absolute;
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
+    width: auto;
+    height: auto;
     background-image: url("../../public/images/ahs-apeMono.svg");
     background-repeat: no-repeat;
-    background-size: 900px;
+    /* background-size: 900px; */
+    background-size: auto;
     background-position: -40% 40%;
     opacity: 0.04;
 }
