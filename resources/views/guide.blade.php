@@ -110,7 +110,7 @@
         <!-- NAVBAR -->
 
         <!-- MAIN -->
-        <section>
+        <!-- <section>
             <div class="background-section">
                 <div class="faqs-section">
                     <h2>User Guide</h2>
@@ -152,7 +152,12 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
+
+        <section>@include('steps')</section>
+
     </section>
+
+   
 
 </x-layout>

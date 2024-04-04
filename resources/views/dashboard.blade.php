@@ -47,12 +47,7 @@
                     <span class="text">Manage Desks</span>
                 </a>
             </li>
-            {{-- <li>
-                <a href="/roles">
-                    <i class='bx bx-user-pin bx-sm'></i>
-                    <span class="text">Manage Roles</span>
-                </a>
-            </li> --}}
+
         </ul>
         <ul class="side-menu">
             <li>
@@ -79,6 +74,8 @@
         </ul>
     </section>
     <!-- SIDEBAR -->
+
+
 
     <!-- CONTENT -->
     <section id="content">
